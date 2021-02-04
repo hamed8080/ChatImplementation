@@ -20,7 +20,7 @@ class ViewController: UIViewController , ChatDelegates{
        
         Chat.sharedInstance.createChatObject(object:.init(socketAddress: "wss://chat-sandbox.pod.ir/ws",
                                                           serverName: "chat-server",
-                                                          token: "306380d60b5349b0a33ff399e546d8e6"))
+                                                          token: "32513de59b2e4ef198a1e6f389514a8f"))
     }
     
     func chatConnect() {
@@ -37,6 +37,30 @@ class ViewController: UIViewController , ChatDelegates{
     
     func chatReady(withUserInfo: User) {
         
+		let contactModel = GetContactsRequest(count: 10, offset: 50)
+//		let contactModel = GetContactsRequest(count: 10, offset: 0, query: nil, typeCode: nil, uniqueId: nil )
+		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: false) { (uniqueId) in
+			let i = 0
+		} completion: { (result) in
+			let i = 0
+		} cacheResponse: { (cacheContactModel) in
+			let i = 0
+		}
+
+		
+//		let inputModel = DeleteMessageRequestModel(deleteForAll: nil, subjectId: 87348, typeCode: nil, uniqueId: nil)
+//		Chat.sharedInstance.deleteMessage(inputModel: inputModel, uniqueId: { (deleteMEssageUniqueId) in
+//			print("Delete Message Unique ID = \(deleteMEssageUniqueId)")
+//		}, completion: { (response) in
+//			print("delete Message response: \n \(response)")
+//		})
+		
+		
+//		Chat.sharedInstance.getContacts(inputModel: GetContactsRequest(count: <#T##Int?#>, offset: <#T##Int?#>, query: <#T##String?#>, typeCode: <#T##String?#>, uniqueId: <#T##String?#>)) { (uniqueId) in
+//
+//		} completion: { (result) in
+//
+//		}
     }
     
     func chatState(state: AsyncStateType) {
