@@ -18,9 +18,11 @@ class ViewController: UIViewController , ChatDelegates{
         // Do any additional setup after loading the view.
         // Chat.sharedInstance.delegate = self
        
-        Chat.sharedInstance.createChatObject(object:.init(socketAddress: "wss://chat-sandbox.pod.ir/ws",
+        Chat.sharedInstance.createChatObject(object:.init(
+                                                          //socketAddress: "wss://chat-sandbox.pod.ir/ws",
+                                                          socketAddress: "wss://msg.pod.ir/ws",
                                                           serverName: "chat-server",
-                                                          token: "32513de59b2e4ef198a1e6f389514a8f"))
+                                                          token: "e1af8fa5edff4739aa9432acf2439619"))
     }
     
     func chatConnect() {
@@ -37,7 +39,7 @@ class ViewController: UIViewController , ChatDelegates{
     
     func chatReady(withUserInfo: User) {
         
-		let contactModel = GetContactsRequest(count: 10, offset: 50)
+		let contactModel = GetContactsRequest(count: 10, offset: 0)
 //		let contactModel = GetContactsRequest(count: 10, offset: 0, query: nil, typeCode: nil, uniqueId: nil )
 		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: false) { (uniqueId) in
 			let i = 0
@@ -46,6 +48,15 @@ class ViewController: UIViewController , ChatDelegates{
 		} cacheResponse: { (cacheContactModel) in
 			let i = 0
 		}
+        
+//        Chat.sharedInstance.getThreads(inputModel: GetThreadsRequest(count: 10, creatorCoreUserId: nil, metadataCriteria: nil, name: nil, new: nil, offset: 0, partnerCoreContactId: nil, partnerCoreUserId: nil, threadIds: nil, typeCode: nil, uniqueId: nil), getCacheResponse: false) { (uniqueId) in
+//
+//        } completion: { (result) in
+//            let i = 0
+//        } cacheResponse: { (cashe) in
+//            let i = 0
+//        }
+
 
 		
 //		let inputModel = DeleteMessageRequestModel(deleteForAll: nil, subjectId: 87348, typeCode: nil, uniqueId: nil)
