@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		93387FA2D3EEF79C632CAAD7 /* Pods_ChatImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB5CFD7733F3E6FAEC2C9E2 /* Pods_ChatImplementation.framework */; };
+		AC17A3C325CECD9100823975 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC17A3C225CECD9100823975 /* Contact.storyboard */; };
+		AC17A3C625CECDF900823975 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC17A3C525CECDF900823975 /* ContactsViewController.swift */; };
+		AC17A3CA25CECE4400823975 /* ChatDelegateImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC17A3C925CECE4400823975 /* ChatDelegateImplementation.swift */; };
 		ACB8E2BD25C02A540077E46E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8E2BC25C02A540077E46E /* AppDelegate.swift */; };
 		ACB8E2BF25C02A540077E46E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8E2BE25C02A540077E46E /* SceneDelegate.swift */; };
 		ACB8E2C125C02A540077E46E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8E2C025C02A540077E46E /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 		2A49841B3987A3529BF76853 /* Pods-ChatImplementation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatImplementation.debug.xcconfig"; path = "Target Support Files/Pods-ChatImplementation/Pods-ChatImplementation.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB5CFD7733F3E6FAEC2C9E2 /* Pods_ChatImplementation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatImplementation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB17B51EFB48E3CD7B80912D /* Pods-ChatImplementation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatImplementation.release.xcconfig"; path = "Target Support Files/Pods-ChatImplementation/Pods-ChatImplementation.release.xcconfig"; sourceTree = "<group>"; };
+		AC17A3C225CECD9100823975 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
+		AC17A3C525CECDF900823975 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		AC17A3C925CECE4400823975 /* ChatDelegateImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDelegateImplementation.swift; sourceTree = "<group>"; };
 		ACB8E2B925C02A540077E46E /* ChatImplementation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatImplementation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB8E2BC25C02A540077E46E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACB8E2BE25C02A540077E46E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,8 +54,16 @@
 				2A49841B3987A3529BF76853 /* Pods-ChatImplementation.debug.xcconfig */,
 				AB17B51EFB48E3CD7B80912D /* Pods-ChatImplementation.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC17A3C025CECD6400823975 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				AC17A3C225CECD9100823975 /* Contact.storyboard */,
+				AC17A3C525CECDF900823975 /* ContactsViewController.swift */,
+			);
+			path = Contact;
 			sourceTree = "<group>";
 		};
 		ACB8E2B025C02A540077E46E = {
@@ -73,6 +87,7 @@
 		ACB8E2BB25C02A540077E46E /* ChatImplementation */ = {
 			isa = PBXGroup;
 			children = (
+				AC17A3C025CECD6400823975 /* Contact */,
 				ACB8E2BC25C02A540077E46E /* AppDelegate.swift */,
 				ACB8E2BE25C02A540077E46E /* SceneDelegate.swift */,
 				ACB8E2C025C02A540077E46E /* ViewController.swift */,
@@ -80,6 +95,7 @@
 				ACB8E2C525C02A550077E46E /* Assets.xcassets */,
 				ACB8E2C725C02A550077E46E /* LaunchScreen.storyboard */,
 				ACB8E2CA25C02A550077E46E /* Info.plist */,
+				AC17A3C925CECE4400823975 /* ChatDelegateImplementation.swift */,
 			);
 			path = ChatImplementation;
 			sourceTree = "<group>";
@@ -152,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACB8E2C925C02A550077E46E /* LaunchScreen.storyboard in Resources */,
+				AC17A3C325CECD9100823975 /* Contact.storyboard in Resources */,
 				ACB8E2C625C02A550077E46E /* Assets.xcassets in Resources */,
 				ACB8E2C425C02A540077E46E /* Main.storyboard in Resources */,
 			);
@@ -208,7 +225,9 @@
 			files = (
 				ACB8E2C125C02A540077E46E /* ViewController.swift in Sources */,
 				ACB8E2BD25C02A540077E46E /* AppDelegate.swift in Sources */,
+				AC17A3C625CECDF900823975 /* ContactsViewController.swift in Sources */,
 				ACB8E2BF25C02A540077E46E /* SceneDelegate.swift in Sources */,
+				AC17A3CA25CECE4400823975 /* ChatDelegateImplementation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

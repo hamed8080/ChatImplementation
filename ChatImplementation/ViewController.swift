@@ -8,107 +8,65 @@
 import UIKit
 import FanapPodChatSDK
 
-class ViewController: UIViewController , ChatDelegates{
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        Chat.sharedInstance.delegate = self
-        // Do any additional setup after loading the view.
-        // Chat.sharedInstance.delegate = self
-       
-        Chat.sharedInstance.createChatObject(object:.init(
-                                                          //socketAddress: "wss://chat-sandbox.pod.ir/ws",
-                                                          socketAddress: "wss://msg.pod.ir/ws",
-                                                          serverName: "chat-server",
-                                                          token: "e1af8fa5edff4739aa9432acf2439619"))
-    }
-    
-    func chatConnect() {
-        
-    }
-    
-    func chatDisconnect() {
-        
-    }
-    
-    func chatReconnect() {
-        
-    }
-    
-    func chatReady(withUserInfo: User) {
-        
-		let contactModel = GetContactsRequest(count: 10, offset: 0)
-//		let contactModel = GetContactsRequest(count: 10, offset: 0, query: nil, typeCode: nil, uniqueId: nil )
-		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: false) { (uniqueId) in
-			let i = 0
-		} completion: { (result) in
-			let i = 0
-		} cacheResponse: { (cacheContactModel) in
-			let i = 0
+class ViewController: UIViewController{
+	
+	
+	@IBOutlet weak var tfNewToken: UITextField!
+	@IBOutlet weak var txtTokenExpired: UILabel!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		Chat.sharedInstance.delegate = self
+		// Do any additional setup after loading the view.
+		// Chat.sharedInstance.delegate = self
+		
+		//Sandbox
+		//		let socketAddresss = "wss://chat-sandbox.pod.ir/ws"
+		//		let serverName = "chat-server"
+		//		let ssoHost = "https://accounts.pod.ir"
+		//		let platformHost = "https://sandbox.pod.ir:8043/srv/basic-platform"
+		//		let fileServer = "http://sandbox.fanapium.com:8080"
+		//Main
+		let socketAddresss = "wss://msg.pod.ir/ws"
+		let serverName = "chat-server"
+		let ssoHost = "https://accounts.pod.ir"
+		let platformHost = "https://api.pod.ir/srv/core"
+		let fileServer = "https://core.pod.ir"
+		
+		Chat.sharedInstance.createChatObject(object:.init(socketAddress: socketAddresss,
+														  serverName: serverName,
+														  token: "35097e8ea8ea4c699520914235d08351",
+														  ssoHost: ssoHost,
+														  platformHost: platformHost,
+														  fileServer: fileServer
+		))
+		//
+		//		Chat.sharedInstance.createChatObject(socketAddress: socketAddresss, ssoHost: ssoHost, platformHost: platformHost, fileServer: fileServer, serverName: serverName, token: "2126fb29cc2e40e1bf52736b80fc2402", mapApiKey: nil, mapServer: "https://api.neshan.org/v1", typeCode: nil, enableCache: false, cacheTimeStampInSec: nil, msgPriority: nil, msgTTL: nil, httpRequestTimeout: nil, actualTimingLog: nil, wsConnectionWaitTime: 10, connectionRetryInterval: 10, connectionCheckTimeout: 10, messageTtl: 100, getDeviceIdFromToken: false, captureLogsOnSentry: false, maxReconnectTimeInterval: nil, reconnectOnClose: true, localImageCustomPath: nil, localFileCustomPath: nil, deviecLimitationSpaceMB: nil, showDebuggingLogLevel: nil)
+	}
+
+	
+	@IBAction func btnNewTokenTaped(_ sender: UIButton) {
+		guard let newToken = tfNewToken.text else {return}
+		Chat.sharedInstance.setToken(newToken: newToken)
+		txtTokenExpired.isHidden = true
+	}
+	
+	@IBAction func btnGetContactsTaped(_ sender: UIButton) {
+		Chat.sharedInstance.getContacts(inputModel: .init(count: 10, offset: 0 , query: "up")) { (result) in
+			print(result)
 		}
-        
-//        Chat.sharedInstance.getThreads(inputModel: GetThreadsRequest(count: 10, creatorCoreUserId: nil, metadataCriteria: nil, name: nil, new: nil, offset: 0, partnerCoreContactId: nil, partnerCoreUserId: nil, threadIds: nil, typeCode: nil, uniqueId: nil), getCacheResponse: false) { (uniqueId) in
-//
-//        } completion: { (result) in
-//            let i = 0
-//        } cacheResponse: { (cashe) in
-//            let i = 0
-//        }
-
-
-		
-//		let inputModel = DeleteMessageRequestModel(deleteForAll: nil, subjectId: 87348, typeCode: nil, uniqueId: nil)
-//		Chat.sharedInstance.deleteMessage(inputModel: inputModel, uniqueId: { (deleteMEssageUniqueId) in
-//			print("Delete Message Unique ID = \(deleteMEssageUniqueId)")
-//		}, completion: { (response) in
-//			print("delete Message response: \n \(response)")
-//		})
-		
-		
-//		Chat.sharedInstance.getContacts(inputModel: GetContactsRequest(count: <#T##Int?#>, offset: <#T##Int?#>, query: <#T##String?#>, typeCode: <#T##String?#>, uniqueId: <#T##String?#>)) { (uniqueId) in
-//
-//		} completion: { (result) in
-//
-//		}
-    }
-    
-    func chatState(state: AsyncStateType) {
-        
-    }
-    
-    func chatError(errorCode: Int, errorMessage: String, errorResult: Any?) {
-        
-    }
-    
-    func botEvents(model: BotEventModel) {
-        
-    }
-    
-    func contactEvents(model: ContactEventModel) {
-        
-    }
-    
-    func fileUploadEvents(model: FileUploadEventModel) {
-        
-    }
-    
-    func messageEvents(model: MessageEventModel) {
-        
-    }
-    
-    func systemEvents(model: SystemEventModel) {
-        
-    }
-    
-    func threadEvents(model: ThreadEventModel) {
-        
-    }
-    
-    func userEvents(model: UserEventModel) {
-        
-    }
-
+	}
+	
+	@IBAction func btnOldGetContactsTaped(_ sender: UIButton) {
+		let contactModel = GetContactsRequest(count: 10, offset: 0, query: nil, typeCode: nil, uniqueId: "myUniqueId" )
+		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: false) { (uniqueId) in
+			print(uniqueId)
+		} completion: { (result) in
+			print(result)
+		} cacheResponse: { (casheContactModel) in
+			print(casheContactModel)
+		}
+	}
+	
 }
 
