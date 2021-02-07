@@ -9,17 +9,41 @@ import Foundation
 import FanapPodChatSDK
 
 class ChatDelegateImplementation: ChatDelegates {
-	
+    
+    //Sandbox
+//    let socketAddresss = "wss://chat-sandbox.pod.ir/ws"
+//    let serverName     = "chat-server"
+//    let ssoHost        = "https://accounts.pod.ir"
+//    let platformHost   = "https://sandbox.pod.ir:8043/srv/basic-platform"
+//    let fileServer     = "http://sandbox.fanapium.com:8080"
+    
+    //Main
+    
+    let socketAddresss = "wss://msg.pod.ir/ws"
+    let serverName     = "chat-server"
+    let ssoHost        = "https://accounts.pod.ir"
+    let platformHost   = "https://api.pod.ir/srv/core"
+    let fileServer     = "https://core.pod.ir"
+    
 	private (set) static var sharedInstance = ChatDelegateImplementation()
-	private init(){}
-	
+    
+    func createChatObject(){
+        Chat.sharedInstance.createChatObject(object: .init(socketAddress: socketAddresss,
+                                                           serverName: serverName,
+                                                           token: "89ec9ddfbd114e50a75c5a80f52a941e",
+                                                           ssoHost: ssoHost,
+                                                           platformHost: platformHost,
+                                                           fileServer: fileServer,
+                                                           reconnectOnClose: true
+         ))
+        Chat.sharedInstance.delegate = self
+    }
 	
 	func chatConnect() {
-		
+        
 	}
 	
 	func chatDisconnect() {
-		
 	}
 	
 	func chatReconnect() {
@@ -27,31 +51,7 @@ class ChatDelegateImplementation: ChatDelegates {
 	}
 	
 	func chatReady(withUserInfo: User) {
-		
-		
-		//        Chat.sharedInstance.getThreads(inputModel: GetThreadsRequest(count: 10, creatorCoreUserId: nil, metadataCriteria: nil, name: nil, new: nil, offset: 0, partnerCoreContactId: nil, partnerCoreUserId: nil, threadIds: nil, typeCode: nil, uniqueId: nil), getCacheResponse: false) { (uniqueId) in
-		//
-		//        } completion: { (result) in
-		//            let i = 0
-		//        } cacheResponse: { (cashe) in
-		//            let i = 0
-		//        }
-		
-		
-		
-		//		let inputModel = DeleteMessageRequestModel(deleteForAll: nil, subjectId: 87348, typeCode: nil, uniqueId: nil)
-		//		Chat.sharedInstance.deleteMessage(inputModel: inputModel, uniqueId: { (deleteMEssageUniqueId) in
-		//			print("Delete Message Unique ID = \(deleteMEssageUniqueId)")
-		//		}, completion: { (response) in
-		//			print("delete Message response: \n \(response)")
-		//		})
-		
-		
-		//		Chat.sharedInstance.getContacts(inputModel: GetContactsRequest(count: <#T##Int?#>, offset: <#T##Int?#>, query: <#T##String?#>, typeCode: <#T##String?#>, uniqueId: <#T##String?#>)) { (uniqueId) in
-		//
-		//		} completion: { (result) in
-		//
-		//		}
+        
 	}
 	
 	func chatState(state: AsyncStateType) {
@@ -60,7 +60,10 @@ class ChatDelegateImplementation: ChatDelegates {
 	
 	func chatError(errorCode: Int, errorMessage: String, errorResult: Any?) {
 		if errorCode == 21 {
-			txtTokenExpired.isHidden = false
+            let st = UIStoryboard(name: "Main", bundle: nil)
+            let vc = st.instantiateViewController(identifier: "UpdateTokenController")
+            guard let rootVC = SceneDelegate.getRootViewController() else {return}
+            rootVC.present(vc, animated: false)
 		}
 	}
 	

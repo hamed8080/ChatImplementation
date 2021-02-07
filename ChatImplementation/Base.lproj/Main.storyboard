@@ -18,37 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I8Y-2G-jeW">
-                                <rect key="frame" x="8" y="60" width="398" height="176"/>
+                                <rect key="frame" x="8" y="60" width="398" height="48"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="INSERT NEW TOKEN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rq2-YP-4UL">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="TMU-gD-xQN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token Expired!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trs-RV-7eB" userLabel="txtTokenExpired">
-                                        <rect key="frame" x="0.0" y="56" width="398" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqu-Oe-7Hz">
-                                        <rect key="frame" x="0.0" y="64" width="398" height="48"/>
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="Kft-lu-HRB"/>
-                                        </constraints>
-                                        <state key="normal" title="SET NEW TOKEN">
-                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnNewTokenTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XMe-yd-AuA"/>
-                                        </connections>
-                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xQL-XK-rFg">
-                                        <rect key="frame" x="0.0" y="128" width="398" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlu-tL-P9v">
                                                 <rect key="frame" x="0.0" y="0.0" width="195" height="48"/>
@@ -61,8 +34,7 @@
                                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="btnGetContactsTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uck-Sr-vl5"/>
-                                                    <action selector="btnNewTokenTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3kC-Ud-Hjr"/>
+                                                    <segue destination="f9V-I5-69s" kind="show" id="VsV-La-PJz"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctv-aT-R3Y">
@@ -93,14 +65,78 @@
                             <constraint firstItem="I8Y-2G-jeW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ygF-wX-Z8i"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tfNewToken" destination="Rq2-YP-4UL" id="KQn-cM-CSF"/>
-                        <outlet property="txtTokenExpired" destination="Trs-RV-7eB" id="txz-Ia-sbg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="92.753623188405811" y="46.875"/>
+        </scene>
+        <!--Update Token View Controller-->
+        <scene sceneID="5TM-wl-lH0">
+            <objects>
+                <viewController storyboardIdentifier="UpdateTokenController" id="Rb4-iX-xss" customClass="UpdateTokenViewController" customModule="ChatImplementation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lvZ-sv-p1D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hQr-gi-h9D">
+                                <rect key="frame" x="8" y="60" width="398" height="142.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="INSERT NEW TOKEN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KL7-UC-o1Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="5tI-yW-NrY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token Expired!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwJ-ev-6ve" userLabel="txtTokenExpired">
+                                        <rect key="frame" x="0.0" y="64" width="398" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU2-7T-REX">
+                                        <rect key="frame" x="0.0" y="94.5" width="398" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="EwW-iK-9oW"/>
+                                        </constraints>
+                                        <state key="normal" title="SET NEW TOKEN">
+                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnNewTokenTaped:" destination="Rb4-iX-xss" eventType="touchUpInside" id="eLc-s0-JIl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ex8-rZ-fcJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hQr-gi-h9D" firstAttribute="width" secondItem="lvZ-sv-p1D" secondAttribute="width" constant="-16" id="7cC-bj-rrX"/>
+                            <constraint firstItem="hQr-gi-h9D" firstAttribute="centerX" secondItem="ex8-rZ-fcJ" secondAttribute="centerX" id="nw2-Va-ObE"/>
+                            <constraint firstItem="hQr-gi-h9D" firstAttribute="top" secondItem="ex8-rZ-fcJ" secondAttribute="top" constant="16" id="sIV-s1-mrC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tfNewToken" destination="KL7-UC-o1Z" id="rx7-mo-0g0"/>
+                        <outlet property="txtTokenExpired" destination="jwJ-ev-6ve" id="TOU-tC-uRy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wS7-Qf-1Ip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="47"/>
+        </scene>
+        <!--Contact-->
+        <scene sceneID="Mhn-WJ-wn9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Contact" id="f9V-I5-69s" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="X1L-Zr-mSu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rb1-fN-UX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621" y="47"/>
         </scene>
     </scenes>
     <resources>

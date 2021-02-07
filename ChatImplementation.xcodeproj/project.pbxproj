@@ -17,6 +17,7 @@
 		ACB8E2C425C02A540077E46E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB8E2C225C02A540077E46E /* Main.storyboard */; };
 		ACB8E2C625C02A550077E46E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACB8E2C525C02A550077E46E /* Assets.xcassets */; };
 		ACB8E2C925C02A550077E46E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB8E2C725C02A550077E46E /* LaunchScreen.storyboard */; };
+		ACCFE0C725CFC15100CF9E2A /* UpdateTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFE0C625CFC15100CF9E2A /* UpdateTokenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		ACB8E2C525C02A550077E46E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACB8E2C825C02A550077E46E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACB8E2CA25C02A550077E46E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACCFE0C625CFC15100CF9E2A /* UpdateTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTokenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,17 +89,26 @@
 		ACB8E2BB25C02A540077E46E /* ChatImplementation */ = {
 			isa = PBXGroup;
 			children = (
+				ACCFE0C925CFC15900CF9E2A /* Extra */,
 				AC17A3C025CECD6400823975 /* Contact */,
 				ACB8E2BC25C02A540077E46E /* AppDelegate.swift */,
-				ACB8E2BE25C02A540077E46E /* SceneDelegate.swift */,
 				ACB8E2C025C02A540077E46E /* ViewController.swift */,
 				ACB8E2C225C02A540077E46E /* Main.storyboard */,
-				ACB8E2C525C02A550077E46E /* Assets.xcassets */,
-				ACB8E2C725C02A550077E46E /* LaunchScreen.storyboard */,
-				ACB8E2CA25C02A550077E46E /* Info.plist */,
 				AC17A3C925CECE4400823975 /* ChatDelegateImplementation.swift */,
+				ACCFE0C625CFC15100CF9E2A /* UpdateTokenViewController.swift */,
+				ACB8E2CA25C02A550077E46E /* Info.plist */,
 			);
 			path = ChatImplementation;
+			sourceTree = "<group>";
+		};
+		ACCFE0C925CFC15900CF9E2A /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				ACB8E2BE25C02A540077E46E /* SceneDelegate.swift */,
+				ACB8E2C525C02A550077E46E /* Assets.xcassets */,
+				ACB8E2C725C02A550077E46E /* LaunchScreen.storyboard */,
+			);
+			path = Extra;
 			sourceTree = "<group>";
 		};
 		C7F305991E0A6AEC18053FC8 /* Frameworks */ = {
@@ -224,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACB8E2C125C02A540077E46E /* ViewController.swift in Sources */,
+				ACCFE0C725CFC15100CF9E2A /* UpdateTokenViewController.swift in Sources */,
 				ACB8E2BD25C02A540077E46E /* AppDelegate.swift in Sources */,
 				AC17A3C625CECDF900823975 /* ContactsViewController.swift in Sources */,
 				ACB8E2BF25C02A540077E46E /* SceneDelegate.swift in Sources */,
