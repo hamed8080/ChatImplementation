@@ -21,6 +21,7 @@ class UpdateTokenViewController: UIViewController {
     
     @IBAction func btnNewTokenTaped(_ sender: UIButton) {
         guard let newToken = tfNewToken.text else {return}
+		UserDefaults.standard.setValue(newToken, forKey: "token")
         Chat.sharedInstance.setToken(newToken: newToken)
         txtTokenExpired.isHidden = true
     }

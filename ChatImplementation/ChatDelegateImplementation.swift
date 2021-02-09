@@ -28,15 +28,16 @@ class ChatDelegateImplementation: ChatDelegates {
 	private (set) static var sharedInstance = ChatDelegateImplementation()
     
     func createChatObject(){
-        Chat.sharedInstance.createChatObject(object: .init(socketAddress: socketAddresss,
-                                                           serverName: serverName,
-                                                           token: "89ec9ddfbd114e50a75c5a80f52a941e",
-                                                           ssoHost: ssoHost,
-                                                           platformHost: platformHost,
-                                                           fileServer: fileServer,
-                                                           reconnectOnClose: true
-         ))
-        Chat.sharedInstance.delegate = self
+		let token = UserDefaults.standard.string(forKey: "token")
+		Chat.sharedInstance.createChatObject(object: .init(socketAddress: socketAddresss,
+														   serverName: serverName,
+														   token: token ?? "INVALID_TOKEN_TO_GET_NEW_ONE",
+														   ssoHost: ssoHost,
+														   platformHost: platformHost,
+														   fileServer: fileServer,
+														   reconnectOnClose: true
+		))
+		Chat.sharedInstance.delegate = self
     }
 	
 	func chatConnect() {
