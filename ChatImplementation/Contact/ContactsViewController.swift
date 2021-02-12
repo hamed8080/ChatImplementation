@@ -16,9 +16,11 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnGetContactsTaped(_ sender: UIButton) {
-		Chat.sharedInstance.getContacts(inputModel: .init(count: 10, offset: 0 , query: "up")) { (result) in
+		Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 , query: "up") , getCacheResponse: true , completion: { result in
 			print(result)
-		}
+        },cacheResponse : { result in
+            print(result)
+        })
 	}
 	
 	@IBAction func btnOldGetContactsTaped(_ sender: UIButton) {
@@ -99,15 +101,112 @@ class ContactsViewController: UIViewController {
 	
 	
 	@IBAction func btnNoSeenContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.contactNotSeenDuration(.init(userIds: [3661443], typeCode: "default") ,
-												   uniqueId: "fakeUniqueId",
-												   completion: { (result) in
-													print(result)
-												   })
-	}
+		Chat.sharedInstance.contactNotSeenDuration(.init(userIds: [3661443]) ,
+                                                   uniqueId: "fakeUniqueId",
+                                                   typeCode: "default",
+                                                   uniqueIdResult: { uniqueIdResult in
+                                                    print(uniqueIdResult)
+                                                   },
+                                                   completion: { result in
+                                                    print(result)
+                                                   })
+    }
 	
 	@IBAction func btnNoSeenContactOldTaped(_ sender: UIButton){
-		
+        Chat.sharedInstance.contactNotSeenDuration(inputModel: .init(userIds: [3661443], typeCode: "defualt", uniqueId: "fakeUniqueId")) { (uniqueIdResult) in
+            print(uniqueIdResult)
+        } completion: { (result) in
+            print(result)
+        }
 	}
+    
+    @IBAction func btnRemoveContactTaped(_ sender: UIButton){
+        Chat.sharedInstance.removeContact(.init(contactId: 22713559, typeCode: "defualt") , completion: { (result) in
+           print(result)
+        })
+
+    }
+    
+    @IBAction func btnRemoveContactOldTaped(_ sender: UIButton){
+        Chat.sharedInstance.removeContact(inputModel: .init(contactId: 22713559, typeCode: nil, uniqueId: "fakeUniqueId")) { (uniqueId) in
+            print(uniqueId)
+        } completion: { (result) in
+            print(result)
+        }
+    }
+    
+    @IBAction func btnSearchContactTaped(_ sender: UIButton){
+        let searchContactsRequest = SearchContactsRequest(query: "up")
+        Chat.sharedInstance.searchContacts( searchContactsRequest , getCacheResponse: true, completion: { result in
+            print(result)
+        }, cacheResponse: { result in
+            print(result)
+        })
+    }
+    
+    @IBAction func btnSearchContactOldTaped(_ sender: UIButton){
+        let searchContactsRequest = SearchContactsRequest(cellphoneNumber: nil,
+                                                          contactId: nil,
+                                                          count: nil,
+                                                          email: nil,
+                                                          offset: nil,
+                                                          order: nil,
+                                                          query: "up",
+                                                          summery: nil,
+                                                          typeCode: nil,
+                                                          uniqueId: nil)
+        Chat.sharedInstance.searchContacts(inputModel: searchContactsRequest,getCacheResponse: true) { (uniqueId) in
+            print(uniqueId)
+        } completion: { (result) in
+            print(result)
+        } cacheResponse: { (cashe) in
+            print(cashe)
+        }
+    }
+    
+    @IBAction func btnSyncContactsTaped(_ sender: UIButton){
+        Chat.sharedInstance.syncContacts { result in
+            print(result)
+        } uniqueIdsResult: { uniqueIds in
+            print(uniqueIds)
+        }
+    }
+    
+    @IBAction func btnSyncContactsOldTaped(_ sender: UIButton){
+        Chat.sharedInstance.syncContacts { uniqueIds in
+            print(uniqueIds)
+        } completion: { result in
+            print(result)
+        }
+    }
+    
+    @IBAction func btnUpdateContactTaped(_ sender: UIButton){
+        let req = UpdateContactRequest(cellphoneNumber: "989386358048",
+                                                email: "updated email",
+                                                firstName: "updated name",
+                                                id: 22713559,
+                                                lastName: "updated lastname",
+                                                username: "updated userName")
+        Chat.sharedInstance.updateContact(req) { (result) in
+            print(result)
+        }
+
+    }
+    
+    @IBAction func btnUpdateContactOldTaped(_ sender: UIButton){
+        
+//        let req = UpdateContactRequest(cellphoneNumber: "09369161601",
+//                                                email: "updated email",
+//                                                firstName: "updated name",
+//                                                id: 123,
+//                                                lastName: "updated lastname",
+//                                                username: "updated userName")
+//        Chat.sharedInstance.updateContact(inputModel: req) { uniqueId in
+//            print(uniqueId)
+//        } completion: { result in
+//            print(result)
+//        }
+
+    }
 }
 

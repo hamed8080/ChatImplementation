@@ -35,6 +35,7 @@ class ChatDelegateImplementation: ChatDelegates {
 														   ssoHost: ssoHost,
 														   platformHost: platformHost,
 														   fileServer: fileServer,
+                                                           enableCache: true,
 														   reconnectOnClose: true
 		))
 		Chat.sharedInstance.delegate = self

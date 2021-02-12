@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I8Y-2G-jeW">
-                                <rect key="frame" x="8" y="60" width="398" height="48"/>
+                                <rect key="frame" x="8" y="60" width="398" height="112"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xQL-XK-rFg">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
@@ -47,9 +47,38 @@
                                                 <state key="normal" title="THREADS">
                                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-dO-1by">
+                                        <rect key="frame" x="0.0" y="64" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbH-QB-vr1">
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="8oZ-SI-cGE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="BOTS">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="btnNewTokenTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cW0-LJ-95E"/>
-                                                    <action selector="btnOldGetContactsTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JBH-Xs-f5Q"/>
+                                                    <segue destination="Scg-uD-A0k" kind="show" id="sW3-7r-7Y2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yj4-oS-kpQ">
+                                                <rect key="frame" x="203" y="0.0" width="195" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="fzS-pR-ve2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="MAP">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="yGi-TZ-iM0" kind="show" id="1Lc-tb-vrl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -136,7 +165,27 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rb1-fN-UX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621" y="47"/>
+            <point key="canvasLocation" x="600" y="30"/>
+        </scene>
+        <!--Bot-->
+        <scene sceneID="ECD-YD-AJR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Bot" id="Scg-uD-A0k" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7SU-qq-uCp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="REE-wj-wC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579" y="64"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="eJB-Zd-Fho">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="yGi-TZ-iM0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gNq-gN-P30"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHs-Og-o15" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579" y="108"/>
         </scene>
     </scenes>
     <resources>
