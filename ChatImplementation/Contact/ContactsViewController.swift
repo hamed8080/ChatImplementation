@@ -208,5 +208,41 @@ class ContactsViewController: UIViewController {
 //        }
 
     }
+	
+	@IBAction func btnBlockContactTaped(_ sender: UIButton){
+		Chat.sharedInstance.blockContact(.init(contactId: 22712926)) { result in
+			print(result)
+		}
+	}
+	
+	@IBAction func btnBlockContactOldTaped(_ sender: UIButton){
+		Chat.sharedInstance.blockContact(inputModel: .init(contactId: 22712926)) { uniqueId in
+			print(uniqueId)
+		} completion: { result in
+			print(result)
+		}
+	}
+	
+	@IBAction func btnUnBlockContactTaped(_ sender: UIButton){
+		
+	}
+	
+	@IBAction func btnUnBlockContactOldTaped(_ sender: UIButton){
+		
+	}
+	
+	@IBAction func btnBlockedContactsTaped(_ sender: UIButton){
+		Chat.sharedInstance.blockedContacts(.init(), completion: { result in
+			print(result)
+		})
+	}
+	
+	@IBAction func btnBlockedContactsOldTaped(_ sender: UIButton){
+		Chat.sharedInstance.getBlockedContacts(inputModel: .init(count: 50, offset: 0 , typeCode: "default" , uniqueId: "fakeBlockedListUniqueId"), getCacheResponse: false) { uniuqeId in
+			print(uniuqeId)
+		} completion: { result in
+			print(result)
+		}
+	}
 }
 

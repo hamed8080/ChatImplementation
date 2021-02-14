@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aFK-be-uyc">
-                                <rect key="frame" x="8" y="60" width="398" height="176"/>
+                                <rect key="frame" x="8" y="60" width="398" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Gkl-ZC-buU">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
@@ -119,17 +119,62 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bLR-XG-m4y">
+                                        <rect key="frame" x="0.0" y="192" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlx-2a-EWg">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="J7o-iY-ygY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="MAP STATIC IMAGE">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnMapStaticImageTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="zhf-ee-iaA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU8-i2-Jzi">
+                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="oB6-LZ-nmi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="MAP STATIC IMAGE - OLD">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnMapStaticImageOldTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="TSK-5Z-Uua"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-Vl-Eyh">
+                                <rect key="frame" x="0.0" y="550" width="414" height="346"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="346" id="Nze-sZ-Jyf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CZN-2O-fmZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="8rg-Vl-Eyh" firstAttribute="centerX" secondItem="CZN-2O-fmZ" secondAttribute="centerX" id="2G9-zs-7RX"/>
                             <constraint firstItem="aFK-be-uyc" firstAttribute="centerX" secondItem="CZN-2O-fmZ" secondAttribute="centerX" id="7eT-OO-SHH"/>
+                            <constraint firstItem="8rg-Vl-Eyh" firstAttribute="width" secondItem="scT-BA-tyW" secondAttribute="width" id="UkI-rh-dxJ"/>
                             <constraint firstItem="aFK-be-uyc" firstAttribute="top" secondItem="CZN-2O-fmZ" secondAttribute="top" constant="16" id="dg5-U4-FIr"/>
                             <constraint firstItem="aFK-be-uyc" firstAttribute="width" secondItem="scT-BA-tyW" secondAttribute="width" constant="-16" id="hHk-Mk-wsg"/>
+                            <constraint firstItem="8rg-Vl-Eyh" firstAttribute="bottom" secondItem="scT-BA-tyW" secondAttribute="bottom" id="zPb-5R-hgz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgStaticMapImage" destination="8rg-Vl-Eyh" id="Dbk-AO-AfL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahh-SG-LzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

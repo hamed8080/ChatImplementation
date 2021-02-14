@@ -10,6 +10,7 @@ import FanapPodChatSDK
 
 class MapViewController: UIViewController {
 	
+	@IBOutlet weak var imgStaticMapImage: UIImageView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -30,13 +31,19 @@ class MapViewController: UIViewController {
         }
 
     }
-    
+	
     @IBAction func btnSearchNearTaped( _ button :UIButton){
-        
+		Chat.sharedInstance.mapSearch(.init(lat: 35.660428, lng: 51.487299, term: "پاسارگاد")) { result in
+			print(result)
+		}
     }
     
     @IBAction func btnSearchNearOldTaped( _ button :UIButton){
-        
+		Chat.sharedInstance.mapSearch(inputModel: .init(lat: 35.660428, lng: 51.487299, term: "پاسارگاد")) { unqueId in
+			print(unqueId)
+		} completion: { result in
+			print(result)
+		}
     }
     
     @IBAction func btnRoutingTaped( _ button :UIButton){
@@ -56,8 +63,35 @@ class MapViewController: UIViewController {
         } completion: { result in
             print(result)
         }
-
     }
     
+	
+	@IBAction func btnMapStaticImageTaped( _ button :UIButton){
+		let req = MapStaticImageRequest(centerLat: 35.660417,centerLng: 51.487187)
+		Chat.sharedInstance.mapStaticImage(req) { result in
+			if let data = result as? Data , let image = UIImage(data: data){
+				self.imgStaticMapImage.image = image
+			}
+		}
+	}
+	
+	@IBAction func btnMapStaticImageOldTaped( _ button :UIButton){
+		let req = MapStaticImageRequest(centerLat: 35.660417,
+										centerLng:  51.487187,
+										height: 400,
+										width: 600,
+										zoom: 8,
+										type: "standard-day")
+		Chat.sharedInstance.mapStaticImage(inputModel: req) { uniqueId in
+			print(uniqueId)
+		} progress: { progress in
+			print(progress)
+		} completion: { result in
+			if let data = result as? Data , let image = UIImage(data: data){
+				self.imgStaticMapImage.image = image
+			}
+		}
+
+	}
 }
 
