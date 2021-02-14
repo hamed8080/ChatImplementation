@@ -19,6 +19,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         ChatDelegateImplementation.sharedInstance.createChatObject()
+        
+        let socketAddresss = "wss://msg.pod.ir/ws"
+        let serverName     = "chat-server"
+        let ssoHost        = "https://accounts.pod.ir"
+        let platformHost   = "https://api.pod.ir/srv/core"
+        let fileServer     = "https://core.pod.ir"
+        NewChat.shared.createChatObject(object: .init(socketAddress: socketAddresss,
+                                                      serverName: serverName,
+                                                      token: "4abd8d47fd784bcbb5a94e5e91b3ef01",
+                                                      ssoHost: ssoHost,
+                                                      platformHost: platformHost,
+                                                      fileServer: fileServer,
+                                                      enableCache: true,
+                                                      reconnectOnClose: true
+        ))
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
