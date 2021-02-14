@@ -233,7 +233,7 @@ class ContactsViewController: UIViewController {
 	
 	@IBAction func btnBlockedContactsTaped(_ sender: UIButton){
 
-        NewChat.shared.getBlockedContacts(.init(), uniqueId: "fakeBlockedListUniqueId"){ (result:BlockedContacts) in
+        NewChat.shared.getBlockedContacts(.init(), uniqueId: "fakeBlockedListUniqueId"){ result in
             print(result)
         }
         
