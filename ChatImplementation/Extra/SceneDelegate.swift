@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
-        ChatDelegateImplementation.sharedInstance.createChatObject()
+//        guard let _ = (scene as? UIWindowScene) else { return }
+//        ChatDelegateImplementation.sharedInstance.createChatObject()
         
         let socketAddresss = "wss://msg.pod.ir/ws"
         let serverName     = "chat-server"
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let fileServer     = "https://core.pod.ir"
         NewChat.shared.createChatObject(object: .init(socketAddress: socketAddresss,
                                                       serverName: serverName,
-                                                      token: "4abd8d47fd784bcbb5a94e5e91b3ef01",
+                                                      token: "51654468d4e04881b53cdae47cde378a",
                                                       ssoHost: ssoHost,
                                                       platformHost: platformHost,
                                                       fileServer: fileServer,
