@@ -23,6 +23,7 @@ class UpdateTokenViewController: UIViewController {
         guard let newToken = tfNewToken.text else {return}
 		UserDefaults.standard.setValue(newToken, forKey: "token")
         Chat.sharedInstance.setToken(newToken: newToken)
+        NewChat.shared.setToken(newToken)
         txtTokenExpired.isHidden = true
     }
     
