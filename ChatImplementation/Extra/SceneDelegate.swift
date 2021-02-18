@@ -8,37 +8,16 @@
 import UIKit
 import FanapPodChatSDK
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate , NewChatDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
    
-    
-   
-
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-//        guard let _ = (scene as? UIWindowScene) else { return }
-//        ChatDelegateImplementation.sharedInstance.createChatObject()
-        
-        let socketAddresss = "wss://msg.pod.ir/ws"
-        let serverName     = "chat-server"
-        let ssoHost        = "https://accounts.pod.ir"
-        let platformHost   = "https://api.pod.ir/srv/core"
-        let fileServer     = "https://core.pod.ir"
-        let token = UserDefaults.standard.string(forKey: "token") ?? "FAKE_TOKEN_TO_INVALIDATE"
-        NewChat.shared.createChatObject(object: .init(socketAddress: socketAddresss,
-                                                      serverName: serverName,
-                                                      token: token,
-                                                      ssoHost: ssoHost,
-                                                      platformHost: platformHost,
-                                                      fileServer: fileServer,
-                                                      enableCache: true,
-                                                      reconnectOnClose: true
-        ))
-        NewChat.shared.delegate = self
+        guard let _ = (scene as? UIWindowScene) else { return }
+        ChatDelegateImplementation.sharedInstance.createChatObject()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -77,63 +56,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate , NewChatDelegate {
         return nil
     }
     
-    
-    func chatConnect() {
-        
-    }
-    
-    func chatDisconnect() {
-        
-    }
-    
-    func chatReconnect() {
-        
-    }
-    
-    func chatReady(withUserInfo: User) {
-        
-    }
-    
-    func chatState(state: AsyncStateType) {
-        
-    }
-    
-    func chatBotEvents(model: BotEventModel) {
-        
-    }
-    
-    func chatContactEvents(model: ContactEventModel) {
-        
-    }
-    
-    func chatFileUploadEvents(model: FileUploadEventModel) {
-        
-    }
-    
-    func chatMessageEvents(model: MessageEventModel) {
-        
-    }
-    
-    func chatSystemEvents(model: SystemEventModel) {
-        
-    }
-    
-    func chatThreadEvents(model: ThreadEventModel) {
-        
-    }
-    
-    func chatUserEvents(model: UserEventModel) {
-        
-    }
-    
-    func chatError(code: Int, message: String, content: String?) {
-        if code == 21 {
-            let st = UIStoryboard(name: "Main", bundle: nil)
-            let vc = st.instantiateViewController(identifier: "UpdateTokenController")
-            guard let rootVC = SceneDelegate.getRootViewController() else {return}
-            rootVC.presentedViewController?.dismiss(animated: true)
-            rootVC.present(vc, animated: true)
-        }
-    }
-
 }

@@ -61,11 +61,12 @@ class ChatDelegateImplementation: ChatDelegates {
 	}
 	
 	func chatError(errorCode: Int, errorMessage: String, errorResult: Any?) {
-		if errorCode == 21 {
+		if errorCode == 21  || errorCode == 401{
             let st = UIStoryboard(name: "Main", bundle: nil)
             let vc = st.instantiateViewController(identifier: "UpdateTokenController")
             guard let rootVC = SceneDelegate.getRootViewController() else {return}
-            rootVC.present(vc, animated: false)
+            rootVC.presentedViewController?.dismiss(animated: true)
+            rootVC.present(vc, animated: true)
 		}
 	}
 	
