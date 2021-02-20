@@ -47,6 +47,9 @@
                                                 <state key="normal" title="THREADS">
                                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="aWZ-Et-zQd" kind="show" id="qHj-86-TKA"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -156,6 +159,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wS7-Qf-1Ip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030" y="47"/>
+        </scene>
+        <!--Thread-->
+        <scene sceneID="QQl-z0-GYZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Thread" id="aWZ-Et-zQd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7z1-Fg-4vm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfQ-IV-HvW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="-41"/>
         </scene>
         <!--Contact-->
         <scene sceneID="Mhn-WJ-wn9">

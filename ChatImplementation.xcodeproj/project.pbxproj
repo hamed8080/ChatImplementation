@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		93387FA2D3EEF79C632CAAD7 /* Pods_ChatImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB5CFD7733F3E6FAEC2C9E2 /* Pods_ChatImplementation.framework */; };
+		AC0CF10C25E0C8AF00C4E5F8 /* ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CF10B25E0C8AF00C4E5F8 /* ThreadViewController.swift */; };
+		AC0CF11025E0C90600C4E5F8 /* Thread.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0CF10F25E0C90600C4E5F8 /* Thread.storyboard */; };
 		AC17A3C325CECD9100823975 /* Bot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC17A3C225CECD9100823975 /* Bot.storyboard */; };
 		AC17A3CA25CECE4400823975 /* ChatDelegateImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC17A3C925CECE4400823975 /* ChatDelegateImplementation.swift */; };
 		AC2142EB25D527E300767581 /* BotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2142EA25D527E300767581 /* BotViewController.swift */; };
@@ -28,6 +30,8 @@
 		2A49841B3987A3529BF76853 /* Pods-ChatImplementation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatImplementation.debug.xcconfig"; path = "Target Support Files/Pods-ChatImplementation/Pods-ChatImplementation.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB5CFD7733F3E6FAEC2C9E2 /* Pods_ChatImplementation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatImplementation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB17B51EFB48E3CD7B80912D /* Pods-ChatImplementation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatImplementation.release.xcconfig"; path = "Target Support Files/Pods-ChatImplementation/Pods-ChatImplementation.release.xcconfig"; sourceTree = "<group>"; };
+		AC0CF10B25E0C8AF00C4E5F8 /* ThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadViewController.swift; sourceTree = "<group>"; };
+		AC0CF10F25E0C90600C4E5F8 /* Thread.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Thread.storyboard; sourceTree = "<group>"; };
 		AC17A3C225CECD9100823975 /* Bot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bot.storyboard; sourceTree = "<group>"; };
 		AC17A3C925CECE4400823975 /* ChatDelegateImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDelegateImplementation.swift; sourceTree = "<group>"; };
 		AC2142EA25D527E300767581 /* BotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,15 @@
 				AB17B51EFB48E3CD7B80912D /* Pods-ChatImplementation.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC0CF10A25E0C88C00C4E5F8 /* Thread */ = {
+			isa = PBXGroup;
+			children = (
+				AC0CF10B25E0C8AF00C4E5F8 /* ThreadViewController.swift */,
+				AC0CF10F25E0C90600C4E5F8 /* Thread.storyboard */,
+			);
+			path = Thread;
 			sourceTree = "<group>";
 		};
 		AC17A3C025CECD6400823975 /* Contact */ = {
@@ -115,6 +128,7 @@
 		ACB8E2BB25C02A540077E46E /* ChatImplementation */ = {
 			isa = PBXGroup;
 			children = (
+				AC0CF10A25E0C88C00C4E5F8 /* Thread */,
 				ACCFE0C925CFC15900CF9E2A /* Extra */,
 				AC2142E925D527D000767581 /* Bot */,
 				AC17A3C025CECD6400823975 /* Contact */,
@@ -206,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0CF11025E0C90600C4E5F8 /* Thread.storyboard in Resources */,
 				ACB8E2C925C02A550077E46E /* LaunchScreen.storyboard in Resources */,
 				AC17A3C325CECD9100823975 /* Bot.storyboard in Resources */,
 				ACB8E2C625C02A550077E46E /* Assets.xcassets in Resources */,
@@ -272,6 +287,7 @@
 				AC17A3CA25CECE4400823975 /* ChatDelegateImplementation.swift in Sources */,
 				AC21430125D5314A00767581 /* ContactsViewController.swift in Sources */,
 				AC21430925D533B900767581 /* MapViewController.swift in Sources */,
+				AC0CF10C25E0C8AF00C4E5F8 /* ThreadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
