@@ -152,9 +152,7 @@ class ThreadViewController : UIViewController{
 									  metadata: "",
 									  title: "test",
 									  type: .PUBLIC_GROUP,
-									  uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_HAMED",
-									  typeCode: nil,
-									  uniqueId: nil)
+									  uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_HAMED")
 		Chat.sharedInstance.request(.CreateThread(req: req)) { response in
 			if let conversation = response.result as? Conversation{
 				print(conversation)
@@ -172,9 +170,7 @@ class ThreadViewController : UIViewController{
 									  metadata: "",
 									  title: "test",
 									  type: .NORMAL,
-									  uniqueName: "TEST PUBLIC GROUP IOS APP",
-									  typeCode: nil,
-									  uniqueId: nil)
+									  uniqueName: "TEST PUBLIC GROUP IOS APP")
 		Chat.sharedInstance.createThread(inputModel: req) { uniqueId in
 			print(uniqueId)
 		} completion: { response in
@@ -256,18 +252,85 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnUpdateThreadInfoTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.UpdateThread(threadId: 318964)) { response in
-			print(response)
-		}
+        let req = UpdateThreadInfoRequest(threadId: 318964, title: "")
+        
+        Chat.sharedInstance.request(.UpdateThreadInfo(req: req, uploadProgress: { progress in
+            print(progress)
+        })) { response in
+            print(response)
+        }
 	}
 	
 	@IBAction func btnUpdateThreadInfoOldTaped(_ button:UIButton) {
-		
-		let req = CloseThreadRequest(threadId: 318964 , typeCode: nil, uniqueId: nil)
-		Chat.sharedInstance.closeThread(inputModel: req) { uniqueId in
-			print(uniqueId)
-		} completion: { response in
-			print(response)
-		}
+    
 	}
+    
+    @IBAction func btnCreateThreadWithMessageTaped(_ button:UIButton) {
+        let invites:[Invitee] = [
+            Invitee(id: "ma.amjadi", idType: .TO_BE_USER_USERNAME)
+        ]
+        let threadMessage = CreateThreadMessage(text: "Hello", messageType: .TEXT)
+        let req = CreateThreadWithMessage(description: "خودت رو به خودت ثابت کن نه به دیگران",
+                                          image: "http://www.careerbased.com/themes/comb/img/avatar/default-avatar-male_14.png",
+                                          invitees: invites,
+                                          metadata: "",
+                                          title: "Thread with message",
+                                          type: .NORMAL,
+                                          uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_THREAD_WITH_MESSAGE",
+                                          message: threadMessage)
+        Chat.sharedInstance.request(.CreateThreadWithMessage(req: req)){ response in
+            print(response)
+        }onSent:{ result in
+            print(result)
+        }onDelivered:{ result in
+            print(result)
+        }onSeen:{ result in
+            print(result)
+        }
+    }
+    
+    @IBAction func btnCreateThreadWithMessageOldTaped(_ button:UIButton) {
+        let invites:[Invitee] = [
+            Invitee(id: "ma.amjadi", idType: .TO_BE_USER_USERNAME)
+        ]
+        let threadMessage = CreateThreadMessageInput(forwardedMessageIds: nil, repliedTo: nil, text: "HELLO", messageType: .TEXT, systemMetadata: nil, uniqueId: nil)
+        let createThreadReq = CreateThreadRequest(description: "خودت رو به خودت ثابت کن نه به دیگران",
+                                          image: "http://www.careerbased.com/themes/comb/img/avatar/default-avatar-male_14.png",
+                                          invitees: invites,
+                                          metadata: "",
+                                          title: "Thread with message",
+                                          type: .NORMAL,
+                                          uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_THREAD_WITH_MESSAGE")
+        let req = CreateThreadWithMessageRequest(createThreadInput: createThreadReq, sendMessageInput: threadMessage)
+        Chat.sharedInstance.createThreadWithMessage(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } messageUniqueId: { result in
+            print(result)
+        } completion: { response in
+            print(response)
+        } onSent: { result in
+            print(result)
+        } onDelivere: { result in
+            print(result)
+        } onSeen: { result in
+            print(result)
+        }
+
+    }
+    
+    @IBAction func btnLeaveThreadTaped(_ button:UIButton) {
+        Chat.sharedInstance.request(.LaeveThread(req: .init(threadId: 325183, clearHistory: true))) { resposne in
+            print(resposne)
+        }
+    }
+    
+    @IBAction func btnLeaveThreadOldTaped(_ button:UIButton) {
+        let req = LeaveThreadRequest(threadId: 318964, clearHistory: true, typeCode: nil, uniqueId: nil)
+        Chat.sharedInstance.leaveThread(inputModel: req ) { uniqueId in
+            print(uniqueId)
+        } completion: { response in
+            print(response)
+        }
+
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z6q-cJ-9OG">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,384 +14,465 @@
             <objects>
                 <viewController id="z6q-cJ-9OG" customClass="ThreadViewController" customModule="ChatImplementation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ums-C4-fMa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="w1t-HK-tge">
-                                <rect key="frame" x="8" y="60" width="398" height="688"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MB4-SH-aMk">
+                                <rect key="frame" x="8" y="60" width="412" height="816"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="INa-JF-ZXg">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="816"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-Tc-6oE">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="7Fw-jQ-1Sc"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="GET THREADS">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnGetThreadsTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="0tf-mx-CsH"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLN-8E-ibt">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="2GI-bZ-iRq"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="GET THREADS  - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnGetThreadsOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="QaS-P7-aki"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2En-b0-oFj">
-                                        <rect key="frame" x="0.0" y="64" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH2-3S-LYh">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="Roi-Zh-7hQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="IS THREAD NAME PUBLIC">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnIsNameAvailableTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="TbI-yL-x8V"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-jb-tT3">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="0AQ-PL-EQf"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="IS THREAD NAME PUBLIC  - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnIsNameAvailableOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="DEN-r6-dUM"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JRw-Fi-O5c">
-                                        <rect key="frame" x="0.0" y="128" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxt-jk-15S">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="gub-kt-5j2"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="MUTE THREAD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnMuteThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="c9V-c9-bXD"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrO-pT-ikr">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="RKG-0b-vQJ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="MUTE THREAD - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnMuteThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="wEG-Rh-LPe"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yn6-Bk-GiY">
-                                        <rect key="frame" x="0.0" y="192" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pY-54-Ccw">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="nbg-0Y-fF4"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="UNMUTE THREAD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnUnMuteThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="vIh-rp-csg"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9n-4n-SVn">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="f6c-Iq-3Vf"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="UNMUTE THREAD - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnUnMuteThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="eQp-8o-TeU"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aTl-SB-vPN">
-                                        <rect key="frame" x="0.0" y="256" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcL-9b-fBH">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="14p-1r-h0o"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="PIN THREAD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnPinThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="BRq-Eb-jor"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUG-0L-OUD">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="aJk-rL-FnA"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="PIN THREAD - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnPinThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="DPg-eZ-YJm"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LN5-D0-KF8">
-                                        <rect key="frame" x="0.0" y="320" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htS-A0-8NS">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="2SA-IP-d8g"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="UNPIN THREAD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnUnPinThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="A1q-uP-IeK"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NN5-0u-jkl">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="oum-ln-zw2"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="UNPIN THREAD - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnUnPinThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="i9h-Ev-b12"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-RQ-AKG">
-                                        <rect key="frame" x="0.0" y="384" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byz-zR-jNJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="QHF-Mx-KbG"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="CREATE THREAD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnCreateThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="228-zd-JpY"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mb1-a1-6Ef">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="lHS-Hl-jXP"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="CREATE THREAD - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnCreateThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="CmS-KI-Uys"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="db2-Y6-2Hb">
-                                        <rect key="frame" x="0.0" y="448" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0U-Gf-RFY">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="hS5-QT-Vrl"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="ADD PARTICIPANT">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnAddParticipantToThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="uC2-S9-nWa"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKF-19-npP">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="Qop-7H-7QU"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="ADD PARTICIPANT - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnAddParticipantToThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="zMh-4j-TYF"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="F4U-iZ-FMB">
-                                        <rect key="frame" x="0.0" y="512" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RU8-fO-WPw">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="WzI-PA-DGV"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="REMOVE PARTICIPANT">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnRemoveParticipantToThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="jFv-zC-GUd"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lc-jb-DTR">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="Wik-XV-0FZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="REMOVE PARTICIPANT - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnRemoveParticipantToThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="8Jn-Dd-vch"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yU3-1q-x3O">
-                                        <rect key="frame" x="0.0" y="576" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dO-fR-Las">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="b5X-Be-WsZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="JOIN THREAD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnJoinThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="4DJ-AF-Fqr"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbp-oR-7Rw">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="uhJ-6r-Kaz"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="JOIN THREAD - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnJoinThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="w3b-8R-xw7"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6PF-8R-d6b">
-                                        <rect key="frame" x="0.0" y="640" width="398" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6D-O4-wyg">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="oRZ-Nw-TSP"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="CLOSE THREAD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnCloseThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Sth-F9-WDf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pge-dy-drB">
-                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="6ev-xP-52K"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="CLOSE THREAD - OLD">
-                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnCloseThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="gg8-ao-8Ol"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
+                                                <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFQ-bb-Fpw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="W7x-vp-zEa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="GET THREADS">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnGetThreadsTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="MZ9-lW-6Dk"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuG-R8-h4l">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="hx1-1g-BVM"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="GET THREADS  - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnGetThreadsOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="bFk-yo-hTW"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e1e-gf-Cg3">
+                                                <rect key="frame" x="0.0" y="64" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0v-wq-AZD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="8Bi-mK-qWi"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="IS THREAD NAME PUBLIC">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnIsNameAvailableTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="FDh-dT-JMV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEI-BZ-nPm">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="jEW-op-FWh"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="IS THREAD NAME PUBLIC  - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnIsNameAvailableOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="0UT-am-a7e"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vWG-lM-GQf">
+                                                <rect key="frame" x="0.0" y="128" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfg-qF-32D">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="UoJ-S5-2tc"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="MUTE THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnMuteThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="DIU-PZ-x0l"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U01-KE-fRH">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="fCE-8i-nbd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="MUTE THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnMuteThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="gad-x3-exj"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="K4R-K4-WcJ">
+                                                <rect key="frame" x="0.0" y="192" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdK-9m-qdH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="Fkc-6r-Ile"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="UNMUTE THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnUnMuteThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="KlJ-Va-Yem"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UT-F4-TRq">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="iiP-aN-SAd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="UNMUTE THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnUnMuteThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="DOK-Ty-MP9"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vWZ-vg-qTy">
+                                                <rect key="frame" x="0.0" y="256" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNo-vZ-Fvc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="mz5-sN-aae"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="PIN THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnPinThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Sms-tR-3g2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOZ-Cg-x6f">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="TyP-QD-fV1"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="PIN THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnPinThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="kod-CX-Gd6"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LNM-Fm-Cqb">
+                                                <rect key="frame" x="0.0" y="320" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-cE-lur">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="eZY-Ph-uSn"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="UNPIN THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnUnPinThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="eVd-Hv-3ST"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z3-XO-u2V">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="cbA-gP-kik"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="UNPIN THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnUnPinThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="ZQb-4D-edD"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xB8-Vv-vnz">
+                                                <rect key="frame" x="0.0" y="384" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGZ-xH-IEL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="W3B-3v-wwC"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="CREATE THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnCreateThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="MWD-o2-ER7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIh-jb-qG3">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="JMD-Ok-IXV"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="CREATE THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnCreateThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="7OH-8j-Sa9"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RwU-da-tDJ">
+                                                <rect key="frame" x="0.0" y="448" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wo-Uv-lUE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="7mh-ob-E7O"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                        <state key="normal" title="CREATE THREAD WITH MESSAGE ">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnCreateThreadWithMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="xbL-7k-MbZ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoV-iP-ThN">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="Hwa-PP-Z42"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                        <state key="normal" title="CREATE THREAD WITH MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnCreateThreadWithMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="HVl-Vq-OIL"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vQ6-X5-inj">
+                                                <rect key="frame" x="0.0" y="512" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIs-S0-YVe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="wni-Fc-zMn"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="ADD PARTICIPANT">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnAddParticipantToThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="wPR-nD-uYl"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15y-VD-zt3">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="qud-PT-EV9"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="ADD PARTICIPANT - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnAddParticipantToThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="xdH-9U-hAI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-2C-CEO">
+                                                <rect key="frame" x="0.0" y="576" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7W-BP-WcR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="NEk-Io-ow3"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="REMOVE PARTICIPANT">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnRemoveParticipantToThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="nFC-Ju-Op6"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWB-vI-uJf">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="q3A-ag-UZr"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="REMOVE PARTICIPANT - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnRemoveParticipantToThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="mb6-tm-kQE"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5tY-iM-dYu">
+                                                <rect key="frame" x="0.0" y="640" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-tC-jpe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="NSQ-zI-ukK"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="JOIN THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnJoinThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="FRK-Xt-ePh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-TQ-IMt">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="Gv2-pi-Kmb"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="JOIN THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnJoinThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Jfa-az-yUI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Db4-JC-gPH">
+                                                <rect key="frame" x="0.0" y="704" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZd-dn-q3e">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="gJZ-JD-ag6"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="CLOSE THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnCloseThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="beQ-TL-HK9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ee-aH-DIV">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="EQN-eA-nFq"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="CLOSE THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnCloseThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="HD4-vf-uGJ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-UJ-AHn">
+                                                <rect key="frame" x="0.0" y="768" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcq-PR-MdT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="GWx-yp-GQ8"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="LEAVE THREAD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnLeaveThreadTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="MZD-Vv-4PM"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5h6-R9-SpP">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="0Dj-8r-9do"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="LEAVE THREAD - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnLeaveThreadOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="dHI-ye-thO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QYl-Or-fRu" secondAttribute="bottom" id="5fb-UF-NFB"/>
+                                    <constraint firstAttribute="trailing" secondItem="QYl-Or-fRu" secondAttribute="trailing" id="Gxa-sB-FWB"/>
+                                    <constraint firstItem="QYl-Or-fRu" firstAttribute="centerX" secondItem="MB4-SH-aMk" secondAttribute="centerX" id="N0a-vX-5xC"/>
+                                    <constraint firstItem="QYl-Or-fRu" firstAttribute="leading" secondItem="MB4-SH-aMk" secondAttribute="leading" id="Nkz-wb-jLP"/>
+                                    <constraint firstItem="QYl-Or-fRu" firstAttribute="top" secondItem="MB4-SH-aMk" secondAttribute="top" id="gXx-M5-sTp"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="eZz-EG-GNA"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ufj-vg-Cis"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k8Z-3U-8cf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="w1t-HK-tge" firstAttribute="centerX" secondItem="k8Z-3U-8cf" secondAttribute="centerX" id="Y1K-jo-BFO"/>
-                            <constraint firstItem="w1t-HK-tge" firstAttribute="top" secondItem="k8Z-3U-8cf" secondAttribute="top" constant="16" id="Y3A-0l-Nd4"/>
-                            <constraint firstItem="w1t-HK-tge" firstAttribute="width" secondItem="Ums-C4-fMa" secondAttribute="width" constant="-16" id="ayY-3Y-gMQ"/>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="centerX" secondItem="k8Z-3U-8cf" secondAttribute="centerX" id="0xd-5A-IzJ"/>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="width" secondItem="Ums-C4-fMa" secondAttribute="width" constant="-16" id="AcV-wu-Wg7"/>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="top" secondItem="k8Z-3U-8cf" secondAttribute="top" constant="16" id="Z4i-R3-INf"/>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="centerY" secondItem="k8Z-3U-8cf" secondAttribute="centerY" id="xwl-CW-uD7"/>
                         </constraints>
                     </view>
                 </viewController>
