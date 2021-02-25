@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I8Y-2G-jeW">
-                                <rect key="frame" x="8" y="60" width="398" height="112"/>
+                                <rect key="frame" x="8" y="60" width="398" height="176"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xQL-XK-rFg">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
@@ -83,6 +83,36 @@
                                                 <connections>
                                                     <segue destination="yGi-TZ-iM0" kind="show" id="1Lc-tb-vrl"/>
                                                 </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BUB-ih-hpJ">
+                                        <rect key="frame" x="0.0" y="128" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7D-L6-6iT">
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="jcP-ZJ-bab"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="USER">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="6mH-if-J7C" kind="show" id="piW-iO-3AB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-qR-0pB">
+                                                <rect key="frame" x="203" y="0.0" width="195" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="eLt-wb-7gE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="---">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -159,6 +189,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wS7-Qf-1Ip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030" y="47"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="1o5-4i-68k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="User" id="6mH-if-J7C" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PkC-Yk-cSF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zxk-YV-Xhf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="-82"/>
         </scene>
         <!--Thread-->
         <scene sceneID="QQl-z0-GYZ">

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aFK-be-uyc">
-                                <rect key="frame" x="8" y="60" width="398" height="48"/>
+                                <rect key="frame" x="8" y="60" width="398" height="304"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Gkl-ZC-buU">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
@@ -30,9 +30,12 @@
                                                     <constraint firstAttribute="height" constant="48" id="OIP-yV-E2Z"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal">
+                                                <state key="normal" title="CREATE BOT">
                                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnCreateBotTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="xWm-vs-J3C"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-DC-S39">
                                                 <rect key="frame" x="207" y="0.0" width="191" height="48"/>
@@ -41,9 +44,130 @@
                                                     <constraint firstAttribute="height" constant="48" id="7uL-C8-MD6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal">
+                                                <state key="normal" title="CREATE BOT - OLD">
                                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnCreateBotOldTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="Dbh-h2-9wQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="you-zN-797">
+                                        <rect key="frame" x="0.0" y="64" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ni-Bv-PiK">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="dL8-Kl-zW7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="CREATE COMMAND">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnCreateBotCommandTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="yLI-cn-BN6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsi-px-Bja">
+                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Urw-eW-1tL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="CREATE COMMAND - OLD">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnCreateBotCommandOldTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="5hI-Aq-aAS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sb1-wN-5AQ">
+                                        <rect key="frame" x="0.0" y="128" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2Y-Ep-KyE">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Fmh-ha-sDI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="ADD BOT TO THREAD">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnAddBotToThreadTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="CmW-tK-xWp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yhQ-UH-qbE">
+                                        <rect key="frame" x="0.0" y="192" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQr-aM-ih9">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="hpX-R7-K2b"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="START BOT">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnStartBotTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="svE-qX-ajU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MJ-oP-PFf">
+                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="tVu-zo-Irk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="START BOT - OLD">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnStartBotOldTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="uLj-nq-wx9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-6z-65i">
+                                        <rect key="frame" x="0.0" y="256" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ3-2J-U8g">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="iGN-Ld-vbT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="STOP BOT">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnStopBotTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="8BP-5o-Lo0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrH-IM-38S">
+                                                <rect key="frame" x="207" y="0.0" width="191" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="gYg-br-89g"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="STOP BOT - OLD">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnStopBotOldTaped:" destination="YS1-RJ-6Bt" eventType="touchUpInside" id="hye-f7-BdQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

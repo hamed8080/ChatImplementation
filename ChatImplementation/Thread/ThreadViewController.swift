@@ -319,7 +319,7 @@ class ThreadViewController : UIViewController{
     }
     
     @IBAction func btnLeaveThreadTaped(_ button:UIButton) {
-        Chat.sharedInstance.request(.LaeveThread(req: .init(threadId: 325183, clearHistory: true))) { resposne in
+        Chat.sharedInstance.request(.LeaveThread(req: .init(threadId: 325183, clearHistory: true))) { resposne in
             print(resposne)
         }
     }
@@ -331,6 +331,29 @@ class ThreadViewController : UIViewController{
         } completion: { response in
             print(response)
         }
-
     }
+	
+	@IBAction func btnThreadParticipantsTaped(_ button:UIButton) {
+		Chat.sharedInstance.request(.ThreadParticipants(threadId: 318964 , .init())) { resposne in
+			if let participants = resposne.result as? [Participant]{
+				print(participants)
+			}
+		}
+	}
+	
+	@IBAction func btnThreadParticipantsOldTaped(_ button:UIButton) {
+		let req = GetThreadParticipantsRequest(admin: false, count: 50,
+											   name: nil, offset: 0,
+											   threadId: 318964,
+											   typeCode: nil,
+											   uniqueId: nil)
+		
+		Chat.sharedInstance.getThreadParticipants(inputModel: req , getCacheResponse: false) { uniqueId in
+			print(uniqueId)
+		} completion: { response in
+			print(response)
+		} cacheResponse: { response in
+			print(response)
+		}
+	}
 }
