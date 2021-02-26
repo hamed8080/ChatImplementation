@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z6q-cJ-9OG">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Message View Controller-->
+        <scene sceneID="dI1-fR-jr7">
+            <objects>
+                <viewController id="z6q-cJ-9OG" customClass="MessageViewController" customModule="ChatImplementation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ums-C4-fMa">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MB4-SH-aMk">
+                                <rect key="frame" x="8" y="60" width="412" height="816"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="240"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
+                                                <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFQ-bb-Fpw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="W7x-vp-zEa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="PIN MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnPinMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="DWA-Ax-gOn"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuG-R8-h4l">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="hx1-1g-BVM"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="PIN MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnPinMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="hde-yr-Y1X"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aSc-ly-q9t">
+                                                <rect key="frame" x="0.0" y="64" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyM-QB-Fpy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="QTR-pH-wdT"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="UNPIN MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnUnPinMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="5Jx-GC-nye"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJj-P7-q69">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="fm5-F5-TLb"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="UNPIN MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnUnPinMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="hEd-QL-5Or"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZhC-Uu-Nkw">
+                                                <rect key="frame" x="0.0" y="128" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jz-kx-nDW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="NmM-Sa-j1R"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="CLEAR HISTORY">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnClearHistoryTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Mps-CJ-ePe"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyx-fJ-DXz">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="fC5-eH-AAH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="CLEAR HISTORY - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnClearHistoryOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="jAB-OA-zuw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="K7h-GV-Keq">
+                                                <rect key="frame" x="0.0" y="192" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27Q-6g-GGE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="tqK-6a-fPn"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="DELETE MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnDeleteMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Ltg-qB-HXc"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btw-aA-jV7">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="JOz-34-4Wx"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="DELETE MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnDeleteMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="jha-2W-163"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QYl-Or-fRu" secondAttribute="bottom" id="5fb-UF-NFB"/>
+                                    <constraint firstAttribute="trailing" secondItem="QYl-Or-fRu" secondAttribute="trailing" id="Gxa-sB-FWB"/>
+                                    <constraint firstItem="QYl-Or-fRu" firstAttribute="centerX" secondItem="MB4-SH-aMk" secondAttribute="centerX" id="N0a-vX-5xC"/>
+                                    <constraint firstItem="QYl-Or-fRu" firstAttribute="leading" secondItem="MB4-SH-aMk" secondAttribute="leading" id="Nkz-wb-jLP"/>
+                                    <constraint firstItem="QYl-Or-fRu" firstAttribute="top" secondItem="MB4-SH-aMk" secondAttribute="top" id="gXx-M5-sTp"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="eZz-EG-GNA"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ufj-vg-Cis"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k8Z-3U-8cf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="centerX" secondItem="k8Z-3U-8cf" secondAttribute="centerX" id="0xd-5A-IzJ"/>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="width" secondItem="Ums-C4-fMa" secondAttribute="width" constant="-16" id="AcV-wu-Wg7"/>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="top" secondItem="k8Z-3U-8cf" secondAttribute="top" constant="16" id="Z4i-R3-INf"/>
+                            <constraint firstItem="MB4-SH-aMk" firstAttribute="centerY" secondItem="k8Z-3U-8cf" secondAttribute="centerY" id="xwl-CW-uD7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ngr-bg-2W9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82" y="181"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

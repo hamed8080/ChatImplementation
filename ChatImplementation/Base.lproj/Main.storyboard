@@ -110,9 +110,12 @@
                                                     <constraint firstAttribute="height" constant="48" id="eLt-wb-7gE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="---">
+                                                <state key="normal" title="MESSAGES">
                                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="jwX-Bg-fH2" kind="show" id="IeB-o0-N6B"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -189,6 +192,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wS7-Qf-1Ip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030" y="47"/>
+        </scene>
+        <!--Message-->
+        <scene sceneID="Td2-Xj-zuw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Message" id="jwX-Bg-fH2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jae-No-oqf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mpg-59-Huv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579" y="-129"/>
         </scene>
         <!--User-->
         <scene sceneID="1o5-4i-68k">
