@@ -11,8 +11,9 @@ import FanapPodChatSDK
 
 class MessageViewController : UIViewController{
     
-    let messageId = 1355240
-    let threadId = 318964
+    let messageId = 1359279
+    let threadId = 274540
+	let ownerId = 3637251
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -86,4 +87,118 @@ class MessageViewController : UIViewController{
         }
     }
 	
+	@IBAction func btnBatchDeleteMessageTaped(_ button:UIButton) {
+		let req = BatchDeleteMessageRequest(threadId: threadId, messageIds: [1358571,1358570])
+		Chat.sharedInstance.request(.BatchDeleteMessage( req: req)) { response in
+			if let deletedMessage = response.result as? DeleteMessage{
+				print(deletedMessage)
+			}
+		}
+	}
+	
+	@IBAction func btnBatchDeleteMessageOldTaped(_ button:UIButton) {
+		let req = DeleteMultipleMessagesRequest(deleteForAll: true, messageIds: [1358583,1358582], threadId: threadId, typeCode: nil)
+		Chat.sharedInstance.deleteMultipleMessages(inputModel: req, uniqueIds: { uniqueIds in
+			print(uniqueIds)
+		}, completion: { result in
+			print(result)
+		})
+	}
+	
+	
+	@IBAction func btnGetAllUnreadMessageCountTaped(_ button:UIButton) {
+		let req = UnreadMessageCountRequest(countMutedThreads: true)
+		Chat.sharedInstance.request(.AllUnreadMessageCount( req: req)) { response in
+			if let unreadCount = response.result as? Int{
+				print(unreadCount)
+			}
+		}
+	}
+	
+	@IBAction func btnGetAllUnreadMessageCountOldTaped(_ button:UIButton) {
+		let req = GetAllUnreadMessageCountRequest(countMuteThreads: true, typeCode: nil, uniqueId: nil)
+		Chat.sharedInstance.getAllUnreadMessagesCount(inputModel: req, getCacheResponse: false, uniqueId: { uniqueId in
+			print(uniqueId)
+		}, completion: { result in
+			print(result)
+		}, cacheResponse: { result in
+			print(result)
+		})
+	}
+	
+	@IBAction func btnGetMentionedTaped(_ button:UIButton) {
+		Chat.sharedInstance.request(.Mentions( req: .init(threadId: threadId, onlyUnreadMention: false))) { response in
+			if let history = response.result as? [Message]{
+				print(history)
+			}
+		}
+	}
+	
+	@IBAction func btnGetMentionedOldTaped(_ button:UIButton) {
+		let req = GetMentionedRequest(count: 50, offset: 0, threadId: threadId, onlyUnreadMention: false, typeCode: nil, uniqueId: nil)
+		Chat.sharedInstance.getMentionList(inputModel: req, getCacheResponse: false, uniqueId: { uniqueId in
+			print(uniqueId)
+		}, completion: { result in
+			print(result)
+		}, cacheResponse: { result in
+			print(result)
+		})
+	}
+	
+	@IBAction func btnGetMessageDeliveredUserTaped(_ button:UIButton) {
+		Chat.sharedInstance.request(.MessageDeliveredUsers( req: .init(messageId:messageId) )) { response in
+			if let deliveredUsers = response.result as? [Participant]{
+				print(deliveredUsers)
+			}
+		}
+	}
+	
+	@IBAction func btnGetMessageDeliveredOldTaped(_ button:UIButton) {
+		let req = GetMessageDeliveredSeenListRequest(count: 50, messageId: messageId, offset: 0, typeCode: nil, uniqueId: nil)
+		Chat.sharedInstance.messageDeliveryList(inputModel: req) { uniqueId in
+			print(uniqueId)
+		} completion: { result in
+			print(result)
+		}
+	}
+	
+	@IBAction func btnGetMessageSeenByUsersTaped(_ button:UIButton) {
+		Chat.sharedInstance.request(.MessageSeenByUsers( req: .init(messageId:messageId) )) { response in
+			if let seenUsers = response.result as? [Participant]{
+				print(seenUsers)
+			}
+		}
+	}
+	
+	@IBAction func btnGetMessageSeenByUsersOldTaped(_ button:UIButton) {
+		let req = GetMessageDeliveredSeenListRequest(count: 50, messageId: messageId, offset: 0, typeCode: nil, uniqueId: nil)
+		Chat.sharedInstance.messageSeenList(inputModel: req) { uniqueId in
+			print(uniqueId)
+		} completion: { result in
+			print(result)
+		}
+	}
+	
+	@IBAction func btnNotifyMessageDeliveredTaped(_ button:UIButton) {
+		Chat.sharedInstance.request(.NotifyDeliveredMessage(messageId:messageId)) { response in
+			//no response back
+		}
+	}
+	
+	@IBAction func btnNotifyMessageDeliveredOldTaped(_ button:UIButton) {
+		let req = SendDeliverSeenRequest(messageId: messageId, ownerId: ownerId, typeCode: nil)
+		Chat.sharedInstance.deliver(inputModel: req)
+	}
+	
+	
+	@IBAction func btnNotifyMessageSeenedTaped(_ button:UIButton) {
+		Chat.sharedInstance.request(.NotifySeenMessage(messageId:messageId)) { response in
+			//no response back
+		}
+	}
+	
+	@IBAction func btnNotifyMessageSeenedOldTaped(_ button:UIButton) {
+		let req = SendDeliverSeenRequest(messageId: messageId, ownerId: ownerId, typeCode: nil)
+		Chat.sharedInstance.seen(inputModel: req)
+	}
 }
