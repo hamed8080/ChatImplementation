@@ -16,15 +16,6 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnGetContactsTaped(_ sender: UIButton) {
-		Chat.sharedInstance.request2(parameters: Chat.MyParameters(messageType: .GET_CONTACTS,
-		   completion: { response in
-			
-		   },
-		   onSent:{ any in
-			
-		   }
-		))
-		
 		Chat.sharedInstance.request(.GetContacts(req: .init(count: 10, offset: 0 )), getCacheResponse: true) { response in
             if let cachedContacts = response.cacheResponse as? [Contact]{
                 print(cachedContacts)

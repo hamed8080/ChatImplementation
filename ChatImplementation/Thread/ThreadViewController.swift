@@ -356,4 +356,23 @@ class ThreadViewController : UIViewController{
 			print(response)
 		}
 	}
+    
+    @IBAction func btnCurrentUserRolesTaped(_ button:UIButton) {
+        Chat.sharedInstance.request(.CurrentUserRoles(threadId: 318964)) { resposne in
+            if let userRoles = resposne.result as? [Roles]{
+                print(userRoles)
+            }
+        }
+    }
+    
+    @IBAction func btnCurrentUserRolesOldTaped(_ button:UIButton) {
+        let req = GetCurrentUserRolesRequest(threadId: 318964, typeCode: nil, uniqueId: nil)
+        Chat.sharedInstance.getCurrentUserRoles(inputModel: req , getCacheResponse: false) { uniqueId in
+            print(uniqueId)
+        } completion: { response in
+            print(response)
+        } cacheResponse: { response in
+            print(response)
+        }
+    }
 }

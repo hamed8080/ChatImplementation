@@ -11,9 +11,9 @@ import FanapPodChatSDK
 
 class MessageViewController : UIViewController{
     
-    let messageId = 1359279
-    let threadId = 274540
-	let ownerId = 3637251
+    private let messageId    = 1359279
+    private let threadId     = 274540
+    private let ownerId      = 3637251
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
