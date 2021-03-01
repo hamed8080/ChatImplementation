@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
     
     @IBAction func btnReverseOldTaped( _ button :UIButton){
         
-        Chat.sharedInstance.mapReverse(inputModel: .init(lat: 35.660399, lng: 51.487375, uniqueId: "fakeUniqueId")) { uniqueIdReslt in
+        Chat.sharedInstance.mapReverse(inputModel: .init(lat: 35.660399, lng: 51.487375)) { uniqueIdReslt in
             print(uniqueIdReslt)
         } completion: { result in
             print(result)
@@ -54,7 +54,7 @@ class MapViewController: UIViewController {
 		let origin = Cordinate(lat:35.660399 , lng:51.487375)
 		let destination = Cordinate(lat: 35.662984, lng: 51.468588)
 		Chat.sharedInstance.request(.MapRouting(req: .init(alternative: true, origin: origin, destination: destination))) { response in
-			if let mapRoutingResponse = response.result as? MapRoutingResponse{
+			if let mapRoutingResponse = response.result as? NewMapRoutingResponse{
 				print(mapRoutingResponse)
 			}
 		}
@@ -73,7 +73,7 @@ class MapViewController: UIViewController {
     
 	
 	@IBAction func btnMapStaticImageTaped( _ button :UIButton){
-		let req = MapStaticImageRequest(centerLat: 35.660417,centerLng: 51.487187)
+		let req = NewMapStaticImageRequest(centerLat: 35.660417,centerLng: 51.487187)
 		Chat.sharedInstance.request(.MapStaticImage(req:req)) { response in
 			if let data = response.result as? Data , let image = UIImage(data: data) {
 				self.imgStaticMapImage.image = image
@@ -85,9 +85,9 @@ class MapViewController: UIViewController {
 		let req = MapStaticImageRequest(centerLat: 35.660417,
 										centerLng:  51.487187,
 										height: 400,
+										type: "standard-day",
 										width: 600,
-										zoom: 8,
-										type: "standard-day")
+										zoom: 8)
 		Chat.sharedInstance.mapStaticImage(inputModel: req) { uniqueId in
 			print(uniqueId)
 		} progress: { progress in

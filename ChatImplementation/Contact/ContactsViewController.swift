@@ -88,12 +88,11 @@ class ContactsViewController: UIViewController {
 		let nthContact2 = 13
 		
 		let contacts = AddContactsRequest(cellphoneNumbers: ["093691616\(nthContact1)", "093691616\(nthContact2)"],
-										  emails: ["test\(nthContact1)@gmail.com", "test\(nthContact2)@gmail.com"],
-										  firstNames: ["firstName-Old\(nthContact1)","firstName-Old\(nthContact2)"],
-										  lastNames: ["lastNames\(nthContact1)","lastNames\(nthContact2)"],
-										  userNames: ["",""],
-										  typeCode: "default",
-										  uniqueIds: ["fakeUniqueId\(nthContact1)","fakeUniqueId\(nthContact2)"])
+						   emails: ["test\(nthContact1)@gmail.com", "test\(nthContact2)@gmail.com"],
+						   firstNames: ["firstName-Old\(nthContact1)","firstName-Old\(nthContact2)"],
+						   lastNames: ["lastNames\(nthContact1)","lastNames\(nthContact2)"],
+						   typeCode:  "default",
+						   uniqueIds: ["fakeUniqueId\(nthContact1)","fakeUniqueId\(nthContact2)"])
 		Chat.sharedInstance.addContacts(inputModel: contacts) { (uniqueId) in
 			print(uniqueId)
 		} completion: { result in
@@ -134,7 +133,7 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func btnSearchContactTaped(_ sender: UIButton){
-        let searchContactsRequest = GetContactsRequest(query: "ha")
+        let searchContactsRequest = ContactsRequest(query: "ha")
 		Chat.sharedInstance.request(.SearchContact(req: searchContactsRequest)) { response in
 			if let contacts = response.result as?  [Contact]{
 				print(contacts)
@@ -192,17 +191,20 @@ class ContactsViewController: UIViewController {
     
     @IBAction func btnUpdateContactOldTaped(_ sender: UIButton){
         
-//        let req = UpdateContactRequest(cellphoneNumber: "09369161601",
-//                                                email: "updated email",
-//                                                firstName: "updated name",
-//                                                id: 123,
-//                                                lastName: "updated lastname",
-//                                                username: "updated userName")
-//        Chat.sharedInstance.updateContact(inputModel: req) { uniqueId in
-//            print(uniqueId)
-//        } completion: { result in
-//            print(result)
-//        }
+        let req = UpdateContactsRequest(cellphoneNumber: "09369161601",
+                                                email: "updated email",
+                                                firstName: "updated name",
+                                                id: 123,
+                                                lastName: "updated lastname",
+                                                username: "updated userName",
+												typeCode: nil,
+												uniqueId: nil
+												)
+        Chat.sharedInstance.updateContact(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } completion: { result in
+            print(result)
+        }
 
     }
 	
@@ -215,7 +217,8 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnBlockContactOldTaped(_ sender: UIButton){
-		Chat.sharedInstance.blockContact(inputModel: .init(contactId: 22712926)) { uniqueId in
+		let req = BlockRequest(contactId: 22712926, threadId: nil, userId: nil, typeCode: nil, uniqueId: nil)
+		Chat.sharedInstance.blockContact(inputModel: req) { uniqueId in
 			print(uniqueId)
 		} completion: { result in
 			print(result)
