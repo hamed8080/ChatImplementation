@@ -16,12 +16,15 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnGetContactsTaped(_ sender: UIButton) {
-		Chat.sharedInstance.request(.GetContacts(req: .init(count: 10, offset: 0 )), getCacheResponse: true) { response in
+		Chat.sharedInstance.request(.GetContacts(req: .init(count: 10, offset: 0 )), useCache: true) { response in
             if let cachedContacts = response.cacheResponse as? [Contact]{
                 print(cachedContacts)
             }
             if let contacts = response.result as? [Contact]{
                 print(contacts)
+            }
+            if let error = response.error{
+                print(error)
             }
         }
 	}
@@ -39,11 +42,12 @@ class ContactsViewController: UIViewController {
 	
 	
 	@IBAction func btnAddNewContactsTaped(_ sender: UIButton) {
-		let nthContact = 7
-        Chat.sharedInstance.request(.AddContact(req: .init(cellphoneNumber: "",
-                                                      email: "testhamed\(nthContact)@gmail.com",
-                                                      firstName: "testnew\(nthContact)",
-                                                      lastName: "tessfamily\(nthContact)"))) { response in
+		let nthContact = 13
+        let req = AddContactRequest(cellphoneNumber: "",
+                        email: "testhamed\(nthContact)@gmail.com",
+                        firstName: "testnew\(nthContact)",
+                        lastName: "tessfamily\(nthContact)")
+        Chat.sharedInstance.request(.AddContact(req: req) , useCache: true) { response in
             print(response)
         }
 	}
@@ -64,8 +68,8 @@ class ContactsViewController: UIViewController {
 	
 	
 	@IBAction func btnAddBatchContactsTaped(_ sender: UIButton) {
-		let nthContact1 = 10
-		let nthContact2 = 11
+		let nthContact1 = 12
+		let nthContact2 = 13
 		let contact1 = AddContactRequest(cellphoneNumber: "0912595606\(nthContact1)",
 										 email: "test\(nthContact1)@gmail.com",
 										 firstName: "firstName\(nthContact1) oldmethod",
@@ -78,7 +82,7 @@ class ContactsViewController: UIViewController {
 										 typeCode: nil ,uniqueId: nil)
 		
         
-        Chat.sharedInstance.request(.AddContacts(req: [contact1  ,contact2])) { response in
+        Chat.sharedInstance.request(.AddContacts(req: [contact1  ,contact2]) , useCache: true) { response in
             print(response)
         }
 	}
@@ -117,7 +121,7 @@ class ContactsViewController: UIViewController {
 	}
     
     @IBAction func btnRemoveContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.request(.RemoveContact(req: .init(contactId: 22713559, typeCode: "defualt"))) { response in
+		Chat.sharedInstance.request(.RemoveContact(req: .init(contactId: 25391200, typeCode: "defualt"))) { response in
 			if let removeContactResponse = response.result as? RemoveContactResponse{
 				print(removeContactResponse)
 			}

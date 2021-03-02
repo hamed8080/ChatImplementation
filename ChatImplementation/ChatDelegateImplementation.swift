@@ -38,6 +38,33 @@ class ChatDelegateImplementation: ChatDelegates {
                                                            enableCache: true,
 														   reconnectOnClose: true
 		))
+//        Chat.sharedInstance.createChatObject(socketAddress:             "String",
+//                                             ssoHost:                   "String",
+//                                             platformHost:              "String",
+//                                             fileServer:                "String",
+//                                             serverName:                "String",
+//                                             token:                     "String",
+//                                             mapApiKey:                 "String",
+//                                             mapServer:                 "String",
+//                                             typeCode:                  "String",
+//                                             enableCache:               false,
+//                                             cacheTimeStampInSec:       nil,
+//                                             msgPriority:               nil,
+//                                             msgTTL:                    nil,
+//                                             httpRequestTimeout:        nil,
+//                                             actualTimingLog:           nil,
+//                                             wsConnectionWaitTime:      0,
+//                                             connectionRetryInterval:   0,
+//                                             connectionCheckTimeout:    0,
+//                                             messageTtl:                0,
+//                                             getDeviceIdFromToken:      false,
+//                                             captureLogsOnSentry:       false,
+//                                             maxReconnectTimeInterval:  0,
+//                                             reconnectOnClose:          false,
+//                                             localImageCustomPath:      nil,
+//                                             localFileCustomPath:       nil,
+//                                             deviecLimitationSpaceMB:   nil,
+//                                             showDebuggingLogLevel:     nil)
 		Chat.sharedInstance.delegate = self
     }
 	
