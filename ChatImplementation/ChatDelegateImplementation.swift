@@ -29,6 +29,7 @@ class ChatDelegateImplementation: ChatDelegates {
     
     func createChatObject(){
 		let token = UserDefaults.standard.string(forKey: "token")
+		print("token is: \(token ?? "")")
 		Chat.sharedInstance.createChatObject(object: .init(socketAddress: socketAddresss,
 														   serverName: serverName,
 														   token: token ?? "INVALID_TOKEN_TO_GET_NEW_ONE",
@@ -38,6 +39,7 @@ class ChatDelegateImplementation: ChatDelegates {
                                                            enableCache: true,
 														   reconnectOnClose: true
 		))
+		
 //        Chat.sharedInstance.createChatObject(socketAddress:             "String",
 //                                             ssoHost:                   "String",
 //                                             platformHost:              "String",

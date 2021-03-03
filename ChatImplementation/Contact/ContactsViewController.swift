@@ -16,14 +16,14 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnGetContactsTaped(_ sender: UIButton) {
-		Chat.sharedInstance.request(.GetContacts(req: .init(count: 10, offset: 0 )), useCache: true) { response in
-            if let cachedContacts = response.cacheResponse as? [Contact]{
+		Chat.sharedInstance.getContacts(.init(count: 10, offset: 0), useCache: true) { response , cache , error in
+            if let cachedContacts = cache{
                 print(cachedContacts)
             }
-            if let contacts = response.result as? [Contact]{
+            if let contacts = response{
                 print(contacts)
             }
-            if let error = response.error{
+            if let error = error{
                 print(error)
             }
         }
@@ -47,7 +47,7 @@ class ContactsViewController: UIViewController {
                         email: "testhamed\(nthContact)@gmail.com",
                         firstName: "testnew\(nthContact)",
                         lastName: "tessfamily\(nthContact)")
-        Chat.sharedInstance.request(.AddContact(req: req) , useCache: true) { response in
+        Chat.sharedInstance.addContact(req , useCache: true) { response in
             print(response)
         }
 	}
@@ -82,7 +82,7 @@ class ContactsViewController: UIViewController {
 										 typeCode: nil ,uniqueId: nil)
 		
         
-        Chat.sharedInstance.request(.AddContacts(req: [contact1  ,contact2]) , useCache: true) { response in
+        Chat.sharedInstance.addContacts([contact1  ,contact2] , useCache: true) { response in
             print(response)
         }
 	}
@@ -107,7 +107,7 @@ class ContactsViewController: UIViewController {
 	
 	
 	@IBAction func btnNoSeenContactTaped(_ sender: UIButton){
-        Chat.sharedInstance.request(.ContactNotSeenDuration(req: .init(userIds: [3661443]))) { response in
+        Chat.sharedInstance.contactNotSeen(.init(userIds: [3661443])) { response in
             print(response)
         }
     }
@@ -121,7 +121,7 @@ class ContactsViewController: UIViewController {
 	}
     
     @IBAction func btnRemoveContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.request(.RemoveContact(req: .init(contactId: 25391200, typeCode: "defualt"))) { response in
+		Chat.sharedInstance.removeContact(.init(contactId: 25391200, typeCode: "defualt")) { response in
 			if let removeContactResponse = response.result as? RemoveContactResponse{
 				print(removeContactResponse)
 			}
@@ -137,10 +137,15 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func btnSearchContactTaped(_ sender: UIButton){
-        let searchContactsRequest = ContactsRequest(query: "ha")
-		Chat.sharedInstance.request(.SearchContact(req: searchContactsRequest)) { response in
-			if let contacts = response.result as?  [Contact]{
+		Chat.sharedInstance.searchContacts(.init(query: "ha")) { response , cache , error in
+			if let cachedContacts = cache{
+				print(cachedContacts)
+			}
+			if let contacts = response{
 				print(contacts)
+			}
+			if let error = error{
+				print(error)
 			}
 		}
     }
@@ -166,7 +171,7 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func btnSyncContactsTaped(_ sender: UIButton){
-		Chat.sharedInstance.request(.SyncContacts) { response in
+		Chat.sharedInstance.syncContacts() { response in
 			if let contacts = response.result as?  [Contact]{
 				print(contacts)
 			}
@@ -182,25 +187,27 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func btnUpdateContactTaped(_ sender: UIButton){
-        let req = UpdateContactRequest(cellphoneNumber: "989362131201",
-                                                email: "updated email",
-                                                firstName: "updated name",
-                                                id: 22713559,
-                                                lastName: "updated lastname",
-                                                username: "s.khobbakht")
-		Chat.sharedInstance.request(.UpdateContact(req: req)) { response in
-			print(response)
+        let req = UpdateContactRequest(cellphoneNumber: "09148401824",
+                                                email: "amjadi@gmail.com",
+                                                firstName: "masoud update",
+                                                id: 24420613,
+                                                lastName: "amjadi",
+                                                username: "ma.amjadi")
+		Chat.sharedInstance.updateContact(req) { response in
+			if let contactResponse = response.result as? ContactResponse {
+				print(contactResponse.contacts)
+			}
 		}
     }
     
     @IBAction func btnUpdateContactOldTaped(_ sender: UIButton){
         
-        let req = UpdateContactsRequest(cellphoneNumber: "09369161601",
-                                                email: "updated email",
-                                                firstName: "updated name",
-                                                id: 123,
-                                                lastName: "updated lastname",
-                                                username: "updated userName",
+        let req = UpdateContactsRequest(cellphoneNumber: "09148401824",
+                                                email: "amjadi@gmail.com",
+                                                firstName: "masoud",
+                                                id: 24420613,
+                                                lastName: "amjadi",
+                                                username: "ma.amjadi",
 												typeCode: nil,
 												uniqueId: nil
 												)
@@ -213,10 +220,10 @@ class ContactsViewController: UIViewController {
     }
 	
 	@IBAction func btnBlockContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.request(.BlockContact(req: .init(contactId: 23043316))) { response in
-			if let blocked = response.result as? BlockedUser{
-				print(blocked)
-			}
+		Chat.sharedInstance.blockContact(.init(contactId: 23043316)) { uniqueIdresult in
+			
+		} completion: { contactResponse in
+			
 		}
 	}
 	
@@ -230,7 +237,7 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnUnBlockContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.request(.UnBlockContact(req: .init(contactId: 23043316))) { response in
+		Chat.sharedInstance.unBlockContact(.init(contactId: 23043316)) { response in
 			if let unblocked = response.result as? BlockedUser{
 				print(unblocked)
 			}
@@ -247,7 +254,7 @@ class ContactsViewController: UIViewController {
 	
 	@IBAction func btnBlockedContactsTaped(_ sender: UIButton){
 
-        Chat.sharedInstance.request(.GetBlockedContacts(req: .init(count: 50, offset: 0))) { response in
+        Chat.sharedInstance.getBlockedContacts(.init(count: 50, offset: 0)) { response in
             if response.error == nil , let bloackedContacts = response.result as? [BlockedUser]{
                 print(bloackedContacts)
             }

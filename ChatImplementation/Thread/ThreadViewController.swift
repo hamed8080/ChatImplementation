@@ -16,7 +16,7 @@ class ThreadViewController : UIViewController{
 	}
 
 	@IBAction func btnGetThreadsTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.Threads(req: .init() )) { response in
+		Chat.sharedInstance.getThreads(.init()) { response in
 			if let conversations = response.result as? [Conversation]{
 				print(conversations)
 			}
@@ -47,7 +47,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnIsNameAvailableTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.IsThreadNamePublic(req: .init(name:"testlsdflsadfhslfalsb") )) { response in
+		Chat.sharedInstance.isThreadNamePublic(.init(name:"testlsdflsadfhslfalsb")) { response in
 			if let availableName = response.result as? PublicThreadNameAvailableResponse{
 				print(availableName)
 			}
@@ -64,7 +64,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnMuteThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.MuteThread(threadId:318964)) { response in
+		Chat.sharedInstance.muteThread(.init(threadId:318964)) { response in
 			if let availableName = response.result as? MuteThreadResponse{
 				print(availableName)
 			}
@@ -81,7 +81,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnUnMuteThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.UnMuteThread(threadId:318964)) { response in
+		Chat.sharedInstance.muteThread(.init(threadId:318964)) { response in
 			if let availableName = response.result as? UnMuteThreadResponse{
 				print(availableName)
 			}
@@ -99,7 +99,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnPinThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.PinThread(threadId:318964)) { response in
+		Chat.sharedInstance.pinThread(.init(threadId:318964)) { response in
 			if let availableName = response.result as? PinThreadResponse{
 				print(availableName)
 			}
@@ -116,7 +116,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnUnPinThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.UnPinThread(threadId:318964)) { response in
+		Chat.sharedInstance.unpinThread(.init(threadId:318964)) { response in
 			if let availableName = response.result as? UnPinThreadResponse{
 				print(availableName)
 			}
@@ -146,14 +146,14 @@ class ThreadViewController : UIViewController{
 //									  uniqueName: "TEST PUBLIC GROUP IOS APP",
 //									  typeCode: nil,
 //									  uniqueId: nil)
-		let req = CreateThreadRequest(description: "خودت رو به خودت ثابت کن نه به دیگران",
+		let req = NewCreateThreadRequest(description: "خودت رو به خودت ثابت کن نه به دیگران",
 									  image: "http://www.careerbased.com/themes/comb/img/avatar/default-avatar-male_14.png",
 									  invitees: invites,
 									  metadata: "",
 									  title: "test",
 									  type: .PUBLIC_GROUP,
 									  uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_HAMED")
-		Chat.sharedInstance.request(.CreateThread(req: req)) { response in
+		Chat.sharedInstance.createThread(req) { response in
 			if let conversation = response.result as? Conversation{
 				print(conversation)
 			}
@@ -180,7 +180,7 @@ class ThreadViewController : UIViewController{
 	
 	
 	@IBAction func btnAddParticipantToThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.AddParticipant(threadId: 318964,req: .init(userName: "ma.amjadi"))) { response in
+		Chat.sharedInstance.addParticipant(.init(userName: "ma.amjadi", threadId:318964)) { response in
 			if let conversation = response.result as? Conversation{
 				print(conversation)
 			}
@@ -201,7 +201,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnRemoveParticipantToThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.RemoveParticipant(threadId: 318964,participantId: 126255)) { response in
+		Chat.sharedInstance.removeParticipant(.init(participantId: 126255, threadId: 318964)) { response in
 			if let participants = response.result as? [Participant]{
 				print(participants)
 			}
@@ -221,7 +221,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnJoinThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.JoinThread(uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_HAMED")) { response in
+		Chat.sharedInstance.joinThread(.init(threadName: "TEST_PUBLIC_GROUP_IOS_APP_HAMED")) { response in
 			print(response)
 		}
 	}
@@ -236,7 +236,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnCloseThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.CloseThread(threadId: 318964)) { response in
+		Chat.sharedInstance.closeThread(.init(threadId: 318964)) { response in
 			print(response)
 		}
 	}
@@ -252,13 +252,12 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnUpdateThreadInfoTaped(_ button:UIButton) {
-        let req = UpdateThreadInfoRequest(threadId: 318964, title: "")
-        
-        Chat.sharedInstance.request(.UpdateThreadInfo(req: req, uploadProgress: { progress in
-            print(progress)
-        })) { response in
-            print(response)
-        }
+        let req = NewUpdateThreadInfoRequest(threadId: 318964, title: "")
+		Chat.sharedInstance.updateThreadInfo(req) { progress in
+			print(progress)
+		} completion: { response in
+			print(response)
+		}
 	}
 	
 	@IBAction func btnUpdateThreadInfoOldTaped(_ button:UIButton) {
@@ -278,15 +277,18 @@ class ThreadViewController : UIViewController{
                                           type: .NORMAL,
                                           uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_THREAD_WITH_MESSAGE",
                                           message: threadMessage)
-        Chat.sharedInstance.request(.CreateThreadWithMessage(req: req)){ response in
-            print(response)
-        }onSent:{ result in
-            print(result)
-        }onDelivered:{ result in
-            print(result)
-        }onSeen:{ result in
-            print(result)
-        }
+		
+		Chat.sharedInstance.createThreadWithMessage(req) { uniqueId in
+			print(uniqueId)
+		} onSent: { onSentResult in
+			print(onSentResult)
+		} onDelivery: { onDeliveryResult in
+			print(onDeliveryResult)
+		} onSeen: { onSeenResult in
+			print(onSeenResult)
+		} completion: { response in
+			print(response)
+		}
     }
     
     @IBAction func btnCreateThreadWithMessageOldTaped(_ button:UIButton) {
@@ -319,7 +321,7 @@ class ThreadViewController : UIViewController{
     }
     
     @IBAction func btnLeaveThreadTaped(_ button:UIButton) {
-        Chat.sharedInstance.request(.LeaveThread(req: .init(threadId: 325183, clearHistory: true))) { resposne in
+        Chat.sharedInstance.leaveThread(.init(threadId: 325183, clearHistory: true)) { resposne in
             print(resposne)
         }
     }
@@ -334,7 +336,7 @@ class ThreadViewController : UIViewController{
     }
 	
 	@IBAction func btnThreadParticipantsTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.ThreadParticipants(threadId: 318964 , .init())) { resposne in
+		Chat.sharedInstance.getThreadParticipants(.init(threadId: 318964)) { resposne in
 			if let participants = resposne.result as? [Participant]{
 				print(participants)
 			}
@@ -358,7 +360,7 @@ class ThreadViewController : UIViewController{
 	}
     
     @IBAction func btnCurrentUserRolesTaped(_ button:UIButton) {
-        Chat.sharedInstance.request(.CurrentUserRoles(threadId: 318964)) { resposne in
+		Chat.sharedInstance.getCurrentUserRoles(.init(threadId: 318964)) { resposne in
             if let userRoles = resposne.result as? [Roles]{
                 print(userRoles)
             }

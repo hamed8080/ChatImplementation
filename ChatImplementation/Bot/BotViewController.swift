@@ -18,7 +18,7 @@ class BotViewController: UIViewController {
     }
 	
 	@IBAction func btnCreateBotTaped(_ sender: UIButton) {
-		Chat.sharedInstance.request(.CreateBot(botName: botName)) { resposne in
+		Chat.sharedInstance.createBot(.init(botName: botName)) { resposne in
 			if let bot = resposne.result as? Bot{
 				print(bot)
 			}
@@ -36,7 +36,7 @@ class BotViewController: UIViewController {
 	
 	@IBAction func btnCreateBotCommandTaped(_ sender: UIButton) {
 		let commands = ["/command1","/command1"]
-		Chat.sharedInstance.request(.CreateBotCommand(req: .init(botName : botName ,commandList:commands) )) { resposne in
+		Chat.sharedInstance.createBotCommand(.init(botName : botName ,commandList:commands)) { resposne in
 			if let bot = resposne.result as? BotInfo{
 				print(bot)
 			}
@@ -54,9 +54,7 @@ class BotViewController: UIViewController {
 	}
 	
 	@IBAction func btnAddBotToThreadTaped(_ sender: UIButton) {
-		
-		let req = AddParticipantRequest(userName: botName)
-		Chat.sharedInstance.request(.AddParticipant(threadId:threadId , req: req)) { resposne in
+		Chat.sharedInstance.addParticipant( .init(userName: botName, threadId: threadId)) { resposne in
 			if let thread = resposne.result as? Conversation{
 				print(thread)
 			}
@@ -64,7 +62,7 @@ class BotViewController: UIViewController {
 	}
 	
 	@IBAction func btnStartBotTaped(_ sender: UIButton) {
-		Chat.sharedInstance.request(.StartBot(req: .init(botName: botName, threadId: threadId))) { resposne in
+		Chat.sharedInstance.startBot(.init(botName: botName, threadId: threadId)) { resposne in
 			if let botName = resposne.result as? String{
 				print(botName)
 			}
@@ -84,7 +82,7 @@ class BotViewController: UIViewController {
 	}
 	
 	@IBAction func btnStopBotTaped(_ sender: UIButton) {
-		Chat.sharedInstance.request(.StopBot(req: .init(botName: botName, threadId: threadId))) { resposne in
+		Chat.sharedInstance.stopBot(.init(botName: botName, threadId: threadId)) { resposne in
 			if let botName = resposne.result as? String{
 				print(botName)
 			}

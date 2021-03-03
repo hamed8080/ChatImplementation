@@ -16,7 +16,7 @@ class UserViewController : UIViewController{
 	}
 
 	@IBAction func btnGetUserInfoTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.UserInfo) { response in
+		Chat.sharedInstance.getUserInfo(.init()) { response in
 			if let user = response.result as? User{
 				print(user)
 			}
@@ -34,8 +34,7 @@ class UserViewController : UIViewController{
 	}
 	
 	@IBAction func btnSetProfileTaped(_ button:UIButton) {
-		let req = UpdateChatProfileRequest(bio: "my awesome bio")
-		Chat.sharedInstance.request(.SetProfile(req: req)) { response in
+		Chat.sharedInstance.setProfile(.init(bio:"my awesome bio")) { response in
 			if let profile = response.result as? Profile{
 				print(profile)
 			}
@@ -53,7 +52,7 @@ class UserViewController : UIViewController{
 	
 	
 	@IBAction func btnSendStatusPingTaped(_ button:UIButton) {
-		Chat.sharedInstance.request(.SendStatusPing(req: .init(statusType: .CHAT, threadId: 325183))) { response in
+		Chat.sharedInstance.sendStatusPing(.init(statusType: .CHAT, threadId: 325183)) { response in
 			if let profile = response.result as? Profile{
 				print(profile)
 			}
