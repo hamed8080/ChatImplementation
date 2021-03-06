@@ -17,10 +17,8 @@ class ContactsViewController: UIViewController {
 	
     @IBAction func btnGetContactsTaped(_ sender: UIButton) {
         
-        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0)) { response , error in
-            if let contacts = response{
-                print(contacts)
-            }
+        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 , query: "ha" )) { response , error in
+			print(response ?? "")
         } cacheResponse:  { response, error in
             print(response ?? "")
         } uniqueIdResult:{uniqueId in
@@ -35,12 +33,12 @@ class ContactsViewController: UIViewController {
 	
 	@IBAction func btnOldGetContactsTaped(_ sender: UIButton) {
 		let contactModel = GetContactsRequest(count: 10, offset: 0, query: nil, typeCode: nil, uniqueId: "myUniqueId" )
-		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: false) { (uniqueId) in
+		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: true) { (uniqueId) in
 			print(uniqueId)
 		} completion: { (result) in
 			print(result)
-		} cacheResponse: { (casheContactModel) in
-			print(casheContactModel)
+		} cacheResponse: { (cacheContactModel) in
+			print(cacheContactModel)
 		}
 	}
 	
