@@ -21,7 +21,7 @@
                                 <rect key="frame" x="8" y="60" width="412" height="816"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
-                                        <rect key="frame" x="0.0" y="0.0" width="412" height="752"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1008"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
                                                 <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
@@ -33,11 +33,11 @@
                                                             <constraint firstAttribute="height" constant="48" id="W7x-vp-zEa"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="PIN MESSAGE">
+                                                        <state key="normal" title="GET HISTORY">
                                                             <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="btnPinMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="DWA-Ax-gOn"/>
+                                                            <action selector="btnGetHistoryTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="iHu-fD-P68"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuG-R8-h4l">
@@ -47,17 +47,182 @@
                                                             <constraint firstAttribute="height" constant="48" id="hx1-1g-BVM"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="GET HISTORY - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnGetHistoryOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="npG-G2-Dqq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nNQ-tX-zXR">
+                                                <rect key="frame" x="0.0" y="64" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lr-FD-79X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="ahc-uI-j2M"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="SEND TEXT MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSendTextMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Ogb-oY-7mv"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmY-sF-jwC">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="BdP-t6-cM0"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <state key="normal" title="SEND TEXT MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSendTextMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="foP-Ao-TLy"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Rdh-XO-3cK">
+                                                <rect key="frame" x="0.0" y="128" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSS-A0-wqa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="mu2-cD-IWe"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="SEND FILE MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSendFileMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="oWv-he-PZK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBa-Qg-hLC">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="a9m-2n-9KE"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <state key="normal" title="SEND FILE MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSendFileMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="S16-9g-W2G"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="O0g-gg-lAU">
+                                                <rect key="frame" x="0.0" y="192" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-y3-Cfq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="5Qv-HX-rOv"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="EDIT MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnEditMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="hlj-k2-YuV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ooc-GQ-HJz">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="dEn-8T-h8w"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <state key="normal" title="EDIT MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnEditMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="jlN-Ha-IIu"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-w5-2tf">
+                                                <rect key="frame" x="0.0" y="256" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZm-ec-aBd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="IH6-Ch-f45"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="FORWARD MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnForwardMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="MvU-Zq-NMu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqc-2V-iQV">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="Ch1-sp-hKN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <state key="normal" title="FORWARD MESSAGE - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnForwardMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="6Ca-uq-CpN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dBH-XN-EIv">
+                                                <rect key="frame" x="0.0" y="320" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3u-Kj-ZAG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="RgE-QM-XK1"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="PIN MESSAGE">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnPinMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="2cd-eu-Co8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqX-KF-DMO">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="rki-df-yPr"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <state key="normal" title="PIN MESSAGE - OLD">
                                                             <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="btnPinMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="hde-yr-Y1X"/>
+                                                            <action selector="btnPinMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="6Nu-fj-Uc2"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aSc-ly-q9t">
-                                                <rect key="frame" x="0.0" y="64" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="384" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyM-QB-Fpy">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -90,7 +255,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZhC-Uu-Nkw">
-                                                <rect key="frame" x="0.0" y="128" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="448" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jz-kx-nDW">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -123,7 +288,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="K7h-GV-Keq">
-                                                <rect key="frame" x="0.0" y="192" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="512" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27Q-6g-GGE">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -156,7 +321,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Ng-Lz-WwH">
-                                                <rect key="frame" x="0.0" y="256" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="576" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0O-MP-Mo7">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -189,7 +354,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7ag-F0-lDb">
-                                                <rect key="frame" x="0.0" y="320" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="640" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlS-Es-Ofr">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -222,7 +387,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mz4-bf-PPm">
-                                                <rect key="frame" x="0.0" y="384" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="704" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZw-2L-vb9">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -255,7 +420,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3G-hq-i06">
-                                                <rect key="frame" x="0.0" y="448" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="768" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wE7-Ml-6CJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -288,7 +453,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xLG-0E-TMP">
-                                                <rect key="frame" x="0.0" y="512" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="832" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhC-5X-6Tz">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -321,7 +486,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="K0X-HJ-fPQ">
-                                                <rect key="frame" x="0.0" y="576" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="896" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCs-Ja-Oga">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -354,7 +519,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-0y-KCd">
-                                                <rect key="frame" x="0.0" y="640" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="960" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9R5-91-Y82">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -386,39 +551,6 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nNQ-tX-zXR">
-                                                <rect key="frame" x="0.0" y="704" width="412" height="48"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lr-FD-79X">
-                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
-                                                        <color key="backgroundColor" name="AccentColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="ahc-uI-j2M"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="SEND TEXT MESSAGE">
-                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="btnSendTextMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Ogb-oY-7mv"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmY-sF-jwC">
-                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
-                                                        <color key="backgroundColor" name="AccentColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="BdP-t6-cM0"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                        <state key="normal" title="SEND TEXT MESSAGE - OLD">
-                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="btnSendTextMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="foP-Ao-TLy"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -445,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngr-bg-2W9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82" y="181"/>
+            <point key="canvasLocation" x="-219" y="93"/>
         </scene>
     </scenes>
     <resources>

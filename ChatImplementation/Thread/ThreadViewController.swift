@@ -17,10 +17,10 @@ class ThreadViewController : UIViewController{
 
 	@IBAction func btnGetThreadsTaped(_ button:UIButton) {
         Chat.sharedInstance.getThreads(.init()) { response , error in
-			if let conversations = response{
-				print(conversations)
-			}
-		}
+            print(response ?? "")
+        }cacheResponse: { threads, error in
+            print(threads ?? "")
+        }
 	}
 	
 	@IBAction func btnGetThreadsOldTaped(_ button:UIButton) {
@@ -158,7 +158,10 @@ class ThreadViewController : UIViewController{
 									  metadata: "",
 									  title: "test",
 									  type: .NORMAL,
-									  uniqueName: "TEST PUBLIC GROUP IOS APP")
+									  uniqueName: "TEST PUBLIC GROUP IOS APP",
+                                      typeCode: nil,
+                                      uniqueId: nil
+                                      )
 		Chat.sharedInstance.createThread(inputModel: req) { uniqueId in
 			print(uniqueId)
 		} completion: { response in
@@ -187,7 +190,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnRemoveParticipantToThreadTaped(_ button:UIButton) {
-		Chat.sharedInstance.removeParticipant(.init(participantId: 126255, threadId: 318964)) { response , error in
+		Chat.sharedInstance.removeParticipants(.init(participantId: 126255, threadId: 318964)) { response , error in
             print(response ?? "")
 		}
 	}
@@ -236,7 +239,7 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnUpdateThreadInfoTaped(_ button:UIButton) {
-        let req = NewUpdateThreadInfoRequest(threadId: 318964, title: "")
+        let req = NewUpdateThreadInfoRequest(threadId: 318964, title: "Channel nmae update ")
 		Chat.sharedInstance.updateThreadInfo(req) { progress in
 			print(progress)
 		} completion: { response , error in
@@ -250,16 +253,16 @@ class ThreadViewController : UIViewController{
     
     @IBAction func btnCreateThreadWithMessageTaped(_ button:UIButton) {
         let invites:[Invitee] = [
-            Invitee(id: "ma.amjadi", idType: .TO_BE_USER_USERNAME)
+            Invitee(id: "s.khobbakht", idType: .TO_BE_USER_USERNAME)
         ]
-        let threadMessage = CreateThreadMessage(text: "Hello", messageType: .TEXT)
+        let threadMessage = CreateThreadMessage(text: "CREATE THREAD WITH MESSAGE TEXT 2", messageType: .TEXT)
         let req = CreateThreadWithMessage(description: "خودت رو به خودت ثابت کن نه به دیگران",
                                           image: "http://www.careerbased.com/themes/comb/img/avatar/default-avatar-male_14.png",
                                           invitees: invites,
                                           metadata: "",
                                           title: "Thread with message",
                                           type: .NORMAL,
-                                          uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_THREAD_WITH_MESSAGE",
+                                          uniqueName: nil,
                                           message: threadMessage)
 		
 		Chat.sharedInstance.createThreadWithMessage(req) { uniqueId in
@@ -286,7 +289,10 @@ class ThreadViewController : UIViewController{
                                           metadata: "",
                                           title: "Thread with message",
                                           type: .NORMAL,
-                                          uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_THREAD_WITH_MESSAGE")
+                                          uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_THREAD_WITH_MESSAGE",
+                                          typeCode: nil,
+                                          uniqueId: nil
+                                          )
         let req = CreateThreadWithMessageRequest(createThreadInput: createThreadReq, sendMessageInput: threadMessage)
         Chat.sharedInstance.createThreadWithMessage(inputModel: req) { uniqueId in
             print(uniqueId)
@@ -305,7 +311,7 @@ class ThreadViewController : UIViewController{
     }
     
     @IBAction func btnLeaveThreadTaped(_ button:UIButton) {
-        Chat.sharedInstance.leaveThread(.init(threadId: 325183, clearHistory: true)) { resposne , error in
+        Chat.sharedInstance.leaveThread(.init(threadId: 318964, clearHistory: true)) { resposne , error in
             print(resposne ?? "")
         }
     }
@@ -322,7 +328,9 @@ class ThreadViewController : UIViewController{
 	@IBAction func btnThreadParticipantsTaped(_ button:UIButton) {
 		Chat.sharedInstance.getThreadParticipants(.init(threadId: 318964)) { resposne , error in
 			print(resposne ?? "")
-		}
+        }cacheResponse: { participants , error in
+            print(participants ?? "")
+        }
 	}
 	
 	@IBAction func btnThreadParticipantsOldTaped(_ button:UIButton) {
@@ -344,6 +352,8 @@ class ThreadViewController : UIViewController{
     @IBAction func btnCurrentUserRolesTaped(_ button:UIButton) {
 		Chat.sharedInstance.getCurrentUserRoles(.init(threadId: 318964)) { resposne , error in
             print(resposne ?? "")
+        }cacheResponse: { roles, error in
+            print(roles ?? "")
         }
     }
     

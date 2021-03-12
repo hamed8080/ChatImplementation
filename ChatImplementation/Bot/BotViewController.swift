@@ -24,7 +24,7 @@ class BotViewController: UIViewController {
 	}
 	
 	@IBAction func btnCreateBotOldTaped(_ sender: UIButton) {
-		let req = CreateBotRequest(botName: botName)
+		let req = CreateBotRequest(botName: botName , typeCode: nil, uniqueId: nil)
 		Chat.sharedInstance.createBot(inputModel: req) { uniqueId in
 			print(uniqueId)
 		} completion: { response in

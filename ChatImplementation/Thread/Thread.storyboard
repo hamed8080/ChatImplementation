@@ -21,7 +21,7 @@
                                 <rect key="frame" x="8" y="60" width="412" height="816"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
-                                        <rect key="frame" x="0.0" y="0.0" width="412" height="944"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1008"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
                                                 <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
@@ -515,6 +515,37 @@
                                                         <connections>
                                                             <action selector="btnCurrentUserRolesOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Mzu-UE-Vdd"/>
                                                         </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-BE-aXZ">
+                                                <rect key="frame" x="0.0" y="960" width="412" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="383-Dy-Xd7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="1b1-nz-DqG"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="UPDATE THREAD INFO">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnUpdateThreadInfoOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="29O-bx-v4X"/>
+                                                            <action selector="btnUpdateThreadInfoTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="g0E-xB-tXf"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdq-iG-f60">
+                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="Bfl-ql-8aO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" title="UPDATE THREAD INFO - OLD">
+                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        </state>
                                                     </button>
                                                 </subviews>
                                             </stackView>

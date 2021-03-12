@@ -18,7 +18,9 @@ class UserViewController : UIViewController{
 	@IBAction func btnGetUserInfoTaped(_ button:UIButton) {
 		Chat.sharedInstance.getUserInfo(.init()) { response , error in
             print(response ?? "")
-		}
+        }cacheResponse: { user, error in
+            print(user ?? "")
+        }
 	}
 	
 	@IBAction func btnGetUserInfoOldTaped(_ button:UIButton) {

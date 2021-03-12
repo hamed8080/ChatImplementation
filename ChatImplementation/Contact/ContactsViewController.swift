@@ -44,11 +44,12 @@ class ContactsViewController: UIViewController {
 	
 	
 	@IBAction func btnAddNewContactsTaped(_ sender: UIButton) {
-		let nthContact = 13
-        let req = AddContactRequest(cellphoneNumber: "",
+		let nthContact = 20
+        let req = NewAddContactRequest(cellphoneNumber: "",
                         email: "testhamed\(nthContact)@gmail.com",
                         firstName: "testnew\(nthContact)",
-                        lastName: "tessfamily\(nthContact)")
+                        lastName: "tessfamily\(nthContact)"
+        )
         Chat.sharedInstance.addContact(req) { response , error in
             print(response ?? "")
         }
@@ -59,8 +60,10 @@ class ContactsViewController: UIViewController {
 		let contactModel = AddContactRequest(cellphoneNumber: "09125956063",
 											 email: "test\(nthContact)@gmail.com",
 											 firstName: "firstName\(nthContact) oldmethod",
-											 lastName: "family\(nthContact)",
-											 typeCode: nil ,uniqueId: nil)
+                                             lastName: "family\(nthContact)",
+                                             ownerId: nil,
+											 typeCode: nil ,
+                                             uniqueId: nil)
 		Chat.sharedInstance.addContact(inputModel: contactModel) { (uniqueId) in
 			print(uniqueId)
 		} completion: { (result) in
@@ -72,16 +75,14 @@ class ContactsViewController: UIViewController {
 	@IBAction func btnAddBatchContactsTaped(_ sender: UIButton) {
 		let nthContact1 = 12
 		let nthContact2 = 13
-		let contact1 = AddContactRequest(cellphoneNumber: "0912595606\(nthContact1)",
+		let contact1 = NewAddContactRequest(cellphoneNumber: "0912595606\(nthContact1)",
 										 email: "test\(nthContact1)gmail.com",
 										 firstName: "firstName\(nthContact1) oldmethod",
-										 lastName: "family\(nthContact1)",
-										 typeCode: nil ,uniqueId: nil)
-		let contact2 = AddContactRequest(cellphoneNumber: "0912595606\(nthContact2)",
+										 lastName: "family\(nthContact1)")
+		let contact2 = NewAddContactRequest(cellphoneNumber: "0912595606\(nthContact2)",
 										 email: "test\(nthContact2)@gmail.com",
 										 firstName: "firstName\(nthContact2) oldmethod",
-										 lastName: "family\(nthContact2)",
-										 typeCode: nil ,uniqueId: nil)
+										 lastName: "family\(nthContact2)")
 		
         
         Chat.sharedInstance.addContacts([contact1  ,contact2]) { response , error in
@@ -237,7 +238,8 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnUnBlockContactOldTaped(_ sender: UIButton){
-		Chat.sharedInstance.unblockContact(inputModel: .init(contactId: 23043316)) { result in
+        let req = UnblockRequest(blockId: nil, contactId: 23043316, threadId: nil, userId: nil, typeCode: nil, uniqueId: nil)
+        Chat.sharedInstance.unblockContact(inputModel: req ) { result in
 			print(result)
 		} completion: { result in
 			print(result)

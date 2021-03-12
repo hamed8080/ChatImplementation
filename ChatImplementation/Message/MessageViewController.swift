@@ -11,13 +11,68 @@ import FanapPodChatSDK
 
 class MessageViewController : UIViewController{
     
-    private let messageId    = 1359279
+    private let messageId    = 1400525
     private let threadId     = 274540
     private let ownerId      = 3637251
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
+    
+    @IBAction func btnGetHistoryTaped(_ button:UIButton) {
+        let req = NewGetHistoryRequest(threadId: threadId)
+        Chat.sharedInstance.getHistory(req){ response , error in
+            print(response ?? "")
+        }cacheResponse: { messages , error in
+            print(messages ?? "")
+        }textMessageNotSentRequests: { requests, error in
+            print(requests ?? "")
+        }editMessageNotSentRequests: { requests, error in
+            print(requests ?? "")
+        }forwardMessageNotSentRequests: { requests, error in
+            print(requests ?? "")
+        }uniqueIdResult: { uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnGetHistoryOldTaped(_ button:UIButton) {
+        let req = GetHistoryRequest(count: 50,
+                                    fromTime: nil,
+                                    fromTimeNanos: nil,
+                                    messageId: nil,
+                                    messageType: nil,
+                                    metadataCriteria: nil,
+                                    offset: 0,
+                                    order: nil,
+                                    query: nil,
+                                    threadId: threadId,
+                                    toTime: nil,
+                                    toTimeNanos: nil,
+                                    uniqueIds: nil,
+                                    userId: nil,
+                                    typeCode: nil,
+                                    uniqueId: nil)
+        Chat.sharedInstance.getHistory(inputModel: req, getCacheResponse: false) { uniqueId in
+            print(uniqueId)
+        } completion: { response in
+            print(response)
+        } cacheResponse: { response in
+            print(response)
+        } textMessagesNotSent: { response in
+            print(response)
+        } editMessagesNotSent: { response in
+            print(response)
+        } forwardMessagesNotSent: { response in
+            print(response)
+        } fileMessagesNotSent: { response in
+            print(response)
+        } uploadImageNotSent: { response in
+            print(response)
+        } uploadFileNotSent: { response in
+            print(response)
+        }
+    }
 
 	@IBAction func btnPinMessageTaped(_ button:UIButton) {
         Chat.sharedInstance.pinMessage(.init(messageId: messageId)) { response , error in
@@ -50,7 +105,7 @@ class MessageViewController : UIViewController{
     }
     
     @IBAction func btnClearHistoryTaped(_ button:UIButton) {
-		Chat.sharedInstance.clearHistory(.init(threadId:threadId)) { threadId , error in
+        Chat.sharedInstance.clearHistory(.init(threadId:threadId)) { threadId , error in
             print(threadId ?? "")
         }
     }
@@ -65,7 +120,7 @@ class MessageViewController : UIViewController{
     }
     
     @IBAction func btnDeleteMessageTaped(_ button:UIButton) {
-        Chat.sharedInstance.deleteMessage(.init(deleteForAll: true, messageId:messageId)) { response , error in
+        Chat.sharedInstance.deleteMessage(.init(deleteForAll: true, messageId:1396810)) { response , error in
             print(response ?? "")
         }
     }
@@ -80,7 +135,7 @@ class MessageViewController : UIViewController{
     }
 	
 	@IBAction func btnBatchDeleteMessageTaped(_ button:UIButton) {
-		Chat.sharedInstance.batchDeleteMessage(.init(threadId: threadId, messageIds: [1358571,1358570])) { response , error in
+		Chat.sharedInstance.batchDeleteMessage(.init(threadId: threadId, messageIds: [1396895,1396894,1396893])) { response , error in
             print(response ?? "")
 		}
 	}
@@ -98,7 +153,9 @@ class MessageViewController : UIViewController{
 	@IBAction func btnGetAllUnreadMessageCountTaped(_ button:UIButton) {
 		Chat.sharedInstance.allUnreadMessageCount(.init(countMutedThreads: true)) { unreadCount , error in
 			print(unreadCount ?? "")
-		}
+        }cacheResponse: { allUnreadCount, error in
+            print(allUnreadCount ?? "")
+        }
 	}
 	
 	@IBAction func btnGetAllUnreadMessageCountOldTaped(_ button:UIButton) {
@@ -114,8 +171,10 @@ class MessageViewController : UIViewController{
 	
 	@IBAction func btnGetMentionedTaped(_ button:UIButton) {
 		Chat.sharedInstance.getMentions(.init(threadId: threadId, onlyUnreadMention: false)) { response , error in
-			print(response ?? "")
-		}
+            print(response ?? "")
+        } cacheResponse: { mentions, error in
+            print(mentions ?? "")
+        }
 	}
 	
 	@IBAction func btnGetMentionedOldTaped(_ button:UIButton) {
@@ -207,6 +266,94 @@ class MessageViewController : UIViewController{
         } onSeen: { result in
             print(result)
         }
-
+    }
+    
+    @IBAction func btnEditMessageTaped(_ button:UIButton) {
+        let req = NewEditMessageRequest(threadId: threadId, messageType: .TEXT ,messageId: messageId, textMessage: "Edited Text Meessage 2")
+        Chat.sharedInstance.editMessage(req) { message, error in
+            print(message ?? "")
+        }
+    }
+    
+    @IBAction func btnEditMessageOldTaped(_ button:UIButton) {
+        let req = EditTextMessageRequest(messageType: .TEXT,
+                               repliedTo: nil,
+                               messageId: messageId,
+                               textMessage: "Edited text",
+                               typeCode: nil,
+                               uniqueId: nil)
+        Chat.sharedInstance.editMessage(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } completion: { response in
+            print(response)
+        }
+    }
+    
+    @IBAction func btnForwardMessageTaped(_ button:UIButton) {
+        let req = NewForwardMessageRequest(threadId: threadId, messageIds: [1398375,1398253])
+        Chat.sharedInstance.forwardMessages(req) { sentResponse, error in
+            print(sentResponse ?? "")
+        } onSeen: { seenResponse, error in
+            print(seenResponse ?? "")
+        } onDeliver: { deliverResponse, error in
+            print(deliverResponse ?? "")
+        } uniqueIdsrResult: { uniqueIds in
+            print(uniqueIds)
+        }
+    }
+    
+    @IBAction func btnForwardMessageOldTaped(_ button:UIButton) {
+        let req = ForwardMessageRequest(messageIds: [1398375,1398253],
+                                        metadata: nil,
+                                        repliedTo: nil,
+                                        threadId: threadId,
+                                        typeCode: nil)
+        Chat.sharedInstance.forwardMessage(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } onSent: { response in
+            print(response)
+        } onDelivere: { response in
+            print(response)
+        } onSeen: { response in
+            print(response)
+        }
+    }
+    
+    @IBAction func btnSendFileMessageTaped(_ button:UIButton) {
+        
+    }
+    
+    @IBAction func btnSendFileMessageOldTaped(_ button:UIButton) {
+        guard let path = Bundle.main.path(forResource: "test", ofType: "txt"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else{return}
+        let textRequest = SendTextMessageRequest(content: "check this file message",
+                                                 messageType: .POD_SPACE_FILE,
+                                                 metadata: nil,
+                                                 repliedTo: nil,
+                                                 systemMetadata: nil,
+                                                 threadId: threadId,
+                                                 typeCode: nil,
+                                                 uniqueId: nil)
+        let uploadrequest = UploadFileRequest(dataToSend: data,
+                                              fileExtension: nil,
+                                              fileName: "test",
+                                              mimeType: nil,
+                                              originalName: nil,
+                                              userGroupHash: "RZFAGPKJEOWQIR",
+                                              typeCode: nil,
+                                              uniqueId: nil)
+        let req = SendReplyFileMessageRequest(messageInput: textRequest, uploadInput: uploadrequest)
+        Chat.sharedInstance.sendFileMessage(inputModel: req) { uploadUniqueId in
+            print(uploadUniqueId)
+        } uploadProgress: { progress in
+            print(progress)
+        } messageUniqueId: { uniqueId in
+            print(uniqueId)
+        } onSent: { response in
+            print(response)
+        } onDelivered: { response in
+            print(response)
+        } onSeen: { response in
+            print(response)
+        }
     }
 }
