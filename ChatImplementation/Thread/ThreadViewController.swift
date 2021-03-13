@@ -248,7 +248,22 @@ class ThreadViewController : UIViewController{
 	}
 	
 	@IBAction func btnUpdateThreadInfoOldTaped(_ button:UIButton) {
-    
+		let req = UpdateThreadInfoRequest(description: nil,
+										  metadata: nil,
+										  threadId: 318964,
+										  threadImage: nil,
+										  title: "Channel nmae update old",
+										  typeCode: nil,
+										  uniqueId: nil)
+			Chat.sharedInstance.updateThreadInfo(inputModel: req) { uploadUniqueId in
+				print(uploadUniqueId)
+			} uploadProgress: { progress in
+				print(progress)
+			} uniqueId: { uniqueId in
+				print(uniqueId)
+			} completion: { response in
+				print(response)
+			}
 	}
     
     @IBAction func btnCreateThreadWithMessageTaped(_ button:UIButton) {

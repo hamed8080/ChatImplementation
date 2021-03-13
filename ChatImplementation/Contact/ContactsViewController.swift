@@ -124,7 +124,7 @@ class ContactsViewController: UIViewController {
 	}
     
     @IBAction func btnRemoveContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.removeContact(.init(contactId: 25391200, typeCode: "defualt")) { deleted , error in
+		Chat.sharedInstance.removeContact(.init(contactId: 25391188)) { deleted , error in
 			if deleted == true{
 				print("deleted")
 			}

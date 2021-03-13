@@ -135,7 +135,7 @@ class MessageViewController : UIViewController{
     }
 	
 	@IBAction func btnBatchDeleteMessageTaped(_ button:UIButton) {
-		Chat.sharedInstance.batchDeleteMessage(.init(threadId: threadId, messageIds: [1396895,1396894,1396893])) { response , error in
+		Chat.sharedInstance.deleteMultipleMessages(.init(threadId: threadId, messageIds: [1396895,1396894,1396893])) { response , error in
             print(response ?? "")
 		}
 	}

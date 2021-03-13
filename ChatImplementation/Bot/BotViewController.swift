@@ -34,7 +34,7 @@ class BotViewController: UIViewController {
 	
 	@IBAction func btnCreateBotCommandTaped(_ sender: UIButton) {
 		let commands = ["/command1","/command1"]
-		Chat.sharedInstance.createBotCommand(.init(botName : botName ,commandList:commands)) { resposne , error in
+		Chat.sharedInstance.addBotCommand(.init(botName : botName ,commandList:commands)) { resposne , error in
             print(resposne ?? "")
 		}
 	}
