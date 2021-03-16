@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 import FanapPodChatSDK
+import SwiftyJSON
 
 class MessageViewController : UIViewController{
     
-    private let messageId    = 1400525
+    private let messageId    = 1417633
     private let threadId     = 274540
     private let ownerId      = 3637251
 	
@@ -21,7 +22,7 @@ class MessageViewController : UIViewController{
     
     @IBAction func btnGetHistoryTaped(_ button:UIButton) {
         let req = NewGetHistoryRequest(threadId: threadId)
-        Chat.sharedInstance.getHistory(req){ response , error in
+        Chat.sharedInstance.getHistory(req){ response , pagination , error in
             print(response ?? "")
         }cacheResponse: { messages , error in
             print(messages ?? "")
@@ -120,7 +121,7 @@ class MessageViewController : UIViewController{
     }
     
     @IBAction func btnDeleteMessageTaped(_ button:UIButton) {
-        Chat.sharedInstance.deleteMessage(.init(deleteForAll: true, messageId:1396810)) { response , error in
+        Chat.sharedInstance.deleteMessage(.init(deleteForAll: true, messageId:messageId)) { response , error in
             print(response ?? "")
         }
     }
@@ -170,9 +171,9 @@ class MessageViewController : UIViewController{
 	}
 	
 	@IBAction func btnGetMentionedTaped(_ button:UIButton) {
-		Chat.sharedInstance.getMentions(.init(threadId: threadId, onlyUnreadMention: false)) { response , error in
+		Chat.sharedInstance.getMentions(.init(threadId: threadId, onlyUnreadMention: false)) { response , pagination , error in
             print(response ?? "")
-        } cacheResponse: { mentions, error in
+        } cacheResponse: { mentions, pagination , error in
             print(mentions ?? "")
         }
 	}
@@ -189,7 +190,7 @@ class MessageViewController : UIViewController{
 	}
 	
 	@IBAction func btnGetMessageDeliveredUserTaped(_ button:UIButton) {
-		Chat.sharedInstance.messageDeliveryParticipants(.init(messageId:messageId)) { response , error in
+		Chat.sharedInstance.messageDeliveryParticipants(.init(messageId:messageId)) { response , pagination , error in
 			print(response ?? "")
 		}
 	}
@@ -204,7 +205,7 @@ class MessageViewController : UIViewController{
 	}
 	
 	@IBAction func btnGetMessageSeenByUsersTaped(_ button:UIButton) {
-		Chat.sharedInstance.messageSeenByUsers(.init(messageId:messageId)) { response , error in
+		Chat.sharedInstance.messageSeenByUsers(.init(messageId:messageId)) { response , pagination , error in
 			 print(response ?? "")
 		}
 	}
@@ -347,6 +348,66 @@ class MessageViewController : UIViewController{
         } uploadProgress: { progress in
             print(progress)
         } messageUniqueId: { uniqueId in
+            print(uniqueId)
+        } onSent: { response in
+            print(response)
+        } onDelivered: { response in
+            print(response)
+        } onSeen: { response in
+            print(response)
+        }
+        
+        
+    }
+    
+    @IBAction func btnSendLocationMessageTaped(_ button:UIButton) {
+        
+    }
+    
+    @IBAction func btnSendLocationMessageOldTaped(_ button:UIButton) {
+        let req = SendLocationMessageRequest(mapCenter: (35.660400, 51.487376),
+                                             mapHeight: 480,
+                                             mapType: "standard-night",
+                                             mapWidth: 640,
+                                             mapZoom: 14,
+                                             mapImageName: "staticLocationPic",
+                                             repliedTo: nil,
+                                             systemMetadata: nil,
+                                             textMessage: "come here!",
+                                             threadId: threadId,
+                                             userGroupHash: "RZFAGPKJEOWQIR",
+                                             typeCode: nil,
+                                             uniqueId: nil)
+        Chat.sharedInstance.sendLocationMessage(inputModel: req) { downloadProgress in
+            print(downloadProgress)
+        } uploadUniqueId: { uniqueId in
+            print(uniqueId)
+        } uploadProgress: { uploadProgress in
+            print(uploadProgress)
+        } messageUniqueId: { messageUniqueId in
+            print(messageUniqueId)
+        } onSent: { response in
+            print(response)
+        } onDelivere: { response in
+            print(response)
+        } onSeen: { response in
+            print(response)
+        }
+    }
+    
+    @IBAction func btnSendIntractiveMessageTaped(_ button:UIButton) {
+        
+    }
+    
+    @IBAction func btnSendIntractiveMessageOldTaped(_ button:UIButton) {
+        let metadata: JSON = ["id": 2341234123, "type": "BOT_MESSAGE", "owner": "Mahyar"]
+        let req = SendInteractiveMessageRequest(messageId: messageId,
+                                                metadata: metadata.stringValue,
+                                                systemMetadata: nil,
+                                                textMessage: "test intractive",
+                                                typeCode: nil,
+                                                uniqueId: nil)
+        Chat.sharedInstance.sendInteractiveMessage(inputModel: req) { uniqueId in
             print(uniqueId)
         } onSent: { response in
             print(response)

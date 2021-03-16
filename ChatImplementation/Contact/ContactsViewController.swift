@@ -17,9 +17,9 @@ class ContactsViewController: UIViewController {
 	
     @IBAction func btnGetContactsTaped(_ sender: UIButton) {
         
-        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 , query: "ha" )) { response , error in
+        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 , query: "ha" )) { response ,pagination, error in
 			print(response ?? "")
-        } cacheResponse:  { response, error in
+        } cacheResponse:  { response , pagination, error in
             print(response ?? "")
         } uniqueIdResult:{uniqueId in
             print(uniqueId)
@@ -73,13 +73,13 @@ class ContactsViewController: UIViewController {
 	
 	
 	@IBAction func btnAddBatchContactsTaped(_ sender: UIButton) {
-		let nthContact1 = 12
-		let nthContact2 = 13
-		let contact1 = NewAddContactRequest(cellphoneNumber: "0912595606\(nthContact1)",
+		let nthContact1 = 32
+		let nthContact2 = 33
+		let contact1 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact1)",
 										 email: "test\(nthContact1)gmail.com",
 										 firstName: "firstName\(nthContact1) oldmethod",
 										 lastName: "family\(nthContact1)")
-		let contact2 = NewAddContactRequest(cellphoneNumber: "0912595606\(nthContact2)",
+		let contact2 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact2)",
 										 email: "test\(nthContact2)@gmail.com",
 										 firstName: "firstName\(nthContact2) oldmethod",
 										 lastName: "family\(nthContact2)")
@@ -140,7 +140,7 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func btnSearchContactTaped(_ sender: UIButton){
-        Chat.sharedInstance.searchContacts(.init(query: "ha")) { response, error in
+        Chat.sharedInstance.searchContacts(.init(query: "ha")) { response,pagination, error in
             if let contacts = response {
                 print(contacts)
             }
@@ -248,7 +248,7 @@ class ContactsViewController: UIViewController {
 	
 	@IBAction func btnBlockedContactsTaped(_ sender: UIButton){
 
-        Chat.sharedInstance.getBlockedContacts(.init(count: 50, offset: 0)) { response ,error in
+        Chat.sharedInstance.getBlockedContacts(.init(count: 50, offset: 0)) { response , pagination ,error in
             if let blockedUser  = response{
                 print(blockedUser)
             }

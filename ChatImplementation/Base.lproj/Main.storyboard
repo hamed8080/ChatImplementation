@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -18,10 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I8Y-2G-jeW">
-                                <rect key="frame" x="8" y="60" width="398" height="176"/>
+                                <rect key="frame" x="8" y="60" width="398" height="240"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xQL-XK-rFg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDn-ZF-ND3">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="eZK-Gi-fWg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="SET NEW TOKEN">
+                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Rb4-iX-xss" kind="show" id="AYk-et-PiR"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xQL-XK-rFg">
+                                        <rect key="frame" x="0.0" y="64" width="398" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlu-tL-P9v">
                                                 <rect key="frame" x="0.0" y="0.0" width="195" height="48"/>
@@ -54,7 +69,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-dO-1by">
-                                        <rect key="frame" x="0.0" y="64" width="398" height="48"/>
+                                        <rect key="frame" x="0.0" y="128" width="398" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbH-QB-vr1">
                                                 <rect key="frame" x="0.0" y="0.0" width="195" height="48"/>
@@ -87,7 +102,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BUB-ih-hpJ">
-                                        <rect key="frame" x="0.0" y="128" width="398" height="48"/>
+                                        <rect key="frame" x="0.0" y="192" width="398" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7D-L6-6iT">
                                                 <rect key="frame" x="0.0" y="0.0" width="195" height="48"/>
@@ -140,11 +155,11 @@
             <objects>
                 <viewController storyboardIdentifier="UpdateTokenController" id="Rb4-iX-xss" customClass="UpdateTokenViewController" customModule="ChatImplementation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lvZ-sv-p1D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hQr-gi-h9D">
-                                <rect key="frame" x="8" y="60" width="398" height="142.5"/>
+                                <rect key="frame" x="8" y="16" width="398" height="142.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="INSERT NEW TOKEN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KL7-UC-o1Z">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
@@ -184,6 +199,7 @@
                             <constraint firstItem="hQr-gi-h9D" firstAttribute="top" secondItem="ex8-rZ-fcJ" secondAttribute="top" constant="16" id="sIV-s1-mrC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="obD-K5-beh"/>
                     <connections>
                         <outlet property="tfNewToken" destination="KL7-UC-o1Z" id="rx7-mo-0g0"/>
                         <outlet property="txtTokenExpired" destination="jwJ-ev-6ve" id="TOU-tC-uRy"/>
