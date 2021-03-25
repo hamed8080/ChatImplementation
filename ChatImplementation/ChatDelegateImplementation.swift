@@ -37,7 +37,8 @@ class ChatDelegateImplementation: ChatDelegates {
 														   platformHost: platformHost,
 														   fileServer: fileServer,
                                                            enableCache: true,
-														   reconnectOnClose: true
+														   reconnectOnClose: true,
+                                                           isDebuggingLogEnabled: false
 		))
 		
 //        Chat.sharedInstance.createChatObject(socketAddress:             "String",
