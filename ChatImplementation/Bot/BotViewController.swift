@@ -18,7 +18,7 @@ class BotViewController: UIViewController {
     }
 	
 	@IBAction func btnCreateBotTaped(_ sender: UIButton) {
-		Chat.sharedInstance.createBot(.init(botName: botName)) { resposne , error in
+		Chat.sharedInstance.createBot(.init(botName: botName)) { resposne , uniqueId , error in
             print(resposne ?? "")
 		}
 	}
@@ -34,7 +34,7 @@ class BotViewController: UIViewController {
 	
 	@IBAction func btnCreateBotCommandTaped(_ sender: UIButton) {
 		let commands = ["/command1","/command1"]
-		Chat.sharedInstance.addBotCommand(.init(botName : botName ,commandList:commands)) { resposne , error in
+		Chat.sharedInstance.addBotCommand(.init(botName : botName ,commandList:commands)) { resposne, uniqueId  , error in
             print(resposne ?? "")
 		}
 	}
@@ -50,13 +50,13 @@ class BotViewController: UIViewController {
 	}
 	
 	@IBAction func btnAddBotToThreadTaped(_ sender: UIButton) {
-		Chat.sharedInstance.addParticipant( .init(userName: botName, threadId: threadId)) { resposne , error in
+		Chat.sharedInstance.addParticipant( .init(userName: botName, threadId: threadId)) { resposne, uniqueId  , error in
             print(resposne ?? "")
 		}
 	}
 	
 	@IBAction func btnStartBotTaped(_ sender: UIButton) {
-		Chat.sharedInstance.startBot(.init(botName: botName, threadId: threadId)) { botName , error in
+		Chat.sharedInstance.startBot(.init(botName: botName, threadId: threadId)) { botName, uniqueId  , error in
             print(botName ?? "")
 		}
 	}
@@ -74,7 +74,7 @@ class BotViewController: UIViewController {
 	}
 	
 	@IBAction func btnStopBotTaped(_ sender: UIButton) {
-        Chat.sharedInstance.stopBot(.init(botName: botName, threadId: threadId)) { botName , error in
+        Chat.sharedInstance.stopBot(.init(botName: botName, threadId: threadId)) { botName, uniqueId  , error in
             print(botName ?? "")
 		}
 	}

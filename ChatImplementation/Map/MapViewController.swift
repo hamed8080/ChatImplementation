@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
 	}
 
     @IBAction func btnReverseTaped( _ button :UIButton){
-		Chat.sharedInstance.mapReverse(.init(lat: 35.660399, lng: 51.487375)) { resposne ,error in
+		Chat.sharedInstance.mapReverse(.init(lat: 35.660399, lng: 51.487375)) { resposne, uniqueId ,error in
             print(resposne ?? "")
 		}
     }
@@ -32,7 +32,7 @@ class MapViewController: UIViewController {
     }
 	
     @IBAction func btnSearchNearTaped( _ button :UIButton){
-		Chat.sharedInstance.mapSearch(.init(lat: 35.660428, lng: 51.487299, term: "پاسارگاد")) { response , error in
+		Chat.sharedInstance.mapSearch(.init(lat: 35.660428, lng: 51.487299, term: "پاسارگاد")) { response, uniqueId , error in
             print(response ?? "")
 		}
     }
@@ -48,7 +48,7 @@ class MapViewController: UIViewController {
 	@IBAction func btnRoutingTaped( _ button :UIButton){
 		let origin = Cordinate(lat:35.660399 , lng:51.487375)
 		let destination = Cordinate(lat: 35.662984, lng: 51.468588)
-		Chat.sharedInstance.mapRouting(.init(alternative: true, origin: origin, destination: destination)) { response , error in
+		Chat.sharedInstance.mapRouting(.init(alternative: true, origin: origin, destination: destination)) { response, uniqueId , error in
             print(response ?? "")
 		}
 	}
@@ -66,7 +66,7 @@ class MapViewController: UIViewController {
     
 	
 	@IBAction func btnMapStaticImageTaped( _ button :UIButton){
-		Chat.sharedInstance.mapStaticImage(.init(centerLat: 35.660417,centerLng: 51.487187)) { response , error in
+		Chat.sharedInstance.mapStaticImage(.init(centerLat: 35.660417,centerLng: 51.487187)) { response, uniqueId , error in
 			if let data = response , let image = UIImage(data: data) {
 				self.imgStaticMapImage.image = image
 			}

@@ -17,9 +17,9 @@ class ContactsViewController: UIViewController {
 	
     @IBAction func btnGetContactsTaped(_ sender: UIButton) {
         
-        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 , query: "ha" )) { response ,pagination, error in
+        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 , query: "ha" )) { response, uniqueId ,pagination, error in
 			print(response ?? "")
-        } cacheResponse:  { response , pagination, error in
+        } cacheResponse:  { response, uniqueId , pagination, error in
             print(response ?? "")
         } uniqueIdResult:{uniqueId in
             print(uniqueId)
@@ -50,7 +50,7 @@ class ContactsViewController: UIViewController {
                         firstName: "testnew\(nthContact)",
                         lastName: "tessfamily\(nthContact)"
         )
-        Chat.sharedInstance.addContact(req) { response , error in
+        Chat.sharedInstance.addContact(req) { response, uniqueId , error in
             print(response ?? "")
         }
 	}
@@ -71,23 +71,23 @@ class ContactsViewController: UIViewController {
 		}
 	}
 	
-	
+	//not implemented new methods
 	@IBAction func btnAddBatchContactsTaped(_ sender: UIButton) {
-		let nthContact1 = 32
-		let nthContact2 = 33
-		let contact1 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact1)",
-										 email: "test\(nthContact1)gmail.com",
-										 firstName: "firstName\(nthContact1) oldmethod",
-										 lastName: "family\(nthContact1)")
-		let contact2 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact2)",
-										 email: "test\(nthContact2)@gmail.com",
-										 firstName: "firstName\(nthContact2) oldmethod",
-										 lastName: "family\(nthContact2)")
-		
-        
-        Chat.sharedInstance.addContacts([contact1  ,contact2]) { response , error in
-            print(response ?? "")
-        }
+//		let nthContact1 = 32
+//		let nthContact2 = 33
+//		let contact1 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact1)",
+//										 email: "test\(nthContact1)gmail.com",
+//										 firstName: "firstName\(nthContact1) oldmethod",
+//										 lastName: "family\(nthContact1)")
+//		let contact2 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact2)",
+//										 email: "test\(nthContact2)@gmail.com",
+//										 firstName: "firstName\(nthContact2) oldmethod",
+//										 lastName: "family\(nthContact2)")
+//
+//
+//        Chat.sharedInstance.addContacts([contact1  ,contact2]) { response , error in
+//            print(response ?? "")
+//        }
 	}
 	
 	@IBAction func btnAddBatchContactsOldTaped(_ sender: UIButton) {
@@ -110,7 +110,7 @@ class ContactsViewController: UIViewController {
 	
 	
 	@IBAction func btnNoSeenContactTaped(_ sender: UIButton){
-        Chat.sharedInstance.contactNotSeen(.init(userIds: [3661443])) { response , error in
+        Chat.sharedInstance.contactNotSeen(.init(userIds: [3661443])) { response, uniqueId , error in
             print(response ?? "" )
         }
     }
@@ -124,7 +124,7 @@ class ContactsViewController: UIViewController {
 	}
     
     @IBAction func btnRemoveContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.removeContact(.init(contactId: 25391188)) { deleted , error in
+		Chat.sharedInstance.removeContact(.init(contactId: 25391188)) { deleted, uniqueId , error in
 			if deleted == true{
 				print("deleted")
 			}
@@ -140,7 +140,7 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func btnSearchContactTaped(_ sender: UIButton){
-        Chat.sharedInstance.searchContacts(.init(query: "ha")) { response,pagination, error in
+        Chat.sharedInstance.searchContacts(.init(query: "ha")) { response, uniqueId ,pagination, error in
             if let contacts = response {
                 print(contacts)
             }
@@ -167,12 +167,13 @@ class ContactsViewController: UIViewController {
         }
     }
     
+    //not implemented new methods
     @IBAction func btnSyncContactsTaped(_ sender: UIButton){
-		Chat.sharedInstance.syncContacts() { response , error in
-			if let contacts = response{
-				print(contacts)
-			}
-		}
+//		Chat.sharedInstance.syncContacts() { response , error in
+//			if let contacts = response{
+//				print(contacts)
+//			}
+//		}
     }
     
     @IBAction func btnSyncContactsOldTaped(_ sender: UIButton){
@@ -190,7 +191,7 @@ class ContactsViewController: UIViewController {
                                                 id: 24420613,
                                                 lastName: "amjadi",
                                                 username: "ma.amjadi")
-		Chat.sharedInstance.updateContact(req) { response , error in
+		Chat.sharedInstance.updateContact(req) { response, uniqueId , error in
 			if let contacts = response {
 				print(contacts)
 			}
@@ -217,7 +218,7 @@ class ContactsViewController: UIViewController {
     }
 	
 	@IBAction func btnBlockContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.blockContact(.init(contactId: 23043316)) { response , error in
+		Chat.sharedInstance.blockContact(.init(contactId: 23043316)) { response, uniqueId , error in
             print(response ?? "")
 		}
 	}
@@ -232,7 +233,7 @@ class ContactsViewController: UIViewController {
 	}
 	
 	@IBAction func btnUnBlockContactTaped(_ sender: UIButton){
-		Chat.sharedInstance.unBlockContact(.init(contactId: 23043316)) { response , error in
+		Chat.sharedInstance.unBlockContact(.init(contactId: 23043316)) { response, uniqueId , error in
             print(response ?? "")
 		}
 	}
@@ -248,7 +249,7 @@ class ContactsViewController: UIViewController {
 	
 	@IBAction func btnBlockedContactsTaped(_ sender: UIButton){
 
-        Chat.sharedInstance.getBlockedContacts(.init(count: 50, offset: 0)) { response , pagination ,error in
+        Chat.sharedInstance.getBlockedContacts(.init(count: 50, offset: 0)) { response, uniqueId , pagination ,error in
             if let blockedUser  = response{
                 print(blockedUser)
             }

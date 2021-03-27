@@ -22,15 +22,15 @@ class MessageViewController : UIViewController{
     
     @IBAction func btnGetHistoryTaped(_ button:UIButton) {
         let req = NewGetHistoryRequest(threadId: threadId)
-        Chat.sharedInstance.getHistory(req){ response , pagination , error in
+        Chat.sharedInstance.getHistory(req){ response, uniqueId  , pagination , error in
             print(response ?? "")
-        }cacheResponse: { messages , error in
+        }cacheResponse: { messages, uniqueId  , error in
             print(messages ?? "")
-        }textMessageNotSentRequests: { requests, error in
+        }textMessageNotSentRequests: { requests, uniqueId , error in
             print(requests ?? "")
-        }editMessageNotSentRequests: { requests, error in
+        }editMessageNotSentRequests: { requests, uniqueId , error in
             print(requests ?? "")
-        }forwardMessageNotSentRequests: { requests, error in
+        }forwardMessageNotSentRequests: { requests, uniqueId , error in
             print(requests ?? "")
         }uniqueIdResult: { uniqueId in
             print(uniqueId)
@@ -76,7 +76,7 @@ class MessageViewController : UIViewController{
     }
 
 	@IBAction func btnPinMessageTaped(_ button:UIButton) {
-        Chat.sharedInstance.pinMessage(.init(messageId: messageId)) { response , error in
+        Chat.sharedInstance.pinMessage(.init(messageId: messageId)) { response, uniqueId , error in
 			print(response ?? "")
 		}
 	}
@@ -91,7 +91,7 @@ class MessageViewController : UIViewController{
 	}
     
     @IBAction func btnUnPinMessageTaped(_ button:UIButton) {
-        Chat.sharedInstance.unpinMessage(.init(messageId: messageId)) { response , error in
+        Chat.sharedInstance.unpinMessage(.init(messageId: messageId)) { response, uniqueId , error in
             print(response ?? "")
         }
     }
@@ -106,7 +106,7 @@ class MessageViewController : UIViewController{
     }
     
     @IBAction func btnClearHistoryTaped(_ button:UIButton) {
-        Chat.sharedInstance.clearHistory(.init(threadId:threadId)) { threadId , error in
+        Chat.sharedInstance.clearHistory(.init(threadId:threadId)) { threadId, uniqueId , error in
             print(threadId ?? "")
         }
     }
@@ -121,7 +121,7 @@ class MessageViewController : UIViewController{
     }
     
     @IBAction func btnDeleteMessageTaped(_ button:UIButton) {
-        Chat.sharedInstance.deleteMessage(.init(deleteForAll: true, messageId:messageId)) { response , error in
+        Chat.sharedInstance.deleteMessage(.init(deleteForAll: true, messageId:messageId)) { response, uniqueId , error in
             print(response ?? "")
         }
     }
@@ -136,7 +136,7 @@ class MessageViewController : UIViewController{
     }
 	
 	@IBAction func btnBatchDeleteMessageTaped(_ button:UIButton) {
-		Chat.sharedInstance.deleteMultipleMessages(.init(threadId: threadId, messageIds: [1396895,1396894,1396893])) { response , error in
+		Chat.sharedInstance.deleteMultipleMessages(.init(threadId: threadId, messageIds: [1396895,1396894,1396893])) { response, uniqueId , error in
             print(response ?? "")
 		}
 	}
@@ -152,9 +152,9 @@ class MessageViewController : UIViewController{
 	
 	
 	@IBAction func btnGetAllUnreadMessageCountTaped(_ button:UIButton) {
-		Chat.sharedInstance.allUnreadMessageCount(.init(countMutedThreads: true)) { unreadCount , error in
+		Chat.sharedInstance.allUnreadMessageCount(.init(countMutedThreads: true)) { unreadCount, uniqueId , error in
 			print(unreadCount ?? "")
-        }cacheResponse: { allUnreadCount, error in
+        }cacheResponse: { allUnreadCount, uniqueId , error in
             print(allUnreadCount ?? "")
         }
 	}
@@ -171,9 +171,9 @@ class MessageViewController : UIViewController{
 	}
 	
 	@IBAction func btnGetMentionedTaped(_ button:UIButton) {
-		Chat.sharedInstance.getMentions(.init(threadId: threadId, onlyUnreadMention: false)) { response , pagination , error in
+		Chat.sharedInstance.getMentions(.init(threadId: threadId, onlyUnreadMention: false)) { response, uniqueId , pagination , error in
             print(response ?? "")
-        } cacheResponse: { mentions, pagination , error in
+        } cacheResponse: { mentions, uniqueId , pagination , error in
             print(mentions ?? "")
         }
 	}
@@ -190,7 +190,7 @@ class MessageViewController : UIViewController{
 	}
 	
 	@IBAction func btnGetMessageDeliveredUserTaped(_ button:UIButton) {
-		Chat.sharedInstance.messageDeliveryParticipants(.init(messageId:messageId)) { response , pagination , error in
+		Chat.sharedInstance.messageDeliveryParticipants(.init(messageId:messageId)) { response, uniqueId , pagination , error in
 			print(response ?? "")
 		}
 	}
@@ -205,7 +205,7 @@ class MessageViewController : UIViewController{
 	}
 	
 	@IBAction func btnGetMessageSeenByUsersTaped(_ button:UIButton) {
-		Chat.sharedInstance.messageSeenByUsers(.init(messageId:messageId)) { response , pagination , error in
+		Chat.sharedInstance.messageSeenByUsers(.init(messageId:messageId)) { response, uniqueId, pagination , error in
 			 print(response ?? "")
 		}
 	}
@@ -240,11 +240,11 @@ class MessageViewController : UIViewController{
     
     @IBAction func btnSendTextMessageTaped(_ button:UIButton) {
         let req = NewSendTextMessageRequest(threadId: threadId, textMessage: "from new text", messageType: .TEXT)
-        Chat.sharedInstance.sendTextMessage(req, uniqueIdresult: nil) { sentResult , error in
+        Chat.sharedInstance.sendTextMessage(req, uniqueIdresult: nil) { sentResult, uniqueId , error in
             print(sentResult ?? "")
-        } onSeen: { seenResult , error in
+        } onSeen: { seenResult, uniqueId , error in
             print(seenResult ?? "")
-        } onDeliver: { deliverResult , error in
+        } onDeliver: { deliverResult, uniqueId , error in
             print(deliverResult ?? "")
         }
     }
@@ -271,7 +271,7 @@ class MessageViewController : UIViewController{
     
     @IBAction func btnEditMessageTaped(_ button:UIButton) {
         let req = NewEditMessageRequest(threadId: threadId, messageType: .TEXT ,messageId: messageId, textMessage: "Edited Text Meessage 2")
-        Chat.sharedInstance.editMessage(req) { message, error in
+        Chat.sharedInstance.editMessage(req) { message, uniqueId , error in
             print(message ?? "")
         }
     }
@@ -292,11 +292,11 @@ class MessageViewController : UIViewController{
     
     @IBAction func btnForwardMessageTaped(_ button:UIButton) {
         let req = NewForwardMessageRequest(threadId: threadId, messageIds: [1398375,1398253])
-        Chat.sharedInstance.forwardMessages(req) { sentResponse, error in
+        Chat.sharedInstance.forwardMessages(req) { sentResponse, uniqueId, error in
             print(sentResponse ?? "")
-        } onSeen: { seenResponse, error in
+        } onSeen: { seenResponse, uniqueId, error in
             print(seenResponse ?? "")
-        } onDeliver: { deliverResponse, error in
+        } onDeliver: { deliverResponse, uniqueId, error in
             print(deliverResponse ?? "")
         } uniqueIdsrResult: { uniqueIds in
             print(uniqueIds)

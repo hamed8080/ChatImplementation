@@ -16,9 +16,9 @@ class UserViewController : UIViewController{
 	}
 
 	@IBAction func btnGetUserInfoTaped(_ button:UIButton) {
-		Chat.sharedInstance.getUserInfo(.init()) { response , error in
+		Chat.sharedInstance.getUserInfo(.init()) { response, uniqueId , error in
             print(response ?? "")
-        }cacheResponse: { user, error in
+        }cacheResponse: { user, uniqueId , error in
             print(user ?? "")
         }
 	}
@@ -34,7 +34,7 @@ class UserViewController : UIViewController{
 	}
 	
 	@IBAction func btnSetProfileTaped(_ button:UIButton) {
-		Chat.sharedInstance.setProfile(.init(bio:"my awesome bio")) { response , error in
+		Chat.sharedInstance.setProfile(.init(bio:"my awesome bio")) { response, uniqueId , error in
 			print(response ?? "")
 		}
 	}

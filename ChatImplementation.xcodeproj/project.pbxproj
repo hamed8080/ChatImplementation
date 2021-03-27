@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93387FA2D3EEF79C632CAAD7 /* Pods_ChatImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB5CFD7733F3E6FAEC2C9E2 /* Pods_ChatImplementation.framework */; };
 		AC0CF10C25E0C8AF00C4E5F8 /* ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CF10B25E0C8AF00C4E5F8 /* ThreadViewController.swift */; };
 		AC0CF11025E0C90600C4E5F8 /* Thread.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0CF10F25E0C90600C4E5F8 /* Thread.storyboard */; };
 		AC0D368525E647B700116CE3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D368425E6478C00116CE3 /* UserViewController.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		2A49841B3987A3529BF76853 /* Pods-ChatImplementation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatImplementation.debug.xcconfig"; path = "Target Support Files/Pods-ChatImplementation/Pods-ChatImplementation.debug.xcconfig"; sourceTree = "<group>"; };
-		3DB5CFD7733F3E6FAEC2C9E2 /* Pods_ChatImplementation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatImplementation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB17B51EFB48E3CD7B80912D /* Pods-ChatImplementation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatImplementation.release.xcconfig"; path = "Target Support Files/Pods-ChatImplementation/Pods-ChatImplementation.release.xcconfig"; sourceTree = "<group>"; };
 		AC0CF10B25E0C8AF00C4E5F8 /* ThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadViewController.swift; sourceTree = "<group>"; };
 		AC0CF10F25E0C90600C4E5F8 /* Thread.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Thread.storyboard; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93387FA2D3EEF79C632CAAD7 /* Pods_ChatImplementation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +138,6 @@
 				ACB8E2BB25C02A540077E46E /* ChatImplementation */,
 				ACB8E2BA25C02A540077E46E /* Products */,
 				8C5A66C231F32EB438E044D8 /* Pods */,
-				C7F305991E0A6AEC18053FC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,14 +178,6 @@
 				ACB8E2C725C02A550077E46E /* LaunchScreen.storyboard */,
 			);
 			path = Extra;
-			sourceTree = "<group>";
-		};
-		C7F305991E0A6AEC18053FC8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3DB5CFD7733F3E6FAEC2C9E2 /* Pods_ChatImplementation.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
