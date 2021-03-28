@@ -411,9 +411,9 @@ class ThreadViewController : UIViewController{
     }
     
     @IBAction func btnSpamThreadTaped(_ button:UIButton) {
-        Chat.sharedInstance.spamPrivateThread(.init(threadId:threadId)){ response, uniqueId , error  in
-            print(response ?? "")
-        }
+//        Chat.sharedInstance.spamPrivateThread(.init(threadId:threadId)){ response, uniqueId , error  in
+//            print(response ?? "")
+//        }
     }
     
     @IBAction func btnSpamThreadOldTaped(_ button:UIButton) {
