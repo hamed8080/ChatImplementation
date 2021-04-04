@@ -57,5 +57,9 @@ class UserViewController : UIViewController{
 		let req  = StatusPingRequest(insideChat: true, typeCode: nil, uniqueId: nil)
 		Chat.sharedInstance.sendStatusPing(inputModel: req)
 	}
+    
+    @IBAction func btnLogoutTaped(_ button:UIButton) {
+        Chat.sharedInstance.newlogOut()
+    }
 	
 }

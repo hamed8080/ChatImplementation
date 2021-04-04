@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class MessageViewController : UIViewController{
     
-    private let messageId    = 1417633
+    private let messageId    = 1474840
     private let threadId     = 274540
     private let ownerId      = 3637251
 	
@@ -32,6 +32,12 @@ class MessageViewController : UIViewController{
             print(requests ?? "")
         }forwardMessageNotSentRequests: { requests, uniqueId , error in
             print(requests ?? "")
+        }fileMessageNotSentRequests: { requests, uniqueId, error in
+            print(requests ?? "")
+        }uploadFileNotSentRequests: { filesResuests, uniqueId, error in
+            print(filesResuests ?? "")
+        }uploadImageNotSentRequests: { imageRequests, uniqueId, error in
+            print(imageRequests ?? "")
         }uniqueIdResult: { uniqueId in
             print(uniqueId)
         }
@@ -72,6 +78,47 @@ class MessageViewController : UIViewController{
             print(response)
         } uploadFileNotSent: { response in
             print(response)
+        }
+    }
+    
+    @IBAction func btnGetHistoryWithresendAllQueueTaped(_ button:UIButton) {
+        let req = NewGetHistoryRequest(threadId: threadId)
+        Chat.sharedInstance.getHistory(req){ response, uniqueId  , pagination , error in
+            print(response ?? "")
+        }cacheResponse: { messages, uniqueId  , error in
+            print(messages ?? "")
+        }textMessageNotSentRequests: { requests, uniqueId , error in
+            print(requests ?? "")
+            //resend if you need to callbacks use full method parameters.
+            requests?.forEach({ request in
+                Chat.sharedInstance.sendTextMessage(request)
+            })
+        }editMessageNotSentRequests: { requests, uniqueId , error in
+            print(requests ?? "")
+            requests?.forEach({ request in
+                Chat.sharedInstance.editMessage(request)
+            })
+        }forwardMessageNotSentRequests: { requests, uniqueId , error in
+            requests?.forEach({ request in
+                Chat.sharedInstance.forwardMessages(request)
+            })
+        }fileMessageNotSentRequests: { requests, uniqueId, error in
+            print(requests ?? "")
+            requests?.forEach({ request in
+                Chat.sharedInstance.sendFileMessage(textMessage: request.1, uploadFile: request.0)
+            })
+        }uploadFileNotSentRequests: { filesResuests, uniqueId, error in
+            print(filesResuests ?? "")
+            filesResuests?.forEach({ request in
+                Chat.sharedInstance.uploadFile(req: request, uploadCompletion: nil)
+            })
+        }uploadImageNotSentRequests: { imageRequests, uniqueId, error in
+            print(imageRequests ?? "")
+            imageRequests?.forEach({ request in
+                Chat.sharedInstance.uploadImage(req: request, uploadCompletion: nil)
+            })
+        }uniqueIdResult: { uniqueId in
+            print(uniqueId)
         }
     }
 
@@ -269,8 +316,38 @@ class MessageViewController : UIViewController{
         }
     }
     
+    @IBAction func btnSendReplyMessageTaped(_ button:UIButton) {
+        let req = NewReplyMessageRequest(threadId: threadId, repliedTo: 1405217 , textMessage: "from new text", messageType: .TEXT)
+        Chat.sharedInstance.replyMessage(req, uniqueIdresult: nil) { sentResult, uniqueId , error in
+            print(sentResult ?? "")
+        } onSeen: { seenResult, uniqueId , error in
+            print(seenResult ?? "")
+        } onDeliver: { deliverResult, uniqueId , error in
+            print(deliverResult ?? "")
+        }
+    }
+    
+    @IBAction func btnSendReplyMessageOldTaped(_ button:UIButton) {
+       let req = ReplyTextMessageRequest(content: "hello test 2",
+                                messageType: .TEXT,
+                                metadata: nil,
+                                repliedTo: 2200,
+                                subjectId: threadId,
+                                typeCode: nil,
+                                uniqueId: nil)
+        Chat.sharedInstance.replyMessage(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } onSent: { result in
+            print(result)
+        } onDelivere: { result in
+            print(result)
+        } onSeen: { result in
+            print(result)
+        }
+    }
+    
     @IBAction func btnEditMessageTaped(_ button:UIButton) {
-        let req = NewEditMessageRequest(threadId: threadId, messageType: .TEXT ,messageId: messageId, textMessage: "Edited Text Meessage 2")
+        let req = NewEditMessageRequest(threadId: threadId, messageType: .TEXT ,messageId: messageId, textMessage: "Edited Text Meessage \(Date())")
         Chat.sharedInstance.editMessage(req) { message, uniqueId , error in
             print(message ?? "")
         }
@@ -321,7 +398,22 @@ class MessageViewController : UIViewController{
     }
     
     @IBAction func btnSendFileMessageTaped(_ button:UIButton) {
-        
+        guard let path = Bundle.main.path(forResource: "test", ofType: "txt"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else{return}
+        let message = NewSendTextMessageRequest(threadId: threadId, textMessage: "test file upload message", messageType: .POD_SPACE_FILE)
+        let uploadFile = NewUploadFileRequest(data: data,fileExtension: ".txt" , fileName: "test", mimeType: "text/plain" , userGroupHash: "RZFAGPKJEOWQIR")
+        Chat.sharedInstance.sendFileMessage(textMessage:message, uploadFile: uploadFile){ uploadFileProgress ,error in
+            print(uploadFileProgress ?? error ?? "")
+        }onSent: { sentResponse, uniqueId, error in
+            print(sentResponse ?? "")
+        }onSeen: { seenResponse, uniqueId, error in
+            print(seenResponse ?? "")
+        }onDeliver: { deliverResponse, uniqueId, error in
+            print(deliverResponse ?? "")
+        }uploadUniqueIdResult:{ uploadUniqueId in
+            print(uploadUniqueId)
+        }messageUniqueIdResult:{ messageUniqueId in
+           print(messageUniqueId)
+        }
     }
     
     @IBAction func btnSendFileMessageOldTaped(_ button:UIButton) {
@@ -356,12 +448,83 @@ class MessageViewController : UIViewController{
         } onSeen: { response in
             print(response)
         }
-        
-        
+    }
+    
+    @IBAction func btnSendImageMessageTaped(_ button:UIButton) {
+        guard let image = UIImage(named: "test.png") else{return}
+        let width = Int(image.size.width)
+        let height = Int(image.size.height)
+        let message = NewSendTextMessageRequest(threadId: threadId, textMessage: "test image upload message", messageType: .POD_SPACE_PICTURE)
+        let imageRequest = NewUploadImageRequest(data: image.pngData() ?? Data(),hC: height, wC: width , fileName: "newImae.png", mimeType: "image/png" , userGroupHash: "RZFAGPKJEOWQIR" )
+        Chat.sharedInstance.sendFileMessage(textMessage:message, uploadFile: imageRequest){ uploadFileProgress ,error in
+            print(uploadFileProgress ?? error ?? "")
+        }onSent: { sentResponse, uniqueId, error in
+            print(sentResponse ?? "")
+        }onSeen: { seenResponse, uniqueId, error in
+            print(seenResponse ?? "")
+        }onDeliver: { deliverResponse, uniqueId, error in
+            print(deliverResponse ?? "")
+        }uploadUniqueIdResult:{ uploadUniqueId in
+            print(uploadUniqueId)
+        }messageUniqueIdResult:{ messageUniqueId in
+           print(messageUniqueId)
+        }
     }
     
     @IBAction func btnSendLocationMessageTaped(_ button:UIButton) {
-        
+        let req = LocationMessageRequest(mapCenter: .init(lat: 35.660417, lng: 51.487187),
+                                         threadId:      threadId,
+                                         userGroupHash: "RZFAGPKJEOWQIR",
+                                         mapImageName:  "map image name",
+                                         textMessage:   "This is my location on the map"
+                                        )
+        Chat.sharedInstance.sendLocationMessage(req) { uploadProgress, error in
+            print("upload progress is:\(uploadProgress?.percent ?? 0 )")
+        } downloadProgress: { progress in
+          print("download progress is:\(progress)")
+        } onSent: { sentResponse, uniqueId, error in
+            print(sentResponse ?? "")
+        } onSeen: { seenResponse, uniqueId, error in
+            print(seenResponse ?? "")
+        } onDeliver: {  deliverResponse, uniqueId, error  in
+            print(deliverResponse ?? "")
+        } uploadUniqueIdResult: { uniqueId in
+            print(uniqueId)
+        } messageUniqueIdResult: { uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnSendImageMessageOldTaped(_ button:UIButton) {
+        let req = SendLocationMessageRequest(mapCenter:     (35.660417, 51.487187),
+                                             mapHeight:     500,
+                                             mapType:       "standard-night",
+                                             mapWidth:      800,
+                                             mapZoom:       15,
+                                             mapImageName:  "staticLocationPic",
+                                             repliedTo:     nil,
+                                             systemMetadata: nil,
+                                             textMessage:   "This is my location on the map",
+                                             threadId:      threadId,
+                                             userGroupHash: "RZFAGPKJEOWQIR",
+                                             typeCode:      nil,
+                                             uniqueId:      nil)
+        Chat.sharedInstance.sendLocationMessage(inputModel: req) { downloadProgress in
+            print(downloadProgress)
+        } uploadUniqueId: { uniqueId in
+            print(uniqueId)
+        } uploadProgress: { uploadProgress in
+            print(uploadProgress)
+        } messageUniqueId: { uniqueId in
+            print(uniqueId)
+        } onSent: { response in
+            print(response)
+        } onDelivere: { response in
+            print(response)
+        } onSeen: { response in
+            print(response)
+        }
+
     }
     
     @IBAction func btnSendLocationMessageOldTaped(_ button:UIButton) {
@@ -400,7 +563,7 @@ class MessageViewController : UIViewController{
     }
     
     @IBAction func btnSendIntractiveMessageOldTaped(_ button:UIButton) {
-        let metadata: JSON = ["id": 2341234123, "type": "BOT_MESSAGE", "owner": "Mahyar"]
+        let metadata: JSON = ["id": 2341234123, "type": "BOT_MESSAGE" , "owner": "Mahyar"]
         let req = SendInteractiveMessageRequest(messageId: messageId,
                                                 metadata: metadata.stringValue,
                                                 systemMetadata: nil,

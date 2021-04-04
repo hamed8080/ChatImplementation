@@ -66,7 +66,7 @@ class MapViewController: UIViewController {
     
 	
 	@IBAction func btnMapStaticImageTaped( _ button :UIButton){
-		Chat.sharedInstance.mapStaticImage(.init(centerLat: 35.660417,centerLng: 51.487187)) { response, uniqueId , error in
+        Chat.sharedInstance.mapStaticImage(.init(center:.init(lat: 35.660417, lng: 51.487187))) { response, uniqueId , error in
 			if let data = response , let image = UIImage(data: data) {
 				self.imgStaticMapImage.image = image
 			}

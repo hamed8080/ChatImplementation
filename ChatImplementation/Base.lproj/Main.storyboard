@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I8Y-2G-jeW">
-                                <rect key="frame" x="8" y="60" width="398" height="240"/>
+                                <rect key="frame" x="8" y="60" width="398" height="368"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDn-ZF-ND3">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
@@ -130,6 +130,44 @@
                                                 </state>
                                                 <connections>
                                                     <segue destination="jwX-Bg-fH2" kind="show" id="IeB-o0-N6B"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iqp-qt-Bb3">
+                                        <rect key="frame" x="0.0" y="256" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yx6-0X-YWq">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="i46-Od-Bep"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="FILE">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="uDi-uk-6FW" kind="show" id="JFx-0g-IbI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FdF-M2-pP1">
+                                        <rect key="frame" x="0.0" y="320" width="398" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-86-kz1">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="TuF-le-ACn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="CLEAR ALL CACHE DATA">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnClearAllCacheDataTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Apg-WA-kCR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -268,6 +306,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHs-Og-o15" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="579" y="108"/>
+        </scene>
+        <!--File-->
+        <scene sceneID="lzS-vu-HPw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="File" id="uDi-uk-6FW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jjr-O9-sl5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwp-Yr-Bk5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="578" y="163"/>
         </scene>
     </scenes>
     <resources>

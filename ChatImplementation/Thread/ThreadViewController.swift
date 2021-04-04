@@ -49,9 +49,15 @@ class ThreadViewController : UIViewController{
 		}
 		
 	}
-	
+    
+    @IBAction func btnGetAllThreadsTaped(_ button:UIButton) {
+        Chat.sharedInstance.getAllThreads(request: .init()){ threads, uniqueId, error in
+            print(threads ?? error ?? "")
+        }
+    }
+    
 	@IBAction func btnIsNameAvailableTaped(_ button:UIButton) {
-		Chat.sharedInstance.isThreadNamePublic(.init(name:"testlsdflsadfhslfalsb")) { threadName, uniqueId  , error in
+		Chat.sharedInstance.isThreadNamePublic(.init(name:"TEST_PUBLIC_GROUP_IOS_APP_HAMED")) { threadName, uniqueId  , error in
             print(threadName ?? "")
 		}
 	}
@@ -172,7 +178,81 @@ class ThreadViewController : UIViewController{
 			print(response)
 		}
 	}
-	
+    
+    @IBAction func btnCreateThreadWithFileMessageTaped(_ button:UIButton) {
+        let invites:[Invitee] = [
+            Invitee(id: "\(24420613)", idType: .TO_BE_USER_CONTACT_ID)]
+        let req = NewCreateThreadRequest(description: "خودت رو به خودت ثابت کن نه به دیگران",
+                                      image: "http://www.careerbased.com/themes/comb/img/avatar/default-avatar-male_14.png",
+                                      invitees: invites,
+                                      metadata: "",
+                                      title: "test create thread with file message 2",
+                                      type: .PUBLIC_GROUP,
+                                      uniqueName: "TEST_PUBLIC_GROUP_IOS_APP_HAMED_NEW2")
+        guard let path = Bundle.main.path(forResource: "test", ofType: "txt"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else{return}
+        let message = NewSendTextMessageRequest(threadId: threadId, textMessage: "test file upload message", messageType: .POD_SPACE_FILE)
+        let uploadFile = NewUploadFileRequest(data: data,fileExtension: ".txt" , fileName: "test", mimeType: "text/plain" , userGroupHash: "RZFAGPKJEOWQIR")
+        Chat.sharedInstance.createThreadWithFileMessage(req, textMessage: message, uploadFile: uploadFile) { uploadFileProgress,error in
+            print(uploadFileProgress ?? error ?? "")
+        } onSent: { sentResponse, uniqueId, error in
+            print(sentResponse ?? "")
+        }onSeen: { seenResponse, uniqueId, error in
+            print(seenResponse ?? "")
+        }onDeliver: { deliverResponse, uniqueId, error in
+            print(deliverResponse ?? "")
+        }createThreadCompletion: { thread, uniqueId, error in
+            print(thread ?? error ?? "")
+        }uploadUniqueIdResult:{ uploadUniqueId in
+            print(uploadUniqueId)
+        }messageUniqueIdResult:{ messageUniqueId in
+           print(messageUniqueId)
+        }
+
+    }
+    
+    @IBAction func btnCreateThreadWithFileMessageOldTaped(_ button:UIButton) {
+        guard let path = Bundle.main.path(forResource: "test", ofType: "txt"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else{return}
+        let invites:[Invitee] = [
+            Invitee(id: "ma.amjadi", idType: .TO_BE_USER_USERNAME)
+        ]
+        let createThreadRequest = CreateThreadRequest(description: "خودت رو به خودت ثابت کن نه به دیگران",
+                                      image: "http://www.careerbased.com/themes/comb/img/avatar/default-avatar-male_14.png",
+                                      invitees: invites,
+                                      metadata: "",
+                                      title: "test",
+                                      type: .NORMAL,
+                                      uniqueName: "TEST PUBLIC GROUP IOS APP",
+                                      typeCode: nil,
+                                      uniqueId: nil
+                                      )
+        let uploadrequest = UploadFileRequest(dataToSend: data,
+                                              fileExtension: nil,
+                                              fileName: "test",
+                                              mimeType: nil,
+                                              originalName: nil,
+                                              userGroupHash: "RZFAGPKJEOWQIR",
+                                              typeCode: nil,
+                                              uniqueId: nil)
+        let threadMessage = CreateThreadMessageInput(forwardedMessageIds: nil, repliedTo: nil, text: "HELLO", messageType: .TEXT, systemMetadata: nil, uniqueId: nil)
+        let createTrhreadWithMessageRequest = CreateThreadWithMessageRequest(createThreadInput: createThreadRequest, sendMessageInput: threadMessage)
+        let req = CreateThreadWithFileMessageRequest(creatThreadWithMessageInput: createTrhreadWithMessageRequest, uploadInput: uploadrequest)
+        Chat.sharedInstance.createThreadWithFileMessage(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } uploadProgress: { progress in
+            print(progress)
+        } uniqueId: { uniqueId in
+            print(uniqueId)
+        } createThreadCompletion: { response in
+            print(response)
+        } onSent: { response in
+            print(response)
+        } onDelivered: { response in
+            print(response)
+        } onSeen: { response in
+            print(response)
+        }
+
+    }
 	
 	@IBAction func btnAddParticipantToThreadTaped(_ button:UIButton) {
 		Chat.sharedInstance.addParticipant(.init(userName: "ma.amjadi", threadId:threadId)) { response, uniqueId  , error in
@@ -192,13 +272,13 @@ class ThreadViewController : UIViewController{
 		}
 	}
 	
-	@IBAction func btnRemoveParticipantToThreadTaped(_ button:UIButton) {
+	@IBAction func btnRemoveParticipantFromThreadTaped(_ button:UIButton) {
 		Chat.sharedInstance.removeParticipants(.init(participantId: 126255, threadId: threadId)) { response, uniqueId  , error in
             print(response ?? "")
 		}
 	}
 	
-	@IBAction func btnRemoveParticipantToThreadOldTaped(_ button:UIButton) {
+	@IBAction func btnRemoveParticipantFromThreadOldTaped(_ button:UIButton) {
 		let participants = RemoveParticipantsRequest(participantIds: [126255],
 													 threadId: threadId,
 													 typeCode: nil,
@@ -243,11 +323,13 @@ class ThreadViewController : UIViewController{
 	
 	@IBAction func btnUpdateThreadInfoTaped(_ button:UIButton) {
         let req = NewUpdateThreadInfoRequest(threadId: threadId, title: "Channel nmae update ")
-		Chat.sharedInstance.updateThreadInfo(req) { progress in
-			print(progress)
-		} completion: { response, uniqueId , error in
-			print(response ?? "")
-		}
+        Chat.sharedInstance.updateThreadInfo(req) { uniqueId in
+            print(uniqueId)
+        } uploadProgress: { progress in
+            print(progress)
+        } completion: { response, uniqueId, error in
+           print(response ?? error ?? "")
+        }
 	}
 	
 	@IBAction func btnUpdateThreadInfoOldTaped(_ button:UIButton) {
@@ -411,9 +493,9 @@ class ThreadViewController : UIViewController{
     }
     
     @IBAction func btnSpamThreadTaped(_ button:UIButton) {
-//        Chat.sharedInstance.spamPrivateThread(.init(threadId:threadId)){ response, uniqueId , error  in
-//            print(response ?? "")
-//        }
+        Chat.sharedInstance.spamPrivateThread(.init(threadId:threadId)){ response, uniqueId , error  in
+            print(response ?? "")
+        }
     }
     
     @IBAction func btnSpamThreadOldTaped(_ button:UIButton) {

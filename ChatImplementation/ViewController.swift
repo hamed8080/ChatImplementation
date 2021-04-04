@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FanapPodChatSDK
 
 class ViewController: UIViewController{
 	
@@ -13,5 +14,9 @@ class ViewController: UIViewController{
 		super.viewDidLoad()
 	}
 	
+    
+    @IBAction func btnClearAllCacheDataTaped(_ button:UIButton){
+        CacheFactory.write(cacheType: .DELETE_ALL_CACHE_DATA)
+    }
 }
 
