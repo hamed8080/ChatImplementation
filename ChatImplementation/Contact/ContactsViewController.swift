@@ -17,7 +17,7 @@ class ContactsViewController: UIViewController {
 	
     @IBAction func btnGetContactsTaped(_ sender: UIButton) {
         
-        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 , query: "ha" )) { response, uniqueId ,pagination, error in
+        Chat.sharedInstance.getContacts(.init(count: 10, offset: 0 )) { response, uniqueId ,pagination, error in
 			print(response ?? "")
         } cacheResponse:  { response, uniqueId , pagination, error in
             print(response ?? "")

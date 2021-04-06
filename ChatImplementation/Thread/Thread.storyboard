@@ -22,7 +22,7 @@
                                 <rect key="frame" x="8" y="60" width="412" height="816"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
-                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1392"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1648"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
                                                 <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
@@ -734,6 +734,62 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi1-nE-riI">
+                                                <rect key="frame" x="0.0" y="1408" width="412" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="BEj-Dm-eEr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="REGISTER ASSISTANT">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnRegisterAsstistantTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="sgd-HT-M6v"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ag-hr-0Hn">
+                                                <rect key="frame" x="0.0" y="1472" width="412" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="VBq-nq-XVv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="DEACTIVE ASSISTANT">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnDeactiveAsstistantTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="gEQ-gi-icm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgS-Rp-Gd7">
+                                                <rect key="frame" x="0.0" y="1536" width="412" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="lgV-hY-5ey"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="GET ASSISTANTS">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnGetAsstistantsTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="r0n-f3-M5a"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-zW-6JM">
+                                                <rect key="frame" x="0.0" y="1600" width="412" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="D0S-u4-Qs6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="GET ASSISTANTS HISTORY">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnGetAsstistantsHistoryTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="iwg-Nl-OqY"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>

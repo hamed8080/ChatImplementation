@@ -17,12 +17,6 @@ class FileViewController : UIViewController ,URLSessionDataDelegate{
     private var downloadUniqueId:String = ""
     private var uploadUniqueId:String   = ""
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
-    }
-	
     @IBAction func btnUploadFileTaped(_ button:UIButton) {
         guard let path = Bundle.main.path(forResource: "test", ofType: "txt"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else{return}
         let uploadFile = NewUploadFileRequest(data: data,fileExtension: ".txt" , fileName: "test" , mimeType: "text/plain" , userGroupHash: "RZFAGPKJEOWQIR")
@@ -255,8 +249,7 @@ class FileViewController : UIViewController ,URLSessionDataDelegate{
     
     
     @IBAction func btnGetFileTaped(_ button:UIButton) {
-//        download()
-        let req = FileRequest(hashCode: "YZCJN8DXEAYB4Y4D", forceToDownloadFromServer: true)
+        let req = FileRequest(hashCode: "JNURSECQ9D1V2HE1", forceToDownloadFromServer: true)
         Chat.sharedInstance.getFile(req: req) { downloadProgress in
             print(downloadProgress )
         } completion: { data, fileModel, error in
@@ -342,31 +335,5 @@ class FileViewController : UIViewController ,URLSessionDataDelegate{
         Chat.sharedInstance.manageUpload(uniqueId: uploadUniqueId, action: .cancel, isImage: false){ statusString,susccessAction in
             print(statusString)
         }
-    }
-    
-    
-    var buffer: NSMutableData = NSMutableData()
-    var session: URLSession?
-    var dataTask:URLSessionDataTask?
-    private var totalSize:Int64 = 0
-    
-    func download(){
-        guard let url = URL(string: "https://podspace.pod.ir/nzh/drive/downloadFile?hash=YZCJN8DXEAYB4Y4D&_token_=3811246cf94240afa2c9a10a5991cf8f&_token_issuer_=1&crop=false") else {return}
-        var request =  URLRequest(url: url)
-        request.httpMethod = "GET"
-
-        dataTask = session?.dataTask(with: request)
-        dataTask?.resume()
-    }
-    
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void){
-        totalSize = response.expectedContentLength
-        completionHandler(.allow)
-    }
-    
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        
-        buffer.append(data)
-        let percentageDownloaded = Double(buffer.count) / Double(totalSize)
     }
 }

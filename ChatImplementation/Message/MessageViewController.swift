@@ -580,4 +580,23 @@ class MessageViewController : UIViewController{
             print(response)
         }
     }
+    
+    @IBAction func btnCancelMessageTaped(_ button:UIButton) {
+        let uniqueId = "kk"
+        Chat.sharedInstance.cancelMessage(.init(textMessageUniqueId: uniqueId)) { canceled, uniqueId, error in
+            print(canceled ?? "")
+        }
+    }
+    
+    @IBAction func btnCancelMessageOldTaped(_ button:UIButton) {
+        let req  = CancelMessageRequestModel(textMessageUniqueId: "kk",
+                                             editMessageUniqueId: nil,
+                                             forwardMessageUniqueId: nil,
+                                             fileMessageUniqueId: nil,
+                                             uploadImageUniqueId: nil,
+                                             uploadFileUniqueId: nil)
+        Chat.sharedInstance.cancelSendMessage(inputModel: req) { canceled in
+            print(canceled)
+        }
+    }
 }

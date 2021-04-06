@@ -507,4 +507,43 @@ class ThreadViewController : UIViewController{
         }
     }
     
+    @IBAction func btnRegisterAsstistantTaped(_ button:UIButton) {
+        let invitee = Invitee(id: "24420613", idType: .TO_BE_USER_CONTACT_ID)
+        let roles:[Roles] = [.READ_THREAD , .EDIT_THREAD, .ADD_RULE_TO_USER]
+        let assistant = Assistant(assistant: invitee, contactType: "default", roleTypes: roles)
+        Chat.sharedInstance.registerAssistat(.init(assistants: [assistant])) { assistants, uniqueId, error in
+            print(assistants ?? error ?? "")
+        } uniqueIdResult: { uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnDeactiveAsstistantTaped(_ button:UIButton) {
+        let invitee = Invitee(id: "24420613", idType: .TO_BE_USER_CONTACT_ID)
+//        let invitee1 = Invitee(id: "1233", idType: .TO_BE_USER_CONTACT_ID)
+        let assistants:[Assistant] = [.init(assistant: invitee)]
+        Chat.sharedInstance.deactiveAssistant(.init(assistants: assistants)) { deactivatedAssistants, uniqueId, error in
+            print(deactivatedAssistants ?? error ?? "")
+        } uniqueIdResult: { uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnGetAsstistantsTaped(_ button:UIButton) {
+        let req = AssistantsRequest(contactType: "default")
+        Chat.sharedInstance.getAssistats(req) {  assistants, uniqueId, error in
+            print(assistants ?? error ?? "")
+        } uniqueIdResult: {  uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnGetAsstistantsHistoryTaped(_ button:UIButton) {
+        Chat.sharedInstance.getAssistatsHistory(){  assistantsActions, uniqueId, error in
+            print(assistantsActions ?? error ?? "")
+        } uniqueIdResult: {  uniqueId in
+            print(uniqueId)
+        }
+    }
+    
 }
