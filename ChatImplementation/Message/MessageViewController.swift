@@ -375,7 +375,7 @@ class MessageViewController : UIViewController{
             print(seenResponse ?? "")
         } onDeliver: { deliverResponse, uniqueId, error in
             print(deliverResponse ?? "")
-        } uniqueIdsrResult: { uniqueIds in
+        } uniqueIdsResult: { uniqueIds in
             print(uniqueIds)
         }
     }

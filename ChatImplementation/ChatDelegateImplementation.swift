@@ -72,22 +72,23 @@ class ChatDelegateImplementation: ChatDelegates {
     }
 	
 	func chatConnect() {
-        
+        print("chat connected")
 	}
 	
 	func chatDisconnect() {
+        print("chat Disconnect")
 	}
 	
 	func chatReconnect() {
-		
+		print("chat Reconnect")
 	}
 	
 	func chatReady(withUserInfo: User) {
-        
+        print(withUserInfo)
 	}
 	
 	func chatState(state: AsyncStateType) {
-		
+		print(state)
 	}
 	
 	func chatError(errorCode: Int, errorMessage: String, errorResult: Any?) {
@@ -101,30 +102,30 @@ class ChatDelegateImplementation: ChatDelegates {
 	}
 	
 	func botEvents(model: BotEventModel) {
-		
+		print(model)
 	}
 	
 	func contactEvents(model: ContactEventModel) {
-		
+		print(model)
 	}
 	
 	func fileUploadEvents(model: FileUploadEventModel) {
-		
+		print(model)
 	}
 	
 	func messageEvents(model: MessageEventModel) {
-		
+		print(model)
 	}
 	
 	func systemEvents(model: SystemEventModel) {
-		
+		print(model)
 	}
 	
 	func threadEvents(model: ThreadEventModel) {
-		
+		print(model)
 	}
 	
 	func userEvents(model: UserEventModel) {
-		
+		print(model)
 	}
 }
