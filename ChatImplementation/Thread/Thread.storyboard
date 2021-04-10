@@ -22,7 +22,7 @@
                                 <rect key="frame" x="8" y="60" width="412" height="816"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
-                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1648"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1584"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
                                                 <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
@@ -668,41 +668,8 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ro3-Nh-iZZ">
-                                                <rect key="frame" x="0.0" y="1280" width="412" height="48"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPR-w0-PVG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
-                                                        <color key="backgroundColor" name="AccentColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="s2M-34-5gq"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="SIGNAL MESSAGE">
-                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="btnSignalMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="axO-j3-HN5"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2g-wi-oYS">
-                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
-                                                        <color key="backgroundColor" name="AccentColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="SaT-ey-hK4"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                        <state key="normal" title="SIGNAL MESSAGE - OLD">
-                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="btnSendSignalTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="gSF-kx-EIC"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pk5-9W-NHX">
-                                                <rect key="frame" x="0.0" y="1344" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="1280" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-WF-MKM">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
@@ -735,7 +702,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi1-nE-riI">
-                                                <rect key="frame" x="0.0" y="1408" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="1344" width="412" height="48"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="BEj-Dm-eEr"/>
@@ -749,7 +716,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ag-hr-0Hn">
-                                                <rect key="frame" x="0.0" y="1472" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="1408" width="412" height="48"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="VBq-nq-XVv"/>
@@ -763,7 +730,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgS-Rp-Gd7">
-                                                <rect key="frame" x="0.0" y="1536" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="1472" width="412" height="48"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="lgV-hY-5ey"/>
@@ -777,7 +744,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-zW-6JM">
-                                                <rect key="frame" x="0.0" y="1600" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="1536" width="412" height="48"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="D0S-u4-Qs6"/>

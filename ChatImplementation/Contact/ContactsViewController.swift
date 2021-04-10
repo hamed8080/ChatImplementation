@@ -33,11 +33,11 @@ class ContactsViewController: UIViewController {
 	
 	@IBAction func btnOldGetContactsTaped(_ sender: UIButton) {
 		let contactModel = GetContactsRequest(count: 10, offset: 0, query: nil, typeCode: nil, uniqueId: "myUniqueId" )
-		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: true) { (uniqueId) in
+		Chat.sharedInstance.getContacts(inputModel: contactModel, getCacheResponse: true) { uniqueId in
 			print(uniqueId)
-		} completion: { (result) in
+		} completion: { result in
 			print(result)
-		} cacheResponse: { (cacheContactModel) in
+		} cacheResponse: { cacheContactModel in
 			print(cacheContactModel)
 		}
 	}
@@ -71,23 +71,24 @@ class ContactsViewController: UIViewController {
 		}
 	}
 	
-	//not implemented new methods
 	@IBAction func btnAddBatchContactsTaped(_ sender: UIButton) {
-//		let nthContact1 = 32
-//		let nthContact2 = 33
-//		let contact1 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact1)",
-//										 email: "test\(nthContact1)gmail.com",
-//										 firstName: "firstName\(nthContact1) oldmethod",
-//										 lastName: "family\(nthContact1)")
-//		let contact2 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact2)",
-//										 email: "test\(nthContact2)@gmail.com",
-//										 firstName: "firstName\(nthContact2) oldmethod",
-//										 lastName: "family\(nthContact2)")
-//
-//
-//        Chat.sharedInstance.addContacts([contact1  ,contact2]) { response , error in
-//            print(response ?? "")
-//        }
+		let nthContact1 = 34
+		let nthContact2 = 35
+		let contact1 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact1)",
+										 email: "test\(nthContact1)gmail.com",
+										 firstName: "firstName\(nthContact1) oldmethod",
+										 lastName: "family\(nthContact1)")
+		let contact2 = NewAddContactRequest(cellphoneNumber: "091259560\(nthContact2)",
+										 email: "test\(nthContact2)@gmail.com",
+										 firstName: "firstName\(nthContact2) oldmethod",
+										 lastName: "family\(nthContact2)")
+
+
+        Chat.sharedInstance.addContacts([contact1  ,contact2]) { response , uniqueId ,error  in
+            print(response ?? "")
+        }uniqueIdsResult: { uniqueIds in
+            print(uniqueIds)
+        }
 	}
 	
 	@IBAction func btnAddBatchContactsOldTaped(_ sender: UIButton) {
@@ -100,8 +101,8 @@ class ContactsViewController: UIViewController {
 						   lastNames: ["lastNames\(nthContact1)","lastNames\(nthContact2)"],
 						   typeCode:  "default",
 						   uniqueIds: ["fakeUniqueId\(nthContact1)","fakeUniqueId\(nthContact2)"])
-		Chat.sharedInstance.addContacts(inputModel: contacts) { (uniqueId) in
-			print(uniqueId)
+		Chat.sharedInstance.addContacts(inputModel: contacts) { (uniqueIds) in
+			print(uniqueIds)
 		} completion: { result in
 			print(result)
 		}
@@ -167,13 +168,14 @@ class ContactsViewController: UIViewController {
         }
     }
     
-    //not implemented new methods
     @IBAction func btnSyncContactsTaped(_ sender: UIButton){
-//		Chat.sharedInstance.syncContacts() { response , error in
-//			if let contacts = response{
-//				print(contacts)
-//			}
-//		}
+        Chat.sharedInstance.syncContacts() { response , uniqueId , error  in
+			if let contacts = response{
+				print(contacts)
+			}
+        }uniqueIdsResult: { uniqueIds in
+            print(uniqueIds)
+        }
     }
     
     @IBAction func btnSyncContactsOldTaped(_ sender: UIButton){

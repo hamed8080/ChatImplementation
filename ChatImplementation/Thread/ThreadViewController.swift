@@ -484,14 +484,6 @@ class ThreadViewController : UIViewController{
         Chat.sharedInstance.stopTyping()
     }
     
-    @IBAction func btnSignalMessageTaped(_ button:UIButton) {
-        Chat.sharedInstance.newSendSignalMessage(req: .init(signalType: .UPLOAD_SOUND, threadId: threadId))
-    }
-    
-    @IBAction func btnSendSignalTaped(_ button:UIButton) {
-       // Chat.sharedInstance.sendSignalMessage(input:) internal access in older version
-    }
-    
     @IBAction func btnSpamThreadTaped(_ button:UIButton) {
         Chat.sharedInstance.spamPrivateThread(.init(threadId:threadId)){ response, uniqueId , error  in
             print(response ?? "")
