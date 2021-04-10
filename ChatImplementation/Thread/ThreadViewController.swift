@@ -11,7 +11,8 @@ import FanapPodChatSDK
 
 class ThreadViewController : UIViewController{
 	
-    private let threadId = 274540
+    private let threadId = 460944
+    private let participantId = 126255
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -91,7 +92,6 @@ class ThreadViewController : UIViewController{
 			print(threadId ?? "")
 		}
 	}
-	
 	
 	@IBAction func btnUnMuteThreadOldTaped(_ button:UIButton) {
 		let req = MuteUnmuteThreadRequest(subjectId: threadId, typeCode: nil, uniqueId: nil)
@@ -423,6 +423,29 @@ class ThreadViewController : UIViewController{
         } completion: { response in
             print(response)
         }
+    }
+    
+    @IBAction func btnReplaceAdminAndLeaveThread(_ button:UIButton) {
+        Chat.sharedInstance.leaveThreadSaftly(.init(threadId: threadId, participantId: participantId)) { thread, uniqueId, error in
+            print(thread ?? error ?? "")
+        } newAdminCompletion: { usersRoles, uniqueId, error in
+            print(usersRoles ?? error ?? "")
+        } uniqueIdResult: { uniqueId in
+            print(uniqueId)
+        }
+
+    }
+    
+    @IBAction func btnReplaceAdminAndLeaveOldThread(_ button:UIButton) {
+        let req = SafeLeaveThreadRequest(threadId: threadId, clearHistory: false, participantId: participantId, typeCode: nil, uniqueId: nil)
+        Chat.sharedInstance.leaveThreadSaftly(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } addAdminCallback: { response in
+            print(response)
+        } leaveThreadCallback: { response in
+            print(response)
+        }
+
     }
 	
 	@IBAction func btnThreadParticipantsTaped(_ button:UIButton) {

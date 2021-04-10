@@ -84,11 +84,11 @@ class ChatDelegateImplementation: ChatDelegates {
 	}
 	
 	func chatReady(withUserInfo: User) {
-        print(withUserInfo)
+        print("chat ready Called\(withUserInfo)")
 	}
 	
 	func chatState(state: AsyncStateType) {
-		print(state)
+		print("chat state changed: \(state)")
 	}
 	
 	func chatError(errorCode: Int, errorMessage: String, errorResult: Any?) {
