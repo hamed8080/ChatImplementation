@@ -22,7 +22,7 @@
                                 <rect key="frame" x="8" y="60" width="412" height="816"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
-                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1264"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
                                                 <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
@@ -604,41 +604,8 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NF4-6t-MV4">
-                                                <rect key="frame" x="0.0" y="1152" width="412" height="48"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZ7-SS-CQW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
-                                                        <color key="backgroundColor" name="AccentColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="4Jt-ud-kkD"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="INTRACTIVE MESSAGE">
-                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="btnSendIntractiveMessageTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="Dto-0w-scj"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-6k-6as">
-                                                        <rect key="frame" x="214" y="0.0" width="198" height="48"/>
-                                                        <color key="backgroundColor" name="AccentColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="zBd-uR-rS2"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                        <state key="normal" title="INTRACTIVE MESSAGE - OLD">
-                                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="btnSendIntractiveMessageOldTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="pR2-gF-pl0"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DBo-gD-a5C">
-                                                <rect key="frame" x="0.0" y="1216" width="412" height="48"/>
+                                                <rect key="frame" x="0.0" y="1152" width="412" height="48"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fy-nE-rnB">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>

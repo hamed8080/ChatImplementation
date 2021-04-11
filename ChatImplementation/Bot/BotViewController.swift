@@ -7,11 +7,13 @@
 
 import UIKit
 import FanapPodChatSDK
+import SwiftyJSON
 
 class BotViewController: UIViewController {
     
-	 final let threadId = 325183
-	 final let botName = "TEST_IOS_3_BOT"
+	 private final let threadId     = 461065
+	 private final let botName      = "TEST_IOS_4_BOT"
+     private final let messageId    = 11233
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,5 +92,28 @@ class BotViewController: UIViewController {
 			print(response)
 		}
 	}
+    
+    @IBAction func btnSendBotMessageTaped(_ button:UIButton) {
+//        Chat.sharedInstance.sendBotMessage()
+    }
+    
+    @IBAction func btnSendBotMessageOldTaped(_ button:UIButton) {
+        let metadata: JSON = ["id": 2341234123, "type": "BOT_MESSAGE" , "owner": "Mahyar"]
+        let req = SendInteractiveMessageRequest(messageId: messageId,
+                                                metadata: metadata.stringValue,
+                                                systemMetadata: nil,
+                                                textMessage: "test intractive",
+                                                typeCode: nil,
+                                                uniqueId: nil)
+        Chat.sharedInstance.sendInteractiveMessage(inputModel: req) { uniqueId in
+            print(uniqueId)
+        } onSent: { response in
+            print(response)
+        } onDelivered: { response in
+            print(response)
+        } onSeen: { response in
+            print(response)
+        }
+    }
 	
 }

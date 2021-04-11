@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import FanapPodChatSDK
-import SwiftyJSON
 
 class MessageViewController : UIViewController{
     
@@ -552,29 +551,6 @@ class MessageViewController : UIViewController{
         } onSent: { response in
             print(response)
         } onDelivere: { response in
-            print(response)
-        } onSeen: { response in
-            print(response)
-        }
-    }
-    
-    @IBAction func btnSendIntractiveMessageTaped(_ button:UIButton) {
-        
-    }
-    
-    @IBAction func btnSendIntractiveMessageOldTaped(_ button:UIButton) {
-        let metadata: JSON = ["id": 2341234123, "type": "BOT_MESSAGE" , "owner": "Mahyar"]
-        let req = SendInteractiveMessageRequest(messageId: messageId,
-                                                metadata: metadata.stringValue,
-                                                systemMetadata: nil,
-                                                textMessage: "test intractive",
-                                                typeCode: nil,
-                                                uniqueId: nil)
-        Chat.sharedInstance.sendInteractiveMessage(inputModel: req) { uniqueId in
-            print(uniqueId)
-        } onSent: { response in
-            print(response)
-        } onDelivered: { response in
             print(response)
         } onSeen: { response in
             print(response)
