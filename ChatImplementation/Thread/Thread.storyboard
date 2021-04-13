@@ -22,7 +22,7 @@
                                 <rect key="frame" x="8" y="60" width="412" height="816"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Or-fRu">
-                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1648"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="1840"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-z3-yEV">
                                                 <rect key="frame" x="0.0" y="0.0" width="412" height="48"/>
@@ -776,18 +776,60 @@
                                                     <action selector="btnGetAsstistantsTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="r0n-f3-M5a"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-zW-6JM">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFV-0e-GNU">
                                                 <rect key="frame" x="0.0" y="1600" width="412" height="48"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="D0S-u4-Qs6"/>
+                                                    <constraint firstAttribute="height" constant="48" id="zPe-qx-yQM"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="GET ASSISTANTS HISTORY">
                                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="btnGetAsstistantsHistoryTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="iwg-Nl-OqY"/>
+                                                    <action selector="btnGetAsstistantsHistoryTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="11l-yk-HCy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-zW-6JM">
+                                                <rect key="frame" x="0.0" y="1664" width="412" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="D0S-u4-Qs6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="GET BLOCKED ASSISTANTS">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnGetBlockedAsstistantsTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="d2C-ze-Gsy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHy-bb-PZF">
+                                                <rect key="frame" x="0.0" y="1728" width="412" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="QHd-ha-66S"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="BLOCK ASSISTANT">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnBlockAsstistantTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="9ZR-Br-aQO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7O-A0-V5I">
+                                                <rect key="frame" x="0.0" y="1792" width="412" height="48"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="1rv-Xy-DNb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="UNBLOCK ASSISTANT">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnUnblockAsstistantTaped:" destination="z6q-cJ-9OG" eventType="touchUpInside" id="QbS-OC-Vlg"/>
                                                 </connections>
                                             </button>
                                         </subviews>

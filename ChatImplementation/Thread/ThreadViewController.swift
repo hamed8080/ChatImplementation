@@ -11,8 +11,13 @@ import FanapPodChatSDK
 
 class ThreadViewController : UIViewController{
 	
-    private let threadId = 460944
-    private let participantId = 126255
+    private let threadId        = 460944
+    private let participantId   = 126255 //3637251
+    private var inviteeId:String{
+        get{
+            return "\(participantId)"
+        }
+    }
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -523,7 +528,7 @@ class ThreadViewController : UIViewController{
     }
     
     @IBAction func btnRegisterAsstistantTaped(_ button:UIButton) {
-        let invitee = Invitee(id: "24420613", idType: .TO_BE_USER_CONTACT_ID)
+        let invitee = Invitee(id: inviteeId, idType: .TO_BE_USER_ID)
         let roles:[Roles] = [.READ_THREAD , .EDIT_THREAD, .ADD_RULE_TO_USER]
         let assistant = Assistant(assistant: invitee, contactType: "default", roleTypes: roles)
         Chat.sharedInstance.registerAssistat(.init(assistants: [assistant])) { assistants, uniqueId, error in
@@ -534,8 +539,7 @@ class ThreadViewController : UIViewController{
     }
     
     @IBAction func btnDeactiveAsstistantTaped(_ button:UIButton) {
-        let invitee = Invitee(id: "24420613", idType: .TO_BE_USER_CONTACT_ID)
-//        let invitee1 = Invitee(id: "1233", idType: .TO_BE_USER_CONTACT_ID)
+        let invitee = Invitee(id: inviteeId, idType: .TO_BE_USER_ID)
         let assistants:[Assistant] = [.init(assistant: invitee)]
         Chat.sharedInstance.deactiveAssistant(.init(assistants: assistants)) { deactivatedAssistants, uniqueId, error in
             print(deactivatedAssistants ?? error ?? "")
@@ -546,9 +550,11 @@ class ThreadViewController : UIViewController{
     
     @IBAction func btnGetAsstistantsTaped(_ button:UIButton) {
         let req = AssistantsRequest(contactType: "default")
-        Chat.sharedInstance.getAssistats(req) {  assistants, uniqueId, error in
+        Chat.sharedInstance.getAssistats(req) {  assistants, uniqueId,pagination, error in
             print(assistants ?? error ?? "")
-        } uniqueIdResult: {  uniqueId in
+        }cacheResponse: {  assistants, uniqueId,pagination, error in
+            print(assistants ?? error ?? "")
+        }uniqueIdResult: {  uniqueId in
             print(uniqueId)
         }
     }
@@ -556,6 +562,36 @@ class ThreadViewController : UIViewController{
     @IBAction func btnGetAsstistantsHistoryTaped(_ button:UIButton) {
         Chat.sharedInstance.getAssistatsHistory(){  assistantsActions, uniqueId, error in
             print(assistantsActions ?? error ?? "")
+        } uniqueIdResult: {  uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnGetBlockedAsstistantsTaped(_ button:UIButton) {
+        Chat.sharedInstance.getBlockedAssistants(.init()){  assistants,uniqueId,pagination, error in
+            print(assistants ?? error ?? "")
+        }cacheResponse:{assistants,uniqueId,pagination,error in
+            print(assistants ?? error ?? "")
+        }uniqueIdResult: {  uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnBlockAsstistantTaped(_ button:UIButton) {
+        let invitee = Invitee(id: inviteeId, idType: .TO_BE_USER_ID)
+        let assistants:[Assistant] = [.init(assistant: invitee)]
+        Chat.sharedInstance.blockAssistants(.init(assistants:assistants)){  assistants,uniqueId, error in
+            print(assistants ?? error ?? "")
+        } uniqueIdResult: {  uniqueId in
+            print(uniqueId)
+        }
+    }
+    
+    @IBAction func btnUnblockAsstistantTaped(_ button:UIButton) {
+        let invitee = Invitee(id: inviteeId, idType: .TO_BE_USER_ID)
+        let assistants:[Assistant] = [.init(assistant: invitee)]
+        Chat.sharedInstance.unblockAssistants(.init(assistants:assistants)){  assistants,uniqueId, error in
+            print(assistants ?? error ?? "")
         } uniqueIdResult: {  uniqueId in
             print(uniqueId)
         }
